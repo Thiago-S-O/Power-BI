@@ -1,0 +1,1215 @@
+CONECTANDO OS DADOS
+
+Na tela inicial do Power BI Desktop, vamos clicar na opção intitulada "Relatório em branco" ao lado no menu lateral esquerdo. Com isso, abrimos um relatório vazio no Power BI.
+
+A interface do Power BI é constituída por três partes principais: um menu com várias abas na parte superior; alguns painéis de ferramentas na lateral direita; e uma tela principal ao centro, onde construímos os relatórios.
+
+A parte superior conta com sete abas: arquivo, página inicial, inserir, modelagem, exibição, otimizar e ajuda. Atualmente, estamos na aba "Página inicial".
+
+Em cada uma dessas abas, existem diversas opções. Conforme vamos desenvolvendo o nosso projeto, vamos conhecendo as principais opções para manipular dados e fazer análises.
+
+O primeiro passo é importar os dados para dentro do Power BI. A Helô disponibilizou várias fontes de dados diferentes: a base de dados da clientela, a base de dados dos produtos e a base de dados de vendas.
+
+Para começar, vamos importar a base de dados relativa a clientes. Para trazer os dados para dentro do Power BI, é preciso clicar na opção "Obter Dados" na aba "Página Inicial" no menu superior.
+
+Na verdade, existem duas formas de clicar nessa opção. Podemos clicar exatamente em cima do ícone ou na seta de expansão ao lado do nome. Ao clicar na seta, surgirá uma lista de atalhos para as principais fontes de dados, ou seja, as que geralmente são mais usadas dentro do Power BI.
+
+Como primeiro passo, vamos clicar exatamente em cima do ícone "Obter Dados" para abrir uma janela com todas as opções de fontes de dados.
+
+Agora, precisamos entender quantas opções de conexões diferentes existem no Power BI. Para começar o projeto, é fundamental saber qual o formato que queremos trazer para dentro do Power BI.
+
+Cada arquivo pode ser disponibilizado em um formato diferente. Existem arquivos em formato CSV (Comma-separated values), pasta de trabalho do Excel (que é a planilha do Excel) e vários bancos de dados, que podem estar na nuvem ou na web. Inclusive, algumas fontes de dados são novidades, pois o Power BI está em constante atualização.
+
+Na lateral esquerda, podemos pesquisar diretamente pelo nome da fonte na caixa de texto ou conferir algumas subdivisões das diferentes fontes. Por exemplo, podemos encontrar todas as opções disponíveis de banco de dados disponíveis, Microsoft Fabric, Power Platform e Azure, que é a nuvem da Microsoft.
+
+Para começar nosso projeto, a Helô disponibilizou a base de dados de clientes no formato TXT. Então, vamos selecionar a opção "Texto/CSV" e clicar no botão "Conectar" no canto inferior direito.
+
+Na janela "Abrir", vamos buscar o arquivo clientes.txt onde o baixamos no nosso computador. No nosso caso, está na pasta de "Downloads". Após selecionar o arquivo, vamos clicar no botão "Abrir". Você deve lembrar onde fez o download do arquivo para procurá-lo nesse caminho.
+
+Cada computador pode ter uma configuração um pouco diferente. É por isso que o Power BI nos permite mudar algumas configurações de imediato.
+
+Acima da tabela, o campo de "Origem do arquivo", na verdade, é o decodificador. O programa identificou de forma automática que é o 1252: Europeu Ocidental (Windows).
+
+Como estamos trabalhando com a língua portuguesa do Brasil, pode haver alguns caracteres que não são assimilados por qualquer decodificador, como acentos ou cedilha. Por isso, é muito comum utilzar o decodificador UTF-8.
+
+No dropdown do campo, basta procurar por 65001: Unicode (UTF-8). Porém, no nosso caso em específico, alguns acentos foram mal interpretados, como na palavra Gênero e São Miguel Paulista.
+
+Se você encontrar casos similares, saiba que o problema pode estar apenas na origem do arquivo. Você pode testar diferentes formatos, mas o UTF-8 muitas vezes já atende.
+
+No nosso caso, o programa já tinha identificado o melhor decodificador, portanto, iremos manter o formato europeu ocidental.
+
+No campo "Delimitador", o Power BI já identificou de forma correta a tabulação como delimitador, usando como base as 200 primeiras linhas.
+
+Existem dois botões na parte inferior direita da janela: "Carregar" e "Transformar Dados". Assim, podemos carregar os dados desse jeito para dentro do Power BI ou podemos transformá-los antes de fazer o carregamento.
+
+Isso porque no mundo real muito dificilmente os dados vêm sem a necessidade de nenhum tratamento. Geralmente, é preciso manipular esses dados para deixá-los preparados.
+
+Vamos clicar em "Transformar dados" para abrir outra janela que é justamente o editor do Power Query.
+
+Transformando dados com Power Query
+Agora, faremos os tratamentos dos dados no Power Query.
+
+Estamos visualizando a tabela na parte central do editor. Note que o nome das colunas está estranho, indo de Column1 até Column5. Já o que era para ser o nome das colunas está na primeira linha da tabela.
+
+O Power Query é tão poderoso que com alguns cliques conseguimos fazer essa transformação dos dados. Por exemplo, na aba "Página inicial" no menu superior do Power Query, podemos clicar na opção "Usar a primeira linha como cabeçalho" localizada na seção de "Transformar".
+
+Assim, conseguimos promover o cabeçalho.
+
+Feito isso, observe que existe um símbolo ao lado do nome de cada coluna. Isso significa que a ferramenta identificou o tipo do dado daquela coluna. Nesse caso, todos estão com o símbolo ABC, ou seja, os dados são tratados como texto.
+
+Mas será que faz sentido todos os dados serem do tipo texto?
+
+A coluna Pets, na verdade, contém um número. Para mudar o tipo de dado, podemos simplesmente clicar no símbolo ao lado do nome e escolher a opção "Número inteiro". Afinal, a coluna contém a quantidade de pets e não pode haver números decimais, como um animal e meio.
+
+Além disso, vamos transformar os dados da coluna ID Consumidor para um número inteiro, mas também é possível trabalhar o ID como texto, dependendo do caso.
+
+Esse é o fluxo de trabalho: começamos no Power BI, identificamos mudanças necessárias, retornamos ao Power Query para ajustá-las e depois voltamos ao Power BI.
+
+Inicialmente, tudo está configurado corretamente, portanto, vamos clicar na opção "Fechar e Aplicar" no canto superior esquerdo da aba "Página inicial". Desse modo, o programa vai fechar o editor do Power BI, aplicar as transformações e trazer para dentro do Power BI.
+
+Construindo cartão de média dos pets
+Na lateral direita, podemos clicar no ícone de banco de dados para expandir o painel lateral de "Dados", onde estará listada a tabela Clientes. Podemos clicar no ícone de seta à esquerda de seu nome para expandi-la e conferir suas colunas.
+
+Agora já conseguimos responder a primeira pergunta que a Helô nos fez:
+
+Qual é a média de pets da clientela?
+
+Ela quer saber quantos animais, em média, seus clientes têm. Afinal, isso impacta diretamente no poder de venda dela. Se as pessoas que vão ao pet shop têm em média dois pets, ela pode vender o dobro para aquela pessoa. Se têm três, o triplo e assim por diante.
+
+Para responder a essa pergunta, vamos usar a opção mais direta para criar um visual, dentre as várias opções existentes.
+
+Basta clicar na coluna Pets no painel de "Dados", segurá-la com o botão esquerdo do mouse e arrastá-la até a área em branco do editor, ao centro da interface. Dessa forma, o Power BI cria o nosso primeiro visual, que é um cartão.
+
+O cartão mostra um número. Nesse caso, está mostrando o valor 14 mil e indicando que é a soma de pets. Em outras palavras, o valor desse cartão é a soma da coluna inteira, que são os 14 mil pets registrados na base de dados. Porém, queremos saber a média.
+
+Uma das maneiras mais diretas de fazer esse cálculo é conferir a janela ao lado do cartão, onde conseguimos sugerir um visual ou trabalhar com dados.
+
+Na parte de dados, vamos clicar na seta ao lado do campo onde está definido a "soma de pets". Com isso, podemos conferir o campo e a forma como esses dados foram resumidos.
+
+Nesse caso, o resumo está definido como "Soma". Mas, podemos clicar nesse campo e escolher média, mínimo, máximo, contagem e várias outras opções. Ao escolher "média", conseguimos descobrir que as pessoas da base de clientes do Gatito Pet têm, em média, 2,61 pets.
+
+--------------------------------------------------------
+
+Importando pastas no Power BI
+Vamos fazer a importação desses arquivos para conseguir responder à pergunta sobre o faturamento. Para isso, vamos seguir o mesmo caminho que já tínhamos feito. Na aba "Página Inicial" do menu superior, vamos clicar no botão "Obter Dados".
+
+Na janela que se abre, vamos selecionar a opção de "Pasta de trabalho do Excel" e clicar no botão "Conectar". Vamos buscar a pasta onde estão esses arquivos no nosso computador.
+
+A Helô nos forneceu planilhas .xlsx dos anos de 2020, 2021 e 2022 para calcular o faturamento total desses anos.
+
+O problema é que não conseguimos fazer a importação de todos os arquivos ao mesmo tempo - ainda que você tente selecioná-los com o "Ctrl" pressionado, por exemplo. Nesse caso, podemos selecionar Gatitos_2020.xlsx e clicar em "Abrir" para carregar a planilha.
+
+Na janela "Navegador", são oferecidas duas opções de visualização: a primeira chamada "Vendas" é uma tabela e a segunda chamada "2020" é uma planilha.
+
+A diferença, além dos ícones, é que a tabela vai identificar as colunas, trazendo somente os dados presentes nas linhas das colunas. Já a planilha traz qualquer dado. Então, vai trazer até alguma célula perdida ou algum dado que foi adicionado sem querer. Por isso, geralmente, trabalhamos com a tabela.
+
+Porém, não vamos clicar no botão "Carregar". Dessa vez, vamos clicar no botão "Cancelar" no canto inferior direito, porque queremos utilizar uma estratégia diferente para importar todas as planilhas de uma vez só.
+
+Iremos abrir o explorador de arquivos do computador no local onde estão as planilhas com os dados relativos às vendas. Em seguida, vamos criar uma pasta chamada "Vendas", clicando com o botão direito e escolhendo "Novo > Pasta". Você pode dar o nome que quiser.
+
+Feito isso, vamos selecionar os três arquivos: Gatitos_2020.xlsx, Gatitos_2021.xlsx e Gatitos_2023.xlsx. Para isso, podemos apertar "Shift" para selecionar o intervalo inteiro ou podemos usar o "Ctrl" para selecionar um por um.
+
+Com o botão esquerdo do mouse pressionando, arrastamos esses arquivos para dentro da pasta de "Vendas". Em outras palavras, colocamos todos os arquivos dentro de uma única pasta.
+
+Agora, vamos fazer o processo de importação dentro do Power BI novamente.
+
+Na aba "Página inicial", na parte de dados, o próprio Power BI já traz atalhos de importação mais usados. Nesse caso, tem a pasta de trabalho do Excel, centro de dados do OneLake, SQL Server ou inserir dados manualmente.
+
+Dessa vez, não vamos clicar em "Pasta de Trabalho do Excel". Vamos clicar em "Obter Dados" para fazer a importação da "Pasta". Após clicar em "Conectar", devemos indicar o caminho da pasta na janela que se abre.
+
+Para isso, vamos clicar em "Procurar" para localizar o caminho exato da pasta "Vendas" na nossa máquina. No nosso caso, está em "Downloads", mas o seu pode ser diferente. Vamos selecionar a pasta "Vendas", clicar no botão "OK" e depois em "OK" novamente.
+
+Com isso, o Power BI trouxe os três arquivos diferentes com uma opção nova na parte inferior da janela. Além de "Carregar" e "Transformar Dados", agora temos o botão de "Combinar".
+
+No nosso caso, vamos clicar no botão "Combinar", assim, em vez de trabalhar com três tabelas diferentes, iremos combiná-las para trabalhar com uma só.
+
+Quando clicamos nesse botão, devemos escolher entre duas opções: "combinar e transformar dados" (ou seja, tratar os dados no Power Query) ou simplesmente "combinar e carregar" para o Power BI.
+
+Já sabemos que o melhor caminho sempre é passar pela transformação dos dados - mesmo que seja só para analisar. Por isso, vamos clicar em "Combinar e Transformar dados".
+
+Com isso, abre-se uma janela chamada "Combinar arquivos" para escolher a visualização. Podemos trabalhar com uma tabela ou com a planilha. Para o nosso contexto, o ideal será a tabela com as divisões em colunas. Por isso, selecionamos a tabela "Vendas" e clicamos no botão "OK" no canto inferior direito.
+
+Mesclando tabelas
+
+No painel lateral esquerdo de "Consultas", podemos encontrar a tabela de "Vendas" e uma série de outras transformações. Na verdade, o Power Query fez vários códigos para combinar as planilhas, mas já nos apresenta os dados transformados.
+
+Existe agora uma coluna diferente intitulado Nome da origem. Assim, conseguimos saber que os primeiros dados são da planilha de 2020. Por volta da linha 30, a origem já é a planilha de 2021.
+
+Porém, nessa base de dados, já temos uma coluna de Data de compra que contém a informação do ano. Então, não precisamos necessariamente nos basear na coluna de origem. Por isso, vamos clicar com o botão direito do mouse em cima dela do nome da coluna Nome da origem e escolher a opção "Remover" para apagá-la.
+
+Além disso, os nossos dados não estão automaticamente tipados. Precisaremos fazer isso de forma manual, clicando no ícone à esquerda do nome da coluna.
+
+Vamos transformar as colunas de Transacao, ID Consumidor, ID Produto e Quantidade para o tipo "Número inteiro", a princípio. Enquanto a Data de compra, será do tipo "Data".
+
+-------------------------------------
+
+Conectando com o Google Planilhas
+O Power BI permite que visualizemos não apenas a parte do canvas (área em branco onde desenvolvemos o relatório). Na lateral esquerda, existem várias opções de visualizações: a primeira é a exibição de relatório; a segunda é o modo de exibição de tabela.
+
+Ao clicar nessa segunda opção, conseguimos visualizar exatamente como estão as nossas tabelas. Se clicamos na tabela de vendas, são exibidas todas as colunas, já a tabela de clientes tem alguns dados estão em branco.
+
+Faremos um tratamento no Power Query novamente para corrigir isso. Assim é o fluxo do trabalho, testamos no Power BI, voltamos ao Power Query e fazemos alguns ajustes.
+
+Na tabela de vendas, falta uma informação crucial para trazer a resposta para a Helô sobre o faturamento. Para calcular o faturamento, precisamos entender a quantidade de produtos vendidos multiplicado pelo preço de cada um. Porém, não temos o preço dos produtos nessa tabela.
+
+Por isso, é preciso importar mais uma tabela, que a Helô nos disponibilizou, sobre os produtos. Nessa tabela, teremos o nome do produto, algumas características e, inclusive, o preço.
+
+Essa próxima tabela não está no formato Excel, não está numa pasta e não está no formato CSV. Por algum motivo, a Helô trabalhou com o Google Sheets, que é um software online da Google para fazer planilhas pelo navegador.
+
+Dentre as opções do Power BI, conseguimos conectar com o Google Planilhas. Basta que a Helô disponibilize o link da planilha.
+
+Vamos voltar na aba "Página inicial" no menu superior para clicar na opção "Obter Dados".
+
+Atenção: Na sua versão mais atualizada, o Power BI já tem um conector específico para o Google Planilhas. Porém, funciona melhor quando você é proprietário(a) da planilha.
+
+Por isso, não vamos usar esse conector no nosso projeto. Quando estamos trabalhando com uma planilha de outra pessoa, que fez a importação na web, vamos usar outro conector chamado "Web".
+
+Com o conector web, conseguimos pegar a URL do que vamos trabalhar, inclusive uma planilha publicada, mas poderia ser um site ou qualquer opção que tivesse uma URL. Assim, conseguimos colocar a URL dentro do Power BI para fazer a leitura da tabela.
+
+https://docs.google.com/spreadsheets/d/e/2PACX-1vQuBG-JoWaeQF5rF3RgZYl5Z-PaJyDBK1I1c8a56RssNGoOlInqQROKi3z54u74E2ei32p_SWOpBb0v/pubhtml
+Copiar código
+Vamos clicar no botão "Conectar" em, na janela que se abre, devemos preencher com a URL da planilha dos produtos da Gatitos e clicar no botão "OK".
+
+Na janela de pré-visualização, temos várias opções, como normalmente acontece quando trabalhamos com uma URL. Vamos selecionar a primeira, de tabela HTML. Precisaremos fazer algumas transformações nessa tabela de produtos, o que é normal.
+
+As outras opções não servem para o nosso propósito, mas o Power BI também traz a visualização do texto corrido ou do código HTML - que pode ser interessante dependendo do seu caso de uso.
+
+Após selecionar a primeira opção, vamos clicar no botão "Transformar dados" no canto inferior direito para abrir o Power Query.
+
+Transformando dados no Power Query
+Já estamos com a tabela aberta no Power Query.
+
+Inclusive, o programa trouxe a tabela com um nome genérico, "Tabela 1". Vamos mudar o nome dessa tabela para "Produtos".
+
+Para isso, podemos dar um duplo clique em cima de "Tabela 1" no painel "Consultas" na lateral esquerda, digitar "Produtos" e pressionar "Enter". Ou poderíamos mudar o nome diretamente no campo "Nome" no painel "Propriedades" na lateral esquerda.
+
+Além disso, a primeira linha da tabela está em branco. É preciso removê-la.
+
+No Power Query, existe um atalho no canto superior esquerdo da tabela, cujo ícone é de uma tabela. Ao clicar nele, serão listados vários dos recursos mais utilizados. Aconselhamos que você explore esses recursos no seu próprio ritmo.
+
+Dentre esses atalhos, vamos utilizar a opção de "Remover Linhas Superiores" para remover a linha vazia. Após clicar nessa opção, devemos especificar quantas linhas queremos remover na janela que se abre. Vamos digitar o número "1", pois é apenas uma linha, e clicar em "OK".
+
+Novamente, as colunas estão sem o nome correto, indo de Column1 a Column7. Queremos promover a primeira linha como cabeçalho. Já conhecemos a opção "Usar a primeira linha como cabeçalho" na aba "Página inicial".
+
+Mas também podemos usar o atalho da tabela no canto superior esquerdo. Uma das primeiras opções é "Usar a Primeira Linha Como Cabeçalho". Vamos clicar nela.
+
+O Power Query também trouxe uma coluna de ID, repetindo a informação da coluna que de ID Produto. Por isso, vamos clicar com o botão direito do mouse em cima do nome dessa coluna e selecionar a opção "Remover". Também funcionaria apertar a tecla "Delete".
+
+Para finalizar, vamos conferir os tipos de dados. Vamos manter as colunas Nome produto, Categoria, Marca e Url img como texto.
+
+Contudo, vamos mudar o ID Produto para "Número inteiro", já que seus dados são apenas números. Além disso, vamos mudar a coluna Valor para "Número decimal fixo". Assim, conseguimos trabalhar no formato de moeda, pois os números terão duas casas depois da vírgula.
+
+Agora que a tabela está tratada do jeito que queremos, podemos clicar em "Fechar e Aplicar" na parte superior esquerda, na aba "Página Inicial".
+
+------------------------------------------
+
+RESUMO
+
+Iniciar um relatório em branco no Power BI e importar dados;
+Ajustar o decodificador de texto para correta visualização dos caracteres em português;
+Criar visuais no Power BI e ajustar suas configurações;
+Transformar dados no Power Query e aplicar essas transformações no Power BI;
+Importar dados de planilhas Excel e usar a opção "Combinar" para unir múltiplas planilhas;
+Retirar colunas desnecessárias e ajustar tipos de dados no Power Query;
+Remover linhas e promover cabeçalhos no Power Query.
+
+====================================================================
+
+REALIZANDO CALCULOS 
+
+Entendendo o relacionamento das tabelas
+Voltando para a barra de ferramentas no canto esquerdo do Power BI, já vimos as duas primeiras opções: de exibição de relatório e de visualização das tabelas. Já a terceira opção trata justamente do modelo e de como está acontecendo o relacionamento dentro dele.
+
+Ao clicar na terceira opção, temos nossas três tabelas, "Clientes", "Vendas" e "Produtos", desenhadas em retângulos, lado a lado. Podemos clicar na parte superior delas e arrastá-las para movimentá-las.
+
+É interessante observar que temos um relacionamento acontecendo entre as tabelas "Produtos" e "Vendas", representado por uma linha. Na extremidade da linha que se conecta à tabela "Produtos", temos o número 1, enquanto na extremidade conectada à tabela "Vendas", temos um asterisco. Isso indica que temos um produto listado de cada vez, encontrando muitos produtos que estão sendo vendidos e repetidos na tabela "Vendas".
+
+Por fim, à direita da representação das tabelas, temos as abas "Propriedades" e "Dados", que exploraremos conforme conhecemos o Power BI.
+
+Voltando às tabelas, uma coisa chama a atenção. A tabela "Clientes" não está relacionada de forma automática com a tabela "Vendas".
+
+Na tabela de "Clientes", temos a opção "ID Consumidor", que também existe na tabela "Vendas". Por que esse relacionamento não foi feito de forma automática? Vamos explorar essa questão.
+
+Podemos criar esse relacionamento manualmente, clicando na opção "ID Consumidor" da tabela "Clientes" e arrastando-a até a tabela "Vendas". Podemos fazer isso em qualquer uma das duas tabelas, sendo a ordem irrelevante, pois o Power BI, consegue entender de forma automática a ordem que deve seguir.
+
+Após arrastar o campo, uma janela será aberta, trazendo um problema. Em seu interior, na seção "Da tabela", há vários arquivos de dados na coluna "ID Consumidor" da tabela "Clientes" que estão com a palavra null - ou seja, dados vazios. Por conta desses dados, o programa não está encontrando o relacionamento entre as duas colunas.
+
+Na parte inferior da janela, ela informa que essa relação tem cardinalidade Muitos para Muitos, porque tem muitos dados vazios. Por isso, não está sendo possível fazer esse relacionamento.
+
+Vamos clicar no botão "Cancelar", no canto inferior direito da janela, e resolver esse problema.
+
+Filtrando dados nulos
+Vamos voltar ao Power Query e fazer um tratamento na tabela "Clientes".
+
+Anteriormente, mencionamos que esse fluxo é muito comum. Estamos no Power BI, voltaremos para o Power Query, faremos um tratamento e voltaremos ao Power BI. É assim que funciona.
+
+Na guia "Página Inicial" da barra de menus superior, temos a opção "Transformar Dados". Vamos clicar nessa opção para voltar ao Power Query, na tabela "Clientes".
+
+Vamos fazer a filtragem desses dados nulos. Para isso, vamos clicar na seta no canto direito da coluna "ID Consumidor". Na lista suspensa, clicaremos na opção de "Remover vazio".
+
+Após o clique, não observamos nada acontecendo na tabela, porque não estávamos enxergando isso antes. Apesar disso, a alteração foi feita. Note como esses recursos do Power BI são poderosos: mesmo sem conseguir visualizar, sabemos que essa informação existe.
+
+Com isso feito, voltaremos a clicar em "Fechar e Aplicar" no canto superior esquerdo, para voltar ao Power BI e ver o que vai acontecer. Será que agora conseguiremos fazer essa conexão?
+
+Criando o relacionamento
+Na representação das tabelas, vamos arrastar o campo "ID Consumidor" na tabela "Clientes" até o campo "ID Consumidor" na tabela "Vendas". No interior da janela exibida, veremos que os dados vazios do campo "ID Consumidor" na tabela "Clientes" foram retirados e o programa passou a identificar um relacionamento, destacando os campos "ID Consumidor" de ambas as tabelas.
+
+Com essa relação ativa, vamos até o canto inferior direito da janela para clicar em "Salvar". Com isso, o programa criou o relacionamento, representado por uma linha conectando os retângulos de "Clientes" e "Vendas".
+
+Agora, as informações estão sendo cruzadas. Temos a tabela "Clientes" se relacionando com a tabela "Vendas", que por sua vez se relaciona com a tabela "Produtos".
+
+Criando colunas calculadas
+Já que esse relacionamento está acontecendo, vamos criar uma coluna calculada dentro da tabela "Vendas". Voltaremos para a barra de ferramentas na lateral esquerda e clicaremos na segunda opção, "Modo de exibição da tabela".
+
+Na tela principal, temos a tabela "Vendas", cuja última coluna à direita é "Quantidade". E agora, vamos criar outra coluna.
+
+Para isso, na barra de menus superior, clicaremos em "Ferramentas da Tabela". No interior dessa guia, há algumas opções de criação, com as quais podemos criar uma nova medida, uma medida rápida, uma nova coluna ou até uma nova tabela.
+
+Vamos criar uma nova coluna na tabela "Vendas", selecionando a opção "Nova Coluna". Isso exibirá uma coluna denominada "Coluna" à direita de "Quantidade" e acima da tabela, uma barra de fórmulas selecionada.
+
+Caso a barra de fórmulas esteja pequena e difícil de ler, podemos pressionar "Ctrl" e rolar o scroll (botão de rolagem) do mouse para aumentá-lar aqui.
+
+Dentro dessa barra, vamos apagar o nome da coluna nova, mantendo o sinal de igual. À esquerda do igual, podemos colocar o nome que quisermos para essa coluna. Poderíamos colocar, por exemplo, "Valor unitário".
+
+Contudo, evitaremos usar o acento e espaços em projetos do Power BI, porque isso pode complicar algumas fórmulas futuramente. Devemos estabelecer essa boa prática desde agora.
+
+Retirando o acento agudo e os espaços, o nome da coluna se tornará "Valor_unitario".
+
+Valor_unitario =
+Copiar código
+Ao pressionar "Enter" o Power BI mudará o nome da coluna para "Valor_unitario".
+
+Relacionando colunas de valor unitário
+Para chamar o "Valor_unitario" de outra tabela, vamos usar uma função chamada RELATED após o sinal de igual.
+
+Com isso, o IntelliSense do Power BI exibirá uma lista suspensa com sugestões de funções. Vamos apertar o "Enter" na sugestão "RELATED".
+
+Valor_unitario = RELATED(
+Copiar código
+Em seguida, ele quer saber qual coluna e tabela queremos chamar que tem relação em outra tabela. Sabemos que está lá na tabela de "Produtos", portanto, navegaremos com a seta do teclado para baixo e selecionaremos a opção "Produtos[Valor]" clicando em "Enter". Em seguida, fecharemos os parênteses da função.
+
+Valor_unitario = RELATED(Produtos[Valor])
+Copiar código
+Agora que temos o valor, vamos pressionar "Enter".
+
+Essa função busca a tabela de "Produtos", encontra a relação entre eles e traz a coluna de valor em "Valor_unitario".
+
+Criando o faturamento
+Para fazer o faturamento, podemos fazer outra coluna. Com a coluna "Valor_unitario" selecionada, a guia "Ferramentas de coluna" aparece selecionada na barra de menus superior. À sua esquerda, vamos selecionar a guia "Ferramentas da tabela" e em seu interior, clicar em "Nova coluna".
+
+E agora, sim, vamos criar o faturamento. Acessando a barra de fórmulas, vamos substituir o conteúdo e escrever "Faturamento =".
+
+Faturamento =
+Copiar código
+À direita do sinal de igual, vamos fazer a multiplicação das colunas chamando a coluna "Quantidade". Para isso, como boa prática, vamos abrir aspas simples, que acionará a lista suspensa de sugestões.
+
+Nessa lista, selecionaremos a opção "'Vendas'[Quantidade]", com a tabela "Vendas" entre aspas simples e o nome da coluna "Quantidade" entre colchetes.
+
+A fórmula ficará assim:
+
+Faturamento = 'Vendas'[Quantidade]
+Copiar código
+À direita, multiplicaremos com um asterisco. Aqui no código, asterisco é multiplicação.
+
+Faturamento = 'Vendas'[Quantidade] * 
+Copiar código
+Por fim, buscaremos novamente a tabela "Vendas", mas selecionaremos a coluna "Valor_unitario".
+
+Faturamento = 'Vendas'[Quantidade] * 'Vendas'[Valor_unitario]
+Copiar código
+Em seguida, pressionaremos "Enter" e teremos a coluna de faturamento criada, à direita de "Valor_unitario".
+
+O recurso de Qualidade da Coluna no Power BI rotula os valores em linhas em cinco categorias, fornecendo informações sobre a qualidade dos dados em cada coluna:
+
+Válido (verde): indica que os valores na coluna estão corretos e dentro dos critérios definidos.
+
+Erro (vermelho): sinaliza a presença de erros na coluna, indicando que os valores não estão de acordo com as regras ou critérios estabelecidos.
+
+Vazio (cinza escuro): representa valores ausentes ou nulos na coluna, indicando que não há dados presentes.
+
+Desconhecido (verde pontilhado): indica a presença de erros em uma coluna, resultando em uma qualidade de dados desconhecida para os demais valores.
+
+Erro inesperado (vermelho pontilhado): identifica a ocorrência de erros inesperados na coluna, que não se enquadram nas categorias anteriores.
+
+Esses indicadores são exibidos abaixo do nome da coluna. O número de registros em cada categoria de qualidade de coluna é apresentado como uma porcentagem, como podemos verificar na imagem abaixo:
+
+Captura de tela da Qualidade da coluna nas colunas de uma tabela. A qualidade da coluna possui três campos, de cima para baixo: Válidos, Erro e Vazio. Cada um desses campos possui sua porcentagem correspondente na direita.
+
+Ao passar o mouse sobre qualquer uma das colunas, é possível visualizar a distribuição numérica da qualidade dos valores em toda a coluna:
+
+Captura de tela da janela de exibição da Qualidade da coluna, destacado com um retângulo vermelho. Nessa janela, temos o nome da coluna, a porcentagem de válidos, de erro e de vazio. No canto inferior direito, temos um botão de reticências.
+
+Além disso, ao selecionar o botão de reticências (...), são exibidos botões de ação rápida que permitem realizar operações nos valores:
+
+Captura de tela do menu suspenso da opção de reticências no  canto inferior direito da janela de exibição da Qualidade da coluna. No menu suspenso, destacado por um retângulo vermelho, temos as opções Copiar, Manter Duplicatas, Manter Erros, Remover Duplicadas, Remover Vazio, Remover Erros e Substituir Erros.
+
+Essa funcionalidade de Qualidade da Coluna no Power BI proporciona uma visão rápida e clara sobre a qualidade dos dados em cada coluna. Entretanto, devemos estar atentos a um quesito muito importante quando se trata do Power BI, que é o fato de se tratar de uma ferramenta que tem como padrão resumir os dados, principalmente por questão de performance.
+
+Pensando nisso, o Power BI oferece a opção de filtrar os dados das tabelas, por meio de duas opções: criação de perfil da coluna com base nas primeiras 1000 linhas, que é a opção padrão; e criação de perfil da coluna com base em todo o conjunto de dados. Essa opção de filtragem por todo o conjunto pode ser especialmente importante para garantir uma análise mais precisa e abrangente dos seus dados.
+
+Ao ativar a opção de criação de perfil da coluna com base em todo o conjunto de dados, o Power BI analisará todas as linhas do conjunto de dados, permitindo identificar padrões, distribuições e problemas de qualidade que podem não ser detectados apenas com uma amostra limitada de linhas.
+
+Como exemplo, vamos utilizar a tabela de Clientes, a qual já estávamos utilizando nas imagens anteriores. Assim como pôde ser observado, não foi encontrado nenhum erro, porém, não verificamos como a filtragem estava sendo definida. Para verificar isso, no canto inferior esquerdo, vamos procurar pelo botão da filtragem:
+
+Captura de tela do botão de Criação de perfil da coluna com base nas primeiras 1000 linhas, destacado com um retângulo vermelho.
+
+Como podemos verificar, estamos filtrando nossos dados pelas primeiras 1000 linhas. Para resolvermos isso, pode clicar nessa opção, pois se trata de um botão, e selecionar a opção para todo o conjunto de dados:
+
+Captura de tela de uma janela com dois botões: Criação de perfil da coluna com base nas primeiras 1000 linhas e Criação de perfil da coluna com base em todo o conjunto de dados, que está destacado com um retângulo vermelho.
+
+Agora, voltando para averiguar a qualidade da coluna, podemos ver o que realmente temos em mãos:
+
+Captura de tela da Qualidade da coluna nas colunas de uma tabela. A qualidade da coluna possui três campos, de cima para baixo: Válidos, Erro e Vazio. Cada um desses campos possui sua porcentagem correspondente à direita. Os campos de Vazio estão destacados em todas as colunas com um retângulo vermelho.
+
+Encontramos uma porcentagem significativa de valores vazios. Se colocarmos o mouse em cima do campo de Vazio, percebemos a diferença:
+
+Captura de tela da janela de exibição da Qualidade da coluna, destacado com um retângulo vermelho. Nessa janela, temos o nome da coluna, a porcentagem de válidos, de erro e de vazio. A porcentagem de vazio é 62%. No canto inferior direito, temos um botão de reticências.
+
+Além de garantir que a detecção de erros e demais ações de melhoria sejam aplicadas de maneira completa e abrangente, o tratamento desses dados vazios foi essencial para que pudéssemos realizar o relacionamento entre as tabelas de Clientes e Vendas na área de Modelagem de Dados. Inclusive, caso deseje aprofundar seus conhecimentos sobre esse tema, recomendo o curso Power BI: modelagem de dados, que irá tratar da modelagem de dados, tipos de cardinalidades, e o que são tabela fato e tabela dimensão.
+
+Portanto, a funcionalidade de Qualidade da Coluna no Power BI proporciona uma visão rápida e clara sobre a qualidade dos dados em cada coluna. Adicionalmente, é altamente recomendável utilizar a opção de criação de perfil da coluna com base em todo o conjunto de dados. Isso permitirá uma análise mais precisa e confiável dos dados, fornecendo informações valiosas para aprimorar a qualidade dos seus relatórios e tomada de decisões. Caso você deseje estudar sobre as demais funcionalidades para visualização dos dados, você pode ler o artigo Usar as ferramentas de criação de perfil de dados da Microsoft.
+
+-----------------------------------------
+
+Adicionando um cartão
+Sabemos que podemos clicar e arrastar para criar o visual, mas também podemos clicar diretamente no visual com o qual queremos trabalhar. Para isso, na guia "Página Inicial" da barra de menus superior, acessaremos a seção "Inserir", que exibe tipos de gráficos.
+
+Os ícones exibidos são dos gráficos mais usados, mas também podemos clicar no botão de seta para baixo no canto direito desses ícones para abrir uma lista suspensa com todas as opções de visuais disponíveis para trabalhar dentro do Power BI de forma nativa (também há a opção de importar visuais externos).
+
+As opções nativas estão divididas por grupos, como "Barra e coluna" e, "Linha e área", cada qual com seus ícones. Podemos clicar diretamente no ícone do visual de cartão, localizado no grupo "Medidor, cartão e KPI".
+
+Ao clicar nessa opção, um cartão retangular com uma parte acinzentada aparece na área de trabalho. Ao clicar nele, a opção "Adicionar dados" para inserir campos em seu interior é exibida em uma caixa de opções.
+
+O cartão é muito utilizado para trabalhar com o conceito de Big Numbers (números grandes), no qual temos um número que queremos mostrar explicitamente.
+
+Como queremos trazer o resultado da quantidade de produtos vendidos, podemos simplesmente usar um cartão para mostrar esse número. Mas como trazer essa informação para o cartão?
+
+Aplicando medidas implícitas
+Se acessarmos a aba "Dados" na lateral direita, veremos que a tabela "Vendas" possui a coluna "Quantidade" com a quantidade dos produtos. Vamos adicioná-la ao cartão.
+
+Para isso, podemos clicar em "Adicionar dados" na caixa ao lado do novo cartão, ou na mesma opção, oferecida na aba "Compilar", à direita da área de trabalho. Nesse caso, podemos usar qualquer uma delas.
+
+Ao clicar em "Adicionar dados", veremos uma lista suspensa, na qual expandiremos a planilha "Vendas" e marcaremos a caixa de seleção da coluna "Quantidade".
+
+Com isso, a soma da coluna "Quantidade" aparecerá automaticamente dentro do cartão e teremos a segunda pergunta respondida. Já sabemos que a quantidade de produtos vendidos nesse pet shop é 57 mil, um número alto. Por fim, podemos mover esse cartão para o canto esquerdo, à direita do cartão da média de pets.
+
+Sem escrever nenhum código, o Power BI fez um somatório da coluna selecionada e já mostrou o resultado. Chamamos isso de medida implícita no Power BI.
+
+Isso é muito poderoso, pois esses cálculos são feitos de forma automática e funcionam corretamente.
+
+Aplicando medidas explícitas
+Também temos a opção de trabalhar com a medida explícita, escrevendo o código de forma explícita. E é isso que vamos fazer.
+
+Clicaremos fora do cartão e criaremos uma medida explícita com código para exibir o total do faturamento. Para isso vamos acessar a aba "Dados", clicar com o botão direito em cima da tabela "Vendas" e selecionar a opção "Nova medida" para fazer um novo cálculo.
+
+Isso abrirá novamente a barra de fórmulas acima da área de trabalho, na qual vamos nomear essa medida de "Faturamento total". No caso do nosso projeto, não tem problema deixarmos um espaço no meio do nome.
+
+Faturamento total = 
+Copiar código
+À direita do igual, usaremos a função explícita SUM ("soma", em inglês) para somar a coluna de faturamento que criamos. Ao digitá-la, a lista de sugestões será exibida e selecionaremos "SUM", o que abrirá os parênteses.
+
+Faturamento total = SUM(
+Copiar código
+Essa função pede o nome da coluna que queremos somar. Então, vamos escrever "'Vendas'[Faturamento]" e fechar os parênteses para que ele some a coluna faturamento da tabela "Vendas". Por fim, damos "Enter".
+
+Faturamento total = SUM('Vendas'[Faturamento])
+Copiar código
+Não aconteceu nada visível, mas aconteceu algo. Na aba "Dados", dentro da tabela "Vendas", veremos um novo item, "Faturamento total", como se fosse uma coluna, mas não é. À sua esquerda, há um símbolo de calculadora, indicando que se trata de uma medida.
+
+Apesar dessa coluna existir apenas virtualmente, podemos usá-la dentro de um visual.
+
+Com esse "Faturamento total" criado, podemos clicar e arrastá-lo ou adicioná-lo explicitamente, acessando a guia "Página Inicial", clicando no ícone "Cartão" da seção "Inserir" para criar um novo cartão.
+
+Para adicionar os dados, vamos fazer um caminho diferente. Em vez de clicar em "Adicionar dados", vamos clicar no campo virtual "Faturamento total" da aba "Dados" e arrastá-lo para o botão "Adicionar dados" na aba "Compilar".
+
+Dessa forma, ele será arrastado para o canvas, exibindo o faturamento total dentro do novo cartão. A medida funcionou, criando o total da coluna selecionada.
+
+Com base nas informações desse cartão, sabemos que o faturamento total nesse período foi de 2,03 milhões.
+
+No Power BI, medidas são elementos essenciais para realizar cálculos e análises sobre os dados. Elas podem ser classificadas em medidas implícitas e medidas explícitas.
+
+As medidas implícitas são calculadas automaticamente pelo Power BI com base nos dados presentes na tabela. Elas são úteis para realizar operações básicas, como soma, média, contagem, mínimo e máximo. O Power BI identifica automaticamente os campos numéricos na tabela e cria medidas implícitas correspondentes. Essas medidas são atualizadas dinamicamente à medida que os dados são modificados ou filtrados.
+
+Por outro lado, as medidas explícitas são cálculos personalizados criados manualmente pelo usuário. Elas são criadas utilizando a linguagem de fórmulas DAX (Data Analysis Expressions) e permitem realizar cálculos mais complexos e específicos às necessidades do usuário. Com as medidas explícitas, é possível realizar operações matemáticas avançadas, combinar campos de diferentes tabelas, aplicar filtros condicionais e criar métricas personalizadas.
+
+Para obter mais informações detalhadas sobre medidas implícitas e explícitas no Power BI, recomendo a leitura do artigo Power BI: Medidas implícitas e explícitas.
+
+------------------------------------------
+
+No Power BI, duas linguagens fundamentais para manipulação e transformação de dados são o M e o DAX.
+
+Ambas as linguagens, M e DAX, desempenham papéis complementares no Power BI. O M é utilizado principalmente na fase de preparação dos dados, enquanto o DAX é utilizado para realizar cálculos e análises com base nos dados já carregados no modelo de dados. Combinar o uso dessas duas linguagens permite uma transformação completa dos dados, desde a extração inicial até a análise final.
+
+Para aprofundar seus conhecimentos sobre as linguagens M e DAX no Power BI, recomendo a leitura do artigo Power BI: M e DAX. Ele apresenta uma visão detalhada sobre as características e funcionalidades dessas linguagens, fornecendo insights valiosos para aprimorar suas habilidades no Power BI.
+
+Utilizando a linguagem DAX, adicionamos mais duas colunas à tabela de Vendas, sendo a primeira a coluna de Valor, como podemos verificar abaixo:
+
+Captura de tela da tela de Exibição de Dados, com fundo cinza. No topo, temos o código em DAX da criação da coluna de Valor, em fundo branco destacado com um retângulo vermelho. Mais abaixo, temos os dados da tabela selecionada, com a coluna de Valor destacada com um retângulo vermelho. Na direita, temos as tabelas, com a tabela de Vendas expandida e destacada com um retângulo vermelho.
+
+A seguir temos o código em DAX para criar a coluna Valor:
+
+Valor unitario = RELATED(Produtos[Valor]) 
+Copiar código
+A segunda coluna criada foi a de Faturamento:
+
+Captura de tela da tela de Exibição de Dados, com fundo branco. No topo, temos o código em DAX da criação da coluna de Faturamento, destacada com um retângulo vermelho. Mais abaixo, temos os dados da tabela selecionada, com a coluna de Faturamento destacada com um retângulo vermelho. Na direita, temos as tabelas, com a tabela de Vendas expandida e destacada com um retângulo vermelho.
+
+A seguir temos o código em DAX para criar a coluna Faturamento:
+
+Faturamento = Vendas[Quantidade]*Vendas[Valor]
+Copiar código
+Após adicionarmos as duas colunas, realizamos a criação da medida Total faturamento, como podemos verificar abaixo:
+
+Captura de tela da tela de Exibição de Dados, com fundo branco. No topo, temos o código em DAX da criação da coluna de Faturamento total, destacada com um retângulo vermelho. Mais abaixo, temos os dados da tabela selecionada. Na direita, temos as tabelas, com a tabela de Vendas expandida e destacada com um retângulo vermelho.
+
+A seguir temos o código em DAX para criar a coluna Faturamento:
+
+Faturamento total = SUM(Vendas[Faturamento])
+Copiar código
+Com isso, finalizamos a terceira aula, onde conhecendo as áreas do Power BI, realizamos o relacionamento entre as tabelas, e criamos colunas e medidas.
+
+Agora, chegou o momento de colocar em prática seus conhecimentos e embarcar em um desafio empolgante!
+
+Com o que você aprendeu até aqui, seu desafio é criar uma medida para calcular o Valor Médio por Produto Vendido. A medida deve fornecer o valor médio obtido por cada produto vendido, ajudando-nos a analisar o desempenho individual dos produtos e seu impacto na receita total.
+
+RESUMO
+
+Visualizar o modelo de dados no Power BI e entender os relacionamentos entre tabelas;
+Criar relacionamentos manuais entre tabelas e resolver problemas com dados nulos;
+Criar e nomear colunas calculadas utilizando a função "RELATED";
+Diferenciar medidas implícitas e explícitas, criando medidas explícitas com a função SUM.
+
+============================================================
+
+É importante frisar que você não precisa pagar por nenhuma assinatura para criar uma conta do Power BI, pois é um processo totalmente gratuito.
+
+Para obter as funcionalidades de publicação e distribuição dos dashboard Power BI, é preciso possuir um e-mail comercial ou de estudante. Caso você não tenha, é possível tornar a sua conta pessoal numa conta corporativa para utilizar o Power BI acessando o Microsoft 365 Business Basic.
+
+Print da tela Vamos começar do Microsoft 365 Business Basic na seção Sobre você com o espaço para preencher o e-mail corporativo ou de estudante
+
+1 - Após inserir o e-mail pessoal, basta clicar em Configurar conta.
+
+Print da tela Vamos começar do Microsoft 365 Business Basic na seção Sobre você após o preenchimento do e-mail corporativo ou de estudante. Abaixo da mensagem com o e-mail, há duas opções: a esquerda de Configurar conta, com fundo azul, e a direita de Alterar meu email, com fundo branco.
+
+2 - Depois é só preencher os campos e clicar em Próximo.
+
+Print da tela Conte-nos sobre você do Microsoft 365 Business Basic na seção Sobre você com um formulário para preenchimento dos dados pessoais.
+
+3 - Nessa etapa, seu telefone celular será verificado para validação dos seus dados. Escolha a opção para validação: SMS ou Ligação. Após escolher a opção e preencher com seu número, clique em Enviar código de verificação.
+
+Print da tela Conte-nos sobre você do Microsoft 365 Business Basic na seção Sobre você com o pedido de envio de mensagem de texto ou ligação para validação da conta. Abaixo do pedido, há duas opções: Enviar-me uma mensagem de texto, que está selecionada, e Ligar para mim. Há, na sequência, dois campos para informar o celular: Código do país e Número de telefone. Na parte inferior da imagem, em fundo azul, temos o botão Enviar código de verificação, e ao lado, em fundo branco, o botão Voltar.
+
+4 - Após a escolha da opção de validação, basta inserir o código de verificação enviado.
+
+Print da tela Conte-nos sobre você do Microsoft 365 Business Basic na seção Sobre você com a lacuna para preenchimento do código de verificação que foi enviado por meio de mensagem de texto ou ligação. Abaixo do campo, há dois botões: Verificar, em fundo azul, e Alterar meu número de telefone, em fundo branco.
+
+5 - Após a validação do seu número, basta escolher o nome do seu usuário, domínio e senha e clicar em Próximo.
+
+Print da tela Como você fará o login do Microsoft 365 Business Basic na seção Detalhes de entrada com campos para a criação do nome do usuário, nome do domínio,  senha e a confirmação da senha. Na parte inferior da imagem há o botão Próximo.
+
+6 - ATENÇÃO! Esta é uma etapa muito importante. Ao clicar em “Próximo”, você será direcionado para a tela de pagamento. NÃO É NECESSÁRIO REALIZAR NENHUM PAGAMENTO. O processo de criação da conta já finalizou, você pode simplesmente fechar a aba, adicionar uma forma de pagamento é um passo opcional.
+
+Print da tela Quantidade e pagamento do Microsoft 365 Business Basic na seção Adicionar pagamento, confirmar e completar pedido com a página de pagamento da conta que é opcional.
+
+7 - Com a criação da conta finalizada, é só se direcionar ao Power BI. Quando você acessar esse link, irá entrar na sua conta. Após o login, surgirá uma tela contendo as etapas necessárias para ativar a conta. Na etapa 1 - Vamos começar, você terá o e-mail conectado da sua conta do Power BI. Para seguir, basta clicar em Continuar:
+
+Print da tela Você selecionou Microsoft Power BI do App do Power BI, na etapa 1 - Vamos começar, com o e-mail da conta do Power BI conectado, destacado com um retângulo vermelho. Na parte de baixo, mais à esquerda, há um botão chamado Continuar, com fundo azul, destacado com um retângulo vermelho.
+
+8 - Na etapa 2 - Criar sua conta, você precisará inserir seu número de telefone novamente, e clicar em Introdução:
+
+Print da tela Você selecionou Microsoft Power BI do App do Power BI, na etapa 2 - Criar sua conta, com o e-mail da conta, país, e campo para preencher o número de telefone, que está destacado com um retângulo vermelho. Na parte de baixo, mais à esquerda, há um botão chamado Introdução, com fundo azul, destacado com um retângulo vermelho.
+
+9 - Na etapa 3 - Detalhes de confirmação, você irá clicar em Introdução:
+
+Print da tela Você selecionou Microsoft Power BI do App do Power BI, na etapa 3 - Detalhes de confirmação, com a mensagem “Obrigado por inscrever-se para Microsoft Power BI” e o e-mail que foi criado. Na parte de baixo, mais à esquerda, há um botão chamado Introdução, com fundo azul, destacado com um retângulo vermelho.
+
+Agora, você já pode usar a conta que você acabou de criar.
+
+Lembrando que essa é uma possibilidade de criar uma conta corporativa, no entanto, se você possuir uma conta corporativa, é possível usar a conta da sua empresa, da escola ou faculdade para acessar o Power BI.
+
+É importante dizer que o software continua gratuito e ainda é possível desenvolver painéis e relatórios de forma local, ou seja, na sua própria máquina. No entanto, sem a conta corporativa não é possível acessar o Power BI Serviço.
+
+-------------------------------
+
+Distribuição do faturamento por gênero
+Para isso, realizamos a análise utilizando um novo tipo de visualização: o gráfico de pizza. Embora esse tipo de gráfico seja polêmico e não seja adequado para todas as análises, especialmente quando há muitas fatias que podem prejudicar a visualização, conseguimos utilizá-lo de forma satisfatória em nosso relatório.
+
+Preparando o gráfico de pizza
+Para utilizar o gráfico de pizza, clicamos em uma parte em branco do relatório. Isso porque se um visual estiver selecionado e mudarmos o gráfico, ele alterará o gráfico atual, o que não desejamos.
+
+No Power BI, o "Ctrl + Z" desfaz erros, mas é recomendável clicar no espaço em branco antes de adicionar o gráfico.
+
+Dessa forma, conseguimos inserir o gráfico desejado sem problemas.
+
+Trabalhando com os campos
+Temos o gráfico de pizza como atalho na parte superior, em "Novo Visual", pois é muito utilizado. Clicamos nele e agora, vamos trabalhar com os campos para entender a distribuição do faturamento por gênero.
+
+Ao inserir o gráfico de pizza e selecioná-lo, será exibida uma janela intitulada "Sugerir Visual" com os campos: "Sugestões", "Legenda", "Valores", "Detalhes" e "Dicas de ferramentas".
+
+Segmentação por gênero
+Na "legenda", chamamos o gênero para que o gráfico seja segmentado por essa categoria. Clicamos em "Legenda" e, na tabela de Clientes, selecionamos a coluna de "Gênero", que é preenchida quando a pessoa faz uma compra no Pet Shop. Embora ainda não apareça nada, já temos uma legenda configurada.
+
+No gráfico, temos a legenda "Gênero" com as letras "F" para feminino e "M" para masculino.
+
+Adicionando dados de faturamento
+Em "Valores", clicamos em "Adicionar dados". Na tabela de Vendas, selecionamos a medida do "Faturamento total". Isso trouxe uma divisão das compras.
+
+Analisando a compra por gênero
+Pela legenda, observamos que o tom de azul mais claro representa o gênero feminino e o tom mais escuro representa o gênero masculino. Alguns dados estão em branco, e precisamos ver como tratar isso. Contudo, ao analisar o gráfico, já percebemos que o gênero feminino compra mais no Pet Shop do que o gênero masculino.
+
+Para a Helô, essa informação é importante porque permitirá tomar decisões de marketing mais direcionadas ao gênero que mais compra, mesmo que a diferença não seja tão grande. Podemos usar a seta do mouse para ver os números absolutos e as porcentagens dessa distribuição.
+
+Conclusão
+O gráfico de pizza ainda não está ideal, mas vamos trabalhar na estilização do relatório como um todo. No entanto, já conseguimos fornecer uma resposta para a Helô: o gênero feminino é o que mais compra no Pet Shop. Continuaremos nossas análises para responder a mais perguntas com base nos dados.
+
+-------------------------------------
+
+Inserindo um gráfico de barras clusterizado
+Na parte superior da guia "Página Inicial", clicamos em "Inserir" do "Novo Visual". A primeira opção é "Barra e Coluna", que são gráficos muito utilizados. Escolhemos o "Gráfico de barras clusterizado", pois "cluster" significa grupo ou agrupamento.
+
+Ao inserir o gráfico de barras clusterizado e selecioná-lo, será exibida uma janela intitulada "Sugerir um Visual" com os campos: "Sugestões", "Eixo Y", "Eixo X", "Legenda", "Múltiplos pequenos" e "Dicas de ferramentas".
+
+No eixo Y, que é o vertical, incluímos os bairros, conforme listado na tabela de Clientes. Clicamos em "Adicionar Dados", selecionamos a tabela Clientes e posteriormente o campo "Bairro".
+
+Para inserir os dados, sempre clicamos em "Adicionar Dados", selecionamos a tabela desejada e o campo.
+
+No eixo X, realizamos a análise do quanto as pessoas estão comprando, utilizando o faturamento total. Para isso, acessamos a tabela de Vendas e inseremos o "Faturamento total".
+
+Gráfico de barras horizontais representando o faturamento total por bairro. Os bairros listados de cima para baixo são: Itaquera, Guaianases, Cidade Tiradentes, São Miguel Paulista, Vila Prudente e uma categoria não especificada marcada como '(Em branco)'. O eixo horizontal mostra os valores de faturamento, indo de R$ 0,0 Mi a R$ 0,6 Mi. Itaquera apresenta o maior faturamento, seguido por Guaianases e Cidade Tiradentes, enquanto São Miguel Paulista e Vila Prudente mostram faturamentos menores e próximos entre si. A categoria '(Em branco)' não apresenta faturamento.
+
+O gráfico será atualizado com essas informações.
+
+Analisando o faturamento por bairro
+Em Itaquera, ao posicionar a seta do mouse sobre a área correspondente, é possível analisar o resultado do faturamento total. Observamos que Itaquera é o local com maior volume de compras no Pet Shop, o que é esperado, já que o Pet Shop está localizado lá.
+
+No entanto, notamos que Guaianases apresenta um faturamento quase igual ao de Itaquera, indicando que muitas pessoas estão se deslocando de Guaianases até Itaquera para comprar no Pet Shop.
+
+Considerar a abertura de uma segunda unidade em Guaianases pode ser uma estratégia interessante. Também observamos que um número significativo de pessoas sai da Cidade Tiradentes para comprar no Pet Shop. Essa análise oferece novas perspectivas sobre a distribuição dos clientes.
+
+Explorando o faturamento ao longo do tempo
+Agora, será feita a análise do faturamento em relação ao tempo, começando com um gráfico de colunas.
+
+O gráfico de barras apresenta as barras na horizontal, enquanto o gráfico de colunas as exibe na vertical.
+
+Há a opção de procurar pelos gráficos de barras e colunas na ferramenta, ou utilizar o atalho disponível na parte superior para selecionar o "Gráfico de colunas clusterizado".
+
+Certifique-se de que nenhum visual está selecionado, pois a seleção de um visual pode resultar em alterações indesejadas. Se isso ocorrer durante o projeto, é possível desfazer a ação com "Ctrl + Z" no Power BI.
+
+Após criar o gráfico de colunas, configuramos o eixo X para exibir as datas. Isso pode ser feito na seção de sugestões de visual do eixo X ou na área de "Compilar" à direita.
+
+Na seção de compilação do eixo X, selecionamos a tabela de Vendas e inserimos a "Data de compra". Observamos que a data de compra possui uma seta à esquerda, indicando que é possível abrir uma hierarquia de datas, incluindo ano, trimestre, mês e dia.
+
+Vendas
+Data de compra
+Hierarquia de datas
+Ano
+Trimestre
+Mês
+Dia
+Optamos por selecionar a "Data de compra" completa para incluir todas essas informações. O gráfico ajusta-se com todas as informações de uma vez, permitindo a navegação pela hierarquia.
+
+No eixo Y, adicionamos o faturamento total de Vendas. A importância da criação dessa medida se torna evidente, pois ela aparece com frequência nos gráficos.
+
+No gráfico de barras, temos o faturamento total por ano, com três barras representando os anos de 2020 a 2022. Não há barra visível para 2020, indicando faturamento de R$ 0, a barra para 2021 apresenta um faturamento aproximado de R$ 0,5 milhões, e a barra para 2022 mostra um aumento significativo, com faturamento próximo de R$ 1,0 milhão. O gráfico possui um título na parte superior esquerda que diz "Faturamento total por Ano" e o eixo vertical está rotulado como "Faturamento total em R$".
+
+É possível observar os dados por ano, de 2020 a 2022.
+
+Desafio: adicione o ano de 2023 à análise.
+
+Por enquanto, temos essas informações. Com a hierarquia de datas, temos opções para navegar entre os diferentes níveis na parte superior direita do gráfico.
+
+Drill Up vs. Drill Down
+Os novos termos técnicos a aprender são Drill Up e Drill Down. O Drill Down permite pular a hierarquia, movendo-se de um nível mais geral para um nível mais específico, como de ano para trimestre e, em seguida, para mês (descendo).
+
+O Drill Up faz o oposto, movendo-se de um nível mais específico para um mais geral. Usando as setas, é possível realizar essa navegação. A seta com o duplo garfinho permite saltar diretamente de uma hierarquia para outra; por exemplo, ao clicar nela, movemo-nos do trimestre para o mês.
+
+Substituindo por um gráfico de linhas
+Observe um ponto interessante: enquanto podemos acompanhar o gráfico de colunas, para séries temporais, ou seja, dados relacionados ao tempo, é mais adequado usar um gráfico de linhas.
+
+Com o gráfico selecionado, clicamos na parte superior onde está a opção de gráfico de linhas. Ao selecionar essa opção, o gráfico se transforma automaticamente em um gráfico de linhas, tornando a leitura mais clara e permitindo acompanhar facilmente as variações dos dados.
+
+Com a visualização no nível de mês, ao usar a setinha para realizar o Drill Up, é possível retornar ao nível de ano.
+
+Faltou falarmos de uma seta, que é justamente essa para baixo. Ou seja, conseguimos habilitar o Drill Down. Se deixarmos ela habilitada e clicarmos em algum dado no gráfico, ela vai descendo, então ela abrirá só 2021 para nós. Em outubro, vamos conseguir fazer a navegação por aqui. E aí voltamos.
+
+O Drill Up é interessante deixar habilitado se desejamos que a pessoa que vai consumir esses dados, ela mesma navegue e vá descendo as hierarquias. Deixamos a visualização no nível de mês para melhorar a análise e removemos o Drill Down.
+
+No gráfico de linha, temos o faturamento total por ano, trimestre e mês, com a linha azul indicando o faturamento ao longo do tempo desde janeiro de 2021 até julho de 2022. O eixo vertical esquerdo representa o faturamento em reais, partindo de R$ 0 mil até R$ 100 mil, e o eixo horizontal inferior representa o tempo em meses e anos. O gráfico exibe um aumento gradual no faturamento ao longo do período, com algumas variações.
+
+-----------------------------------
+
+Os rótulos de hierarquia no Power BI são uma poderosa ferramenta que permite organizar e apresentar dados de forma estruturada e hierárquica. Com eles, é possível criar visualizações mais intuitivas e explorar a relação entre diferentes níveis de informações.
+
+Vamos usar como referência a hierarquia no campo de data:
+
+Captura de tela da hierarquia de um campo de data, o campo Data de compra. De cima para baixo, abaixo do nome do campo, temos Ano, Trimestre, Mês e Dia.
+
+Seta apontada para cima (drill up): este botão aumenta um nível na hierarquia, mas para cima. Por exemplo, se estamos filtrando os dados por Mês e clicamos nele, os dados serão filtrados em Trimestre. Caso cliquemos de novo, serão filtrados por Ano, e assim por diante.
+Seta apontada para baixo (drill down): esse botão serve para detalhar os campos. Por exemplo, se filtramos os dados por Trimestre, e clicamos no mês de janeiro, que faz parte do primeiro trimestre, todos os meses pertencentes ao primeiro trimestre serão detalhados.
+Seta dupla apontada para baixo (próximo nível da hierarquia): essa opção faz o caminho inverso do Drill up, ou seja, quando clicamos nela os dados são filtrados pela hierarquia que vem abaixo. Por exemplo, se os dados estão filtrados por Mês e clicamos nessa seta, os dados passarão a ser filtrados por Dia.
+Seta dupla em formato de garfo (expandir todo o campo um nível na hierarquia): essa opção só funciona quando estamos na hierarquia do topo, no caso do nosso exemplo, a hierarquia Ano. Como a seta dupla apontada para baixo, a seta dupla em formato de garfo também aciona as hierarquias abaixo da selecionada. Mas, ao invés de descer um nível todo, ela expande o nível com o próximo abaixo, de modo a incluir a filtragem do nível atual e a filtragem do nível abaixo. Por exemplo, quando estamos em Ano e clicamos nessa seta, os dados serão filtrados por Ano e Trimestre. Se clicarmos outra vez, serão filtrados por Ano, Trimestre e Mês, e assim por diante.
+Agora que entendemos como essas filtragens funcionam, vamos mexer em um visual de exemplo, mais especificamente com um gráfico de área. Você também pode conferir os campos à direita, que estão no Eixo X e Eixo Y:
+
+Captura de tela do canva do Power BI, contendo fundo branco. Na esquerda e no centro, temos um visual de gráfico de área nomeado Faturamento total por Ano, Trimestre, Mês e Dia. Na direita, temos a aba de Visualizações. No topo da aba, temos o ícone do tipo de visual selecionado, destacado com um quadrado vermelho; mais abaixo, temos as áreas de Eixo X e Eixo Y, destacadas por um retângulo vermelho, com os campos selecionados, Data de compra e faturamento total respectivamente.
+
+A nossa ideia será filtrar os dados por Ano, Trimestre e Mês. Atualmente, ele também está filtrado por Dia, ou seja, o objetivo é remover o Dia da nossa filtragem.
+
+Primeiramente, vamos clicar apenas uma vez na seta apontada para cima (drill up). Como os dados estavam expandidos até o Dia, quando clicamos nessa seta, vamos subir um nível, ou seja, estamos retirando o Dia da nossa filtragem, deixando apenas do Mês para cima:
+
+Captura de tela do visual do gráfico de área Faturamento total por Ano, Trimestre, Mês e Dia, contendo fundo branco. No eixo vertical, temos o Faturamento total e, no horizontal, temos o Ano. No topo, mais à direita, temos os botões de filtragem de hierarquia, com o botão de Fazer drill up destacado com um retângulo vermelho.
+
+Captura de tela do visual do Gráfico de área Faturamento total por Ano, Trimestre e Mês. No eixo vertical, temos o Faturamento total e, no horizontal, temos o Ano.
+
+Você pode acompanhar a mudança na filtragem pelo título do visual. Antes tínhamos Faturamento Total por Ano, Trimestre, Mês e Dia. Após fazermos o Drill up, o título mudou para Faturamento Total por Ano, Trimestre e Mês, indicando que não estamos utilizando os dias para filtrar nossos dados.
+
+Em resumo, os rótulos de hierarquia no Power BI são uma excelente ferramenta para organizar e apresentar dados hierárquicos de forma clara e interativa. Eles permitem que você crie visualizações mais poderosas e flexíveis, oferecendo aos usuários a capacidade de explorar os dados em diferentes níveis de detalhe. Experimente utilizar os rótulos de hierarquia em seus relatórios e descubra como eles podem melhorar a compreensão e a análise dos seus dados.
+
+-------------------------------
+
+Explorando visuais externos
+Chegamos a uma parte interessante do projeto, onde buscaremos visuais externos. O Power BI oferece uma variedade de visuais internos, mas, ao focarmos na inserção, podemos acessar todos os visuais disponíveis, que estão agrupados por tipo: "Barra e Coluna", "Linha e Área", "Cachoeira, Funil, Dispersão", entre outros gráficos comuns.
+
+A Microsoft não se limitou a oferecer apenas os visuais internos. Ela permite que pessoas desenvolvedoras criar visuais personalizados, que podemos acessar no Power BI. Selecionamos a seta para expandir a seção "Novo Visual".
+
+Clicamos na opção "Obter Mais Visuais" para explorar essa funcionalidade. Também é possível importar visuais a partir de arquivos, mas, por ora, selecionamos "Obter Mais Visuais".
+
+Acessando a loja de visuais
+Ao clicar nessa opção, seremos direcionados para uma loja de visuais. É fundamental estarmos logados na conta do Power BI para acessar e baixar esses visuais. Há muitos visuais disponíveis, então é interessante explorar e testar diferentes opções. Apenas lembrando que nem todos são gratuitos; no entanto, os visuais que utilizaremos em nosso projeto são gratuitos.
+
+Como há muitos, existe uma barra de pesquisa no canto superior direito, onde é possível procurar diretamente pelo nome do visual desejado.
+
+Adicionando o visual Text Filter
+O primeiro que buscamos é o "Text Filter" (Filtro de Texto). Digitamos "Text", e ele já aparece na segunda opção.
+
+Clicamos no visual, que carrega os dados e oferece duas opções: "Baixar uma amostra" para testar, especialmente se for pago, ou "Adicionar" diretamente. No nosso projeto, clicamos em "Adicionar".
+
+Ao clicarmos, ele fará o download e aparecerá uma janela com a mensagem "Importação Bem-Sucedida". Clicamos em "Ok" na parte inferior direita, e um atalho é automaticamente criado na parte superior em “Novo Visual", indicando que vamos utilizar esse visual. Se ampliarmos a galeria de visuais, a lupa também aparece. No entanto, ainda vamos adicionar outro visual.
+
+Clicamos em "Obter Mais Visuais". Para mostrar todos os caminhos, há outra opção no lado direito da "Caixa de Texto", em "Mais Visuais". Temos a opção do "AppSource", onde buscamos os visuais, ou podemos importar "Dos meus arquivos". Selecionamos "AppSource", que abrirá novamente a mesma janela.
+
+Adicionando o visual Image Grid
+Agora, buscamos o segundo visual, o "Image Grid" (Grade de Imagens). Digitamos "Image", e ele aparece. Clicamos nele e seguimos o mesmo processo, clicando em "Adicionar". Ele trará o resultado para o Power BI e mostrará a mensagem "Importação Bem-Sucedida".
+
+Agora, temos os dois visuais disponíveis para trabalharmos. Primeiro, clicamos no "Image Grid". Ele funciona como qualquer outro visual nativo do Power BI. Para usá-lo, garantimos que nada esteja selecionado, clicando na área em branco, e em seguida, clicamos no "Image Grid".
+
+Ao inserir o Image Grid e selecioná-lo, será exibida uma janela intitulada "Sugerir um Visual" com os campos: "Sugestões", um botão slide "Organizar os dados para mim", "image URL (lower quality)", "image URL (higher quality)" e "Value".
+
+Agora, temos duas opções para adicionar: image URL (lower quality) e image URL (higher quality). Dependendo do tamanho do projeto e das imagens, a qualidade alta ou baixa pode não fazer muita diferença, e a opção de menor qualidade deixa o arquivo mais leve. Por isso, escolhemos image URL (lower quality) e clicamos em "Adicionar dados".
+
+Na tabela de Produtos, selecionamos a coluna com a URL da imagem ("Url img"). Isso faz com que os produtos com as imagens sejam exibidos automaticamente.
+
+Conjunto de ícones coloridos relacionados a pets, incluindo um cachorro, brinquedos como bolas e um osso, itens como uma coleira e uma tigela de comida, um saco de ração e embalagens de petiscos para cães.
+Em seguida, trazemos o "Text filter". Clicamos fora para desmarcar tudo e selecionamos o text filter (ícone de lupa na parte superior), que possui apenas um campo.
+
+Ao inserir o Text filter e selecioná-lo, será exibida uma janela intitulada "Sugerir um Visual" com os campos: "Sugestões", um botão slide "Organizar os dados para mim" e "Field".
+
+Desejamos segmentar pelo nome do produto, então abrimos a tabela de Produtos, selecionamos a coluna "Nome do produto" e adicionamos.
+
+Já temos uma barra de busca onde podemos digitar. Se digitarmos "ração" e pressionarmos "Enter", ele mostrará apenas os produtos que contêm "ração" no nome.
+
+Ilustração de pacotes de ração, com desenhos animados de cachorros e gatos, em um layout de busca de produto nomeado "Nome do produto.
+
+Podemos clicar em cada produto, e ele filtra automaticamente os outros visuais.
+
+Agora, vamos criar mais duas segmentações usando o visual nativo do Power BI. Esse visual é muito utilizado e exibe um atalho na parte superior. Também é possível acessar "Segmentações de dados" e clicar na segunda opção com o mesmo nome. Para segmentar pela marca do produto, clicamos em "Adicionar dados", selecionamos Produtos e, em seguida, o campo "Marca".
+
+Marca
+[caixas de seleção] Cachorrito
+[caixas de seleção] Gatito
+Dessa forma, os dados são exibidos.
+
+Temos as marcas "Cachorrito" e "Gatito". A segmentação funciona corretamente: ao clicar em "Cachorrito", ele filtra os dados para essa marca em "Nome do produto", e ao clicar em gatito, ele faz o mesmo para essa marca.
+
+Agora, vamos adicionar a última segmentação.
+
+Clicamos fora dos visuais e criamos mais uma segmentação de dados, agora por data. Adicionamos os dados e selecionamos a "Data de compra" em Vendas. Isso exibe um novo formato de segmentação, um slicer. Clicamos no slicer, e ele segmenta os dados das datas.
+
+--------------------------------
+
+O Marketplace de Visuais do Power BI é uma plataforma abrangente que oferece aos usuários uma ampla seleção de visuais para enriquecer a experiência de visualização e análise de dados. Com uma variedade impressionante de opções disponíveis, o Marketplace de Visuais permite personalizar e aprimorar os relatórios e painéis do Power BI.
+
+Captura de tela da janela de Visuais do Power BI, com fundo cinza claro. No topo, temos uma descrição dos visuais do Power BI e, logo abaixo, temos diversos ícones de visuais para serem adicionados.
+
+Os visuais também podem ser acessados pelo site AppSource, da Microsoft.
+
+Captura da tela inicial do AppSource, com fundo branco. No topo, ao centro, temos uma barra de pesquis e, abaixo, temos a barra de navegação do site. Na lateral esquerda, em fundo cinza, temos uma janela de filtros a serem aplicados e, ao centro, temos diversos ícones de visuais para serem adicionados.
+
+O Marketplace de Visuais oferece visuais certificados, desenvolvidos e verificados pela Microsoft. Esses visuais certificados passam por um rigoroso processo de revisão e teste para garantir sua qualidade, segurança e compatibilidade com o Power BI. Os visuais certificados proporcionam aos usuários confiança na sua utilização, pois são criados por desenvolvedores experientes e oferecem um alto nível de suporte e manutenção.
+
+Além dos visuais certificados, o Marketplace também apresenta visuais não certificados pela Microsoft. Esses visuais são desenvolvidos por terceiros e disponibilizados para uso no Power BI. Embora não sejam certificados pela Microsoft, eles podem ser utilizados no Power BI, desde que a opção correspondente seja habilitada no portal de administração. Essa opção permite aos usuários aproveitar visuais adicionais, explorando uma variedade ainda maior de recursos visuais para atender às suas necessidades específicas.
+
+No Marketplace de Visuais, os usuários encontrarão opções que vão desde gráficos de barras, gráficos de pizza, gráficos de linhas, mapas interativos, medidores, tabelas avançadas e muitos outros tipos de visuais. Essa diversidade permite aos usuários criar painéis e relatórios visualmente atraentes e informativos, personalizados de acordo com seus requisitos e preferências.
+
+Portanto, o Marketplace de Visuais do Power BI oferece aos usuários um leque amplo de opções, desde visuais certificados pela Microsoft até visuais não certificados, expandindo as possibilidades de visualização e análise de dados no Power BI. Ao explorar essas opções, os usuários podem elevar seus relatórios e painéis a um nível superior, fornecendo insights valiosos e impactantes.
+
+Para visualizar a métrica de Faturamento total por Gênero, criamos um gráfico de pizza:
+
+Captura de tela do canvas do Power BI, contendo fundo branco. Na esquerda, temos um visual de gráfico de pizza identificado como “Faturamento total por Gênero”, destacado com um retângulo vermelho. Na direita, temos a aba de Visualizações e a aba de Dados. No topo da aba de Visualizações, temos o ícone do tipo de visual selecionado, destacado com um retângulo vermelho; mais abaixo, temos as áreas de Legenda e Valores  destacadas com um retângulo vermelho, com os campos “Gênero” e “Faturamento total” selecionados. Na aba de Dados, temos as tabelas, com as tabelas de Clientes e Vendas e seus respectivos campos Gênero e Faturamento total destacados com um retângulo vermelho.
+
+Para a métrica de Faturamento total por Bairro, usamos o gráfico de barras clusterizado:
+
+Captura de tela do canvas do Power BI, contendo fundo branco. Na esquerda, temos um visual de gráfico de barras clusterizado identificado como “Faturamento total por Bairro”, destacado com um retângulo vermelho. Na direita, temos a aba de Visualizações e a aba de Dados. No topo da aba de Visualizações, temos o ícone do tipo de visual selecionado, destacado com um retângulo vermelho; mais abaixo, temos as áreas de Eixo Y e Eixo X destacadas com um retângulo vermelho, com os campos “Bairro” e “Faturamento total” selecionados. Na aba de Dados, temos as tabelas, com as tabelas de Clientes e Vendas e seus respectivos campos Bairro e Faturamento total destacados com um retângulo vermelho.
+
+Para visualizarmos as imagens contidas nas URL’s dos produtos, fizemos uso do image grid :
+
+Captura de tela do canvas do Power BI, contendo fundo branco. Na esquerda, temos um visual de image grid, destacado com um retângulo vermelho. Na direita, temos a aba de Visualizações e a aba de Dados. No topo da aba de Visualizações, temos o ícone do tipo de visual selecionado, destacado com um retângulo vermelho; mais abaixo, temos a área de Image URL (lower quality) destacada com um retângulo vermelho, com o campo “Url img” selecionado. Na aba de Dados, temos as tabelas, com a tabela de Produtos e seu campo Url img destacados com um retângulo vermelho.
+
+Para habilitarmos a pesquisa por nome do produto, usamos o text filter:
+
+Captura de tela do canvas do Power BI, contendo fundo branco. Na esquerda, temos um visual de text filter identificado como “Nome produto”, destacado com um retângulo vermelho. Na direita, temos a aba de Visualizações e a aba de Dados. No topo da aba de Visualizações, temos o ícone do tipo de visual selecionado, destacado com um retângulo vermelho; mais abaixo, temos a área de Field destacada com um retângulo vermelho, com o campo “Nome produto” selecionado. Na aba de Dados, temos as tabelas, com a tabela de Produtos e seu campo Nome produto destacados com um retângulo vermelho.
+
+Por fim, para visualizarmos a métrica de Faturamento em relação ao tempo, utilizamos o gráfico de área:
+
+Captura de tela do canvas do Power BI, contendo fundo branco. No canto inferior esquerdo, temos um visual de gráfico de área identificado como “Faturamento em relação ao tempo”, destacado com um retângulo vermelho. Na direita, temos a aba de Visualizações e a aba de Dados. No topo da aba de Visualizações, temos o ícone do tipo de visual selecionado, destacado com um retângulo vermelho; mais abaixo, temos as áreas de Eixo X e Eixo Y destacadas com um retângulo vermelho, com os campos selecionados. Na aba de Dados, temos as tabelas, com a tabela de Vendas e seus campos Data de compra e Faturamento total destacados com um retângulo vermelho.
+
+Com isso, chegou o momento de aplicar os conhecimentos adquiridos em nossa aula sobre criação de visuais no Power BI. Nessa etapa, vamos explorar a arte de transformar dados em informações visuais impactantes e significativas. Aqui, o desafio é evidenciar o Faturamento Total por Produto através de uma visualização impactante. Utilizando as habilidades de design e escolhendo a melhor representação gráfica, queremos destacar claramente a contribuição de cada produto para o faturamento geral. Na seção Opinião da pessoa instrutora você vai encontrar uma possível solução para esse desafio.
+
+-----------------------------------
+
+RESUMO
+
+Trabalhar com o gráfico de pizza;
+Utilizar o gráfico de barras para comparar categorias;
+Desenvolver análises de séries temporais;
+Importar visuais externos.
+
+====================================================
+
+ESTILIZAÇÃO DE RELATÓRIO
+
+Agora, vamos trabalhar com a estilização do nosso dashboard, pois não faz sentido entregá-lo dessa maneira. Temos aqui dois caminhos disponíveis: O primeiro é trabalhar direta e exclusivamente com o Power BI, que está cada vez mais poderoso para trabalhar com a parte de visualização dentro da própria ferramenta.
+
+No entanto, é muito comum as pessoas que trabalham com Business Intelligence utilizarem outra ferramenta para construir o layout e importar para dentro do Power BI. Temos algumas ferramentas muito famosas, como, por exemplo, o próprio PowerPoint, ou até mesmo o Figma, que é muito utilizado para construir o layout.
+
+Vamos deixar uma atividade para você, logo depois desse vídeo, para conhecer um pouco dessas outras ferramentas, onde construímos comumente esses layouts.
+
+Também vamos deixar na própria documentação da Microsoft, do Power BI, modelos de dashboard, para você se inspirar, ver formatações e, quem sabe, se inspirar para fazer o seu também.
+
+No nosso projeto, temos um designer que fez o nosso layout, e vamos importá-lo e trabalhar com a estilização dentro dele. Para isso, vamos clicar fora de qualquer visual, na parte em branco mesmo do nosso canvas, e no próprio fundo, podemos habilitar uma opção à direita, que é a parte de "Formato", representada por um ícone de um gráfico de barras verticais atrás de um pincel. É onde já estamos trabalhando com a formatação dos visuais, mas vamos trabalhar com a formatação do próprio plano de fundo.
+
+Inserindo uma imagem no plano de fundo
+Podemos clicar nele. Com a parte do canvas selecionada, ele nos dá algumas opções de configuração. Queremos trabalhar é a "Tela de fundo". Então, vamos clicar em "Tela de fundo", na aba "Formato".
+
+Poderíamos mudar a cor, por exemplo, mas vamos buscar uma imagem. Lembra aquela imagem que mencionamos que era JPG? É ela que vamos utilizar agora.
+
+Vamos clicar no campo "Imagem" e selecionar o arquivo Gatito.jpg. Vamos selecionar e clicar em abrir. Não aconteceu nada. Será que teve algum erro? Não. Na verdade, o que está acontecendo é que a transparência está em 100%.
+
+Então, podemos baixar a nossa transparência para zero. E aí sim, ele vai aparecer. Apareceu algo no fundo, tem os visuais na frente, mas já dá para perceber que a qualidade que esse layout foi feito é grande. Então, a imagem está grande.
+
+Mas podemos vir aqui em "Ajuste da Imagem", que está na opção "Normal", e pedir para ajustar. Então, quando clicamos em "Ajuste", ele vai se ajustar ao tamanho da nossa tela.
+
+Vamos até movimentar um pouco aqui os cartões, então, vamos clicar em cima e arrastar para baixo. Percebemos que temos aqui uns quadrados específicos para encaixar os nossos visuais em cima dele. E é isso que vamos fazer.
+
+Vamos começar com os cartões. O primeiro cartão que vamos colocar é o do faturamento total. Então, vamos arrastá-lo aqui para cima do nosso retângulo e vamos meio que encaixar.
+
+Percebemos que não está cabendo, mas não tem problema, vamos fazer os ajustes. Então, com ele selecionado, vamos na aba de formato, se não estiver aberto aí no seu, é só clicar no ícone do pincel na lateral direita, e vamos começar a trabalhar com o fundo.
+
+Vamos clicar em "Tamanho e estilo" na aba "Formato", e aqui tem a tela de fundo que está ativa. Vamos tirar essa tela de fundo clicando no botão Toggle (deslizante) ao lado do título "Tela de Fundo".
+
+Então, ele vai ficar encaixado no nosso visual. O texto ainda está muito grande. Então, vamos minimizar o "Tamanho e Estilo" e expandir "Valor do Balão". Logo abaixo do título "Fonte", na caixa de texto que está com o número "45", vamos mudar para "30". Agora sim ele se encaixou onde queríamos.
+
+Aumentando o contraste entre texto e fundo
+Uma coisa também que podemos melhorar é o contraste. Temos um fundo meio escuro e o texto também está meio escuro. Então, vamos criar um contraste maior.
+
+Ainda em "Valor do Balão", vamos abrir a lista suspensa abaixo do título "Cor" e vamos selecionar o branco. Já melhorou o contraste. Porém, logo abaixo do número principal do cartão, temos um outro texto ainda de outra cor.
+
+Esse trecho poderá ser editado abrindo o "Rótulo da categoria", abaixo de "Valor do Balão". Também abaixo do título "Cor", vamos selecionar o branco na lista suspensa. Já ficou bem diferente visualmente.
+
+Vamos buscar agora o segundo cartão, que é a média de pets, e vamos fazer o mesmo processo: Vamos encaixá-lo nesse segundo elemento do nosso layout.
+
+Usando o pincel de formatação
+Vamos usar um recurso que a Microsoft já usa há um bom tempo, que é o pincel de formatação. Então, vamos deixar selecionado o nosso primeiro cartão, que já está formatado. No menu superiro, vamos selecionar a opção "Pincel de formatação".
+
+Após clicar no pincel de formatação, vamos clicar onde queremos que a formatação seja copiada, que é o segundo cartão. Com isso, o segundo cartão ficou exatamente com as mesmas configurações visuais que o primeiro. Olha o tempo que ganhamos utilizando o pincel de formatação. Já está formatado do jeito que queremos.
+
+Vamos fazer a mesma coisa com o terceiro cartão, "Soma de quantidade". Vamos encaixá-lo no lugar. Vamos clicar, por exemplo, no cartão do lado, no "Pincel de formatação", clicamos no cartão ainda não formatado e ele já fica no formato que queremos.
+
+Tem uma última coisa que está chamando a atenção, que é o rótulo da categoria: temos "Faturamento total", "média de pets" e "Soma de quantidade". Quantidade do quê? Será que conseguimos mudar esse título? E sim, conseguimos. E tem um macete que vamos mostrar.
+
+Alterando o rótulo da categoria
+Quando selecionamos o cartão, dois ícones aparecem no canto superior direito dele. Podemos clicar no primeiro deles, que tem o ícone de um gráfico de barras.
+
+Isso abrirá uma pequena janela intitulada "Sugerir um visual". Na parte debaixo dessa janela, temos uma caixa de texto com o título do rótulo (Soma de quantidade).
+
+Se dermos um duplo clique com o botão esquerdo do mouse sobre ela, poderemos editar o rótulo. Escreveremos "Qtde. de vendas" e pressionaremos "Enter". Outra forma de fazer a mesma alteração seria clicar no mesmo ícone na lateral direita da interface, no botão "Compilar".
+
+O visual já começou a ter uma aparência bem diferente. Os nossos cartões já estão formatados. E agora o nosso próximo passo é estilizar as segmentações. Mas vamos fazer isso daqui a pouco no próximo vídeo.
+
+-------------------------
+
+Agora, vamos trabalhar com a estilização das segmentações. A primeira segmentação que vamos trabalhar é a data de compra. Então, vamos arrastá-la para o topo da visualização e deixá-la na lateral superior direita.
+
+O primeiro passo é remover o fundo, pois está branco e não combina com o restante. Para isso, vamos em "Tamanho e Estilo", com a guia "Formato" já selecionada, e removemos a "Tela de fundo".
+
+Como não estamos enxergando quase nada, precisamos trabalhar no contraste. No cabeçalho da segmentação, vamos deixar a cor branca, melhorando bastante a visualização. Nos valores, também vamos deixar na cor branca.
+
+Nosso botão deslizante está funcionando, estamos conseguindo visualizar. Vamos ajustar um pouco o controle deslizante, trazendo um tom de roxo um pouco mais claro. Assim, ficará mais harmonioso com o nosso relatório. Usamos o roxo mais claro da paleta de cores.
+
+Agora, vamos mudar um pouco o estilo da segmentação de marca. Com ela selecionada, vamos abrir as "Configurações da segmentação" na aba "Formato". Lá, encontraremos um campo chamado "Estilo".
+
+Ela está como uma lista vertical. Poderíamos selecionar "Bloco", que é bastante utilizado em vários relatórios, mas para o nosso não será o mais adequado. Em vez disso, vamos trazê-lo como "Suspenso", otimizando o tamanho do nosso relatório.
+
+Quando clicamos, ele abre as opções para nós e faz a segmentação. Repare que quando clicamos nos nossos visuais, aparece uma linha tracejada em vermelho. Ela nos ajuda a deixar alinhados os nossos visuais.
+
+Com a nossa segmentação selecionada, vamos em "Tamanho e Estilo" e removemos a "Tela de fundo". No cabeçalho da segmentação, vamos deixar branco também, para dar o contraste.
+
+Os valores, vamos deixar em branco apenas para fazer um teste. Mas, quando abrimos, não aparece nada, pois branco com branco não dá contraste.
+
+Na realidade, ao invés de deixar branco, vamos deixar em "Branco 30% mais escuro". Está dando contraste, estamos conseguindo enxergar. E quando abrimos, também enxergamos, conseguindo fazer os nossos filtros.
+
+A parte superior do nosso dashboard já está construída. Agora, vamos continuar fazendo a estilização do nosso gráfico de pizza no próximo vídeo.
+
+------------------------------------
+
+Quando você elaborar seu dashboard, considere que irá apresentar para a pessoa que demandou essa tarefa. Assim, você terá mais facilidade em definir como quer que seu dashboard transmita as informações solicitadas.
+
+Preste atenção nas perguntas que você precisa responder no dashboard e priorize seus achados no momento em que for apresentar seu trabalho. A narrativa que você irá construir sobre seu dashboard pode facilitar a compreensão das pessoas e engajar as partes interessadas nas suas análises.
+
+Para estruturar uma apresentação de impacto, tente responder algumas perguntas sobre seu dashboard:
+
+O que a pessoa que vai consumir os dados desse dashboard precisa saber?
+O que você gostaria que as pessoas lembrassem ao final da sua apresentação?
+A linguagem utilizada é simples e apropriada para o público alvo?
+Ao refletir sobre essas questões você pode resumir em uma frase o que você quer expor no começo, no meio e no fim da sua apresentação. Desse modo, você terá um caminho mapeado mais tranquilo de percorrer no momento em que for preparar a história que vai contar sobre seu dashboard.
+
+Quando falamos sobre o impacto de uma apresentação, estamos falando de quão útil, agradável e construtiva ela foi para a audiência. Então não se esqueça de:
+
+Usar a sua criatividade no começo da apresentação para despertar o interesse do seu público alvo;
+Durante a apresentação, mostrar gradualmente pontos fortes e pontos de melhoria realizados no dashboard para atender o público alvo;
+Finalizar a apresentação reforçando a mensagem que você gostaria que as pessoas lembrem sobre a sua exposição.
+Em suma, para obter o resultado desejado com uma apresentação de impacto reflita sobre como facilitar a compreensão de todas as pessoas que estão entrando em contato com o seu dashboard e garanta que seu dashboard apresente as respostas para as perguntas dessas pessoas.
+
+--------------------------------------
+
+Agora, vamos trabalhar na estilização do gráfico de pizza. Vamos ajustar um pouco nossos gráficos para ficarem no espaço que designamos para eles.
+
+Como já temos esse fundo roxo, vamos remover o fundo do nosso visual, como temos feito. Com ele selecionado, vamos clicar em "Tamanho e Estilo" e remover a "Tela de fundo".
+
+O primeiro passo que vamos trabalhar é com o título. O Power BI, na sua atualização mais recente, permite que, com um duplo clique no nosso visual selecionado, possamos editar diretamente.
+
+Então, com ele já selecionado, vamos dar um duplo clique. Inclusive, as nossas bolinhas que ficam nas laterais da visualização sumiram e foram substituídas por pequenos quadrados. Isso significa que ele está disponível para edição.
+
+Se clicarmos diretamente no título, no formato ele já nos leva diretamente para onde queremos. Podemos mudar diretamente no título da visualização ou pelo menu lateral da interface.
+
+O título está Faturamento Total por Gênero. Vamos mantê-lo, só que vamos mexer um pouco no contraste. Vamos deixá-lo na cor branca. No menu lateral "Formato", temos o "Alinhamento horizontal". Vamos clicar em "Centralizar".
+
+Editando a legenda do gráfico
+Depois, temos a legenda à direita do gráfico de pizza. Vamos selecionar novamente. E na legenda, temos a opção de mudar a posição dela. Está centralizada à direita. Temos várias opções, vamos pedir para ela ficar na parte "Superior central". Mas está um pouco difícil de enxergar ainda. Vamos mudar a cor do texto. Vamos trazer o texto em branco.
+
+O título do gráfico já está falando que é faturamento por gênero. Então, na legenda, vamos remover a palavra "Gênero", porque é uma informação que está duplicada. Vamos remover esse título clicando no botão deslizante para retirar a seleção dele, na janela "Título" da aba "Formato".
+
+Agora, vamos trabalhar com as fatias. Temos a nossa fatia em azul escuro, representando o gênero masculino. Vamos trazer um roxo mais escuro. Pode ser esse primeiro roxo de cima para baixo na paleta de cores, que é o mais forte que temos aqui em cima das cores do tema.
+
+No lugar do azul mais claro, que representa o gênero feminino no gráfico, vamos trabalhar com um código hexadecimal. Para isso, vamos clicar sobre a caixa de seleção na cor azul, selecionar o botão "Mais cores" e inserir o código #FADE50.
+
+Cada cor tem o seu código hexadecimal. E se colocarmos o mesmo código aqui e você em casa, teremos exatamente a mesma tonalidade. Ficou um tom em amarelo. Então, já podemos fechar a janela de cor clicando em qualquer parte da interface fora dela.
+
+Agora, os nossos dados também estão difíceis de enxergar. Então, vamos expandir "Rótulos de Detalhe". Primeiro, vamos trabalhar com a cor, vamos deixar em branco, porque aí fica mais legível. E depois, temos a "Posição". Pode ser a posição externa, pode ser a posição interna, pode ser preferir fora. Vamos deixar como "Externa" porque nos atende.
+
+E temos também o conteúdo do rótulo. Então, se clicarmos aqui, podemos trazer só a categoria, o valor dos dados, mas queremos testar só o percentual do total. Achamos que isso aqui vai funcionar para nós.
+
+Podemos editar também o "Conteúdo do rótulo". Se clicarmos no menu suspenso, podemos exibir só a categoria, o valor dos dados, mas queremos deixar só o "Percentual do Total". Temos uma porcentagem muito pequena em branco e não queremos trabalhar com ela.
+
+Trabalhando com filtros
+Então, agora vamos aproveitar e trabalhar com um novo conceito, que é o conceito de filtro. Temos até a nossa aba de filtros na lateral direita da interface. Para ela aparecer, é preciso que os "Filtros" estejam habilitados na "Guia de exibição".
+
+Vamos voltar para a página inicial, abrir a parte de filtros e aqui conseguimos fazer algumas filtragens dos nossos gráficos. Temos a parte do faturamento, se a ampliarmos, podemos trabalhar como é um valor numérico, podemos trabalhar com comparação, ou seja, é menor que, é maior que, podemos criar aqui alguns filtros, se quisermos.
+
+E na parte do gênero, ele nos traz aqui tudo o que podemos filtrar. Então, se clicarmos em "Selecionar tudo" e desmarcar a caixa ao lado de "Em branco", removemos essa informação e ele é rebatido até na porcentagem. Então, se deixamos o Em branco, ele volta, se tiramos, ele some.
+
+Editando o gráfico de barras
+Vamos trabalhar com o nosso gráfico de barras. Não trabalhamos com o pincel de formatação do cartão para o gráfico de pizza, por exemplo, porque não tem muito sentido. Por exemplo, o cartão tem as fatias para trabalhar com as cores. Agora, o gráfico de pizza já pode ter mais coisas em comum com o gráfico de barras.
+
+Vamos ver se conseguimos aproveitar, pelo menos, algumas coisas com o "Pincel de formatação". Então, vamos deixar o gráfico de pizza selecionado, clicar em "Pincel de Formatação" e clicar no nosso visual de gráfico de barras. Algumas coisas ele aproveitou, outras não. Então, vamos mexer manualmente.
+
+A primeira coisa que vamos mexer é o título do nosso eixo Y, não vamos precisar, porque já temos aqui no título do gráfico o Faturamento Total por Bairro e o bairro está repetido.
+
+Então, o que vamos fazer? Vamos vir expandir "Eixo Y" em "Formato" e aí vamos tirar o título. A cor do nosso eixo Y também vamos deixar em branco para ver o mesmo contraste que temos dado.
+
+No nosso "Eixo X", vamos tirar o título e os valores também. Por que vamos tirar esses valores? Porque vamos trazer agora o rótulo de dados.
+
+Então, vamos habilitar o rótulo de dados. Ele trouxe para nós os valores diretamente nas barras. Então, não tem que ficar procurando no eixo X e cruzando as informações. Ele já aparece diretamente nas barras.
+
+Por falar em barras, vamos deixá-las na mesma cor do nosso gráfico de pizza. Vamos expandir a guia "Barras", mexer na cor e como já trabalhamos com hexadecimal, ele grava nas cores recentes. Então, vamos simplesmente selecionar a cor amarela usada no outro gráfico.
+
+E aqui também precisamos retirar o "em branco". Então, vamos abrir o filtro. Em "Bairro", vamos ampliar, pedir para selecionar tudo e tirar o "Em branco". Pronto, agora aqui já temos os nossos dados funcionando da forma que queremos.
+
+No próximo vídeo, vamos trabalhar com a estilização do nosso gráfico de linhas e o restante do nosso dashboard para entregar o resultado final para a Helo.
+
+-------------------------------------
+
+Vamos trabalhar na estilização do nosso gráfico de linhas. Vamos ajustá-lo na parte inferior e alterar o tamanho. E, claro, vamos remover o fundo. Com o gráfico selecionado, clicamos em "Tamanho e estilo" e removemos o fundo. Agora, vamos começar a trabalhar na estilização.
+
+Primeiro, vamos alterar o título. Atualmente, está como "Faturamento total por ano, trimestre, mês", mas não está tão interessante. Vamos abrir a parte do título e, no texto, vamos alterar para "Faturamento pela data". Assim, quando fazemos a nossa hierarquia, o título faz mais sentido. Vamos deixar o título na cor branca e centralizado.
+
+Agora, vamos remover o título do eixo Y. Além disso, vamos remover os valores, pois vamos trabalhar com rótulos de dados. Na nossa opção, um pouco mais abaixo, temos os "Rótulos de dados" já selecionados. Vamos trabalhar um pouco com o contraste, então vamos alterar o valor dos nossos rótulos para branco.
+
+Além do gráfico de linhas, temos a opção do gráfico de área, que é um gráfico de linhas com a parte inferior sombreada. No menu superior, ele aparece ao lado do gráfico de linhas. Com o gráfico selecionado, vamos clicar no ícone do gráfico de área. Ele apenas adicionou o sombreamento, pois são gráficos semelhantes, então não tivemos nenhuma perda.
+
+Voltando ao nosso eixo X, percebemos que o contraste não está muito bom. Vamos remover o título do nosso eixo X e também vamos deixar os valores em branco.
+
+Temos uma "Linha de Grade" vertical marcada, mas vamos removê-la, pois não é necessária. Nos nossos rótulos de dados, podemos adicionar uma opção de "Tela de fundo". Vamos adicionar esse fundo e brincar um pouco com a transparência. Está em 90%, mas podemos reduzir para 80%, por exemplo.
+
+Atualmente, a cor da linha é azul. Se voltarmos à parte de "Linhas", podemos mudar essa cor para o mesmo tom de amarelo que temos usado. Ele já adicionou uma cor sombreada que combina e ficou bastante interessante para o nosso gráfico.
+
+Para finalizar, vamos estilizar a nossa parte do image grid. Vamos reposicioná-lo e, em "Tamanho e Estilo", vamos remover o fundo. Vamos remover o título "URL image", pois não é necessário.
+
+Por último, vamos reposicionar o nosso text filter. Vamos remover o fundo dele em "Tamanho e Estilo". Vamos selecionar o image grid e reposicioná-lo um pouco mais abaixo. E o text filter um pouco para o lado. Temos o nome do produto. Vamos deixar esse título com o contraste também em branco.
+
+Interface gráfica de um painel de controle administrativo de uma pet shop chamada "Gatito", com informações visuais de vendas e estatísticas. No canto superior esquerdo, há um gráfico de pizza mostrando o faturamento total por gênero, separados por cores (amarelo para feminino e roxo para masculino). Abaixo, um gráfico de linhas exibe o faturamento pela data em diferentes meses e anos. À direita, uma barra de título roxa com a data de compra e opções de marca para filtragem. Abaixo, gráficos de barras horizontais indicam o faturamento total por bairro, com os valores em reais. No lado direito da imagem, há diversas ilustrações coloridas de elementos associados a pet shops, como brinquedos para animais, casinhas, ossos e comedouros. No canto superior direito, um espaço para pesquisar nomes de produtos com uma lupa, indicando uma função de busca. O fundo da imagem é predominantemente roxo e as informações estão destacadas com cores contrastantes como amarelo.
+
+E pronto. Vejam o resultado final do nosso dashboard (painel de controle). Vejam como a Hellô vai receber esses dados. e conseguir realmente consumir as informações.
+
+Agora, falta disponibilizarmos o nosso relatório no Power BI Serviço. Porque aí sim conseguiremos compartilhar com a Helô da melhor forma possível. Então, em breve, o nosso próximo passo do projeto é aprender como fazer a publicação web do nosso relatório.
+
+--------------------------
+
+Durante esta aula, realizamos a estilização de todos os visuais. Dentre eles, estilizamos os visuais de cartão, de segmentação de dados, gráfico de pizza, gráfico de barras clusterizado, image grid, text filter e gráfico de área.
+
+Abaixo, podemos verificar o dashboard após as estilizações aplicadas:
+
+Captura de tela do dashboard da Gatito Petshop. No topo, à esquerda, temos a logo da loja, com letras brancas e contorno roxo; ao centro, temos três visuais de cartão: um com indicação com indicação “Faturamento total”, outro com “Média de Pets” e o último com “Qtde. produtos vendidos”; à direita, temos dois visuais de segmentação, um identificado como “Data de compra” e o outro como “Marca”. Na restante da tela, temos quatro visuais; na esquerda, temos um gráfico de pizza, identificado como “Faturamento total por Gênero”; ao centro, temos, temos um visual de gráfico de barras clusterizado identificado como “Faturamento total por Bairro”; abaixo desses dois visuais, temos um visual de gráfico de área identificado como “Faturamento em relação ao tempo”; na direita, temos um visual de text filter identificado como “Nome produto” e, logo abaixo, temos um visual de image grid identificado como “Url img”. Todos os visuais, incluindo o fundo da tela, estão na cor roxa.
+
+Assim, trabalhamos na estilização de cada um dos visuais e no dashboard como um todo através do tema da Gatito Petshop. Com isso, finalizamos a quarta aula.
+
+Aplique sua criatividade e habilidades de estilização no Power BI para criar um tema personalizado que reflita a identidade da empresa ou projeto. Escolha cores, fontes e elementos visuais que proporcionem uma experiência única e coerente. Evidencie o potencial do seu dashboard com uma estilização profissional e impactante. Divirta-se e surpreenda-nos com seu resultado!
+
+RESUMO
+
+Estilizar e personalizar os visuais para deixar um dashboard atraente;
+Importar layouts de imagem para o fundo do canvas no Power BI e ajustar a transparência;
+Utilizar o pincel de formatação do Power BI para copiar formatação entre visuais e economizar tempo;
+Configurar os gráficos e ajustar suas cores;
+A remover dados irrelevantes utilizando filtros.
+
+=========================================================
+
+POWER BI SERVICE
+
+Layout móvel
+O Power BI possui um aplicativo que pode ser baixado na loja do Android ou da Apple. Com ele instalado, conseguimos ter a mesma visualização do relatório no celular. No entanto, podemos otimizar esse relatório para o próprio celular.
+
+Criando o layout móvel
+Existem dois caminhos possíveis para começar a trabalhar com essa estilização. No canto inferior esquerdo, temos um ícone que representa um celular. Ao clicar nele, vamos direto para o layout móvel. Na parte superior, na guia "Exibição", também temos a opção "Layout móvel".
+
+Ao clicar nessa opção, o Power BI nos apresenta um formato de celular e conseguimos criar esse layout móvel automaticamente (botão "Criar layout móvel automaticamente").
+
+Personalizando o papel de parede
+Clicando nesse botão, o Power BI traz todos os visuais da forma que identifica como melhor. Porém, ainda não conseguimos visualizar muita coisa, pois o fundo está branco e estilizamos os visuais para um fundo escuro, com o nosso próprio layout de dashboard.
+
+Para contornar isso, com o layout selecionado, vamos até a aba "Formato" na lateral direita, onde temos as seções "Tela de fundo" e "Papel de parede".
+
+Em "Papel de parede", podemos colocar, por exemplo, um tom de roxo claro (#c7b8e7) em "Cor", e a "Transparência (%)" deve ser garantida em 0%.
+
+No relatório, isso não muda nada, mas no celular, isto é, no layout móvel, percebemos que a cor mudou ao redor do dispositivo, tornando mais agradável para trabalhar.
+
+Personalizando a tela de fundo
+Já para configurar o fundo, vamos até à seção "Tela de fundo". Agora, podemos definir a cor como um roxo 60% mais claro (#c499ca), e manter a transparência em 0% assim como antes.
+
+No entanto, ao voltar para o layout móvel, o fundo configurado não aparece. Há pouco tempo, isso resolvia o problema: ao definir a tela de fundo no relatório principal, ele trazia para o layout móvel.
+
+Após uma atualização, isso deixou de funcionar. Talvez, no momento em que você assistir ao vídeo, o passo de colocar a tela de fundo no relatório funcione, mas no momento da gravação, não.
+
+Para contornar isso, vamos trazer uma forma para o layout da área de trabalho. Na guia "Inserir", na parte superior, temos a opção "Formas" à direita. Podemos trazer um retângulo, por exemplo. Por padrão, a forma vem na cor azul, mas podemos usar qualquer tamanho para a forma.
+
+Nesse caso, iremos mudar um pouco a cor. Em "Formato > Estilo de forma", na seção "Preencher", vamos mudar a cor para o tom de roxo usado anteriormente (#c499ca). Porém, a transparência deve ser de 100%, ou seja, totalmente transparente. Por fim, é importante remover a borda.
+
+Agora, não conseguimos enxergar o retângulo criado. Feito isso, quando voltamos para o layout móvel, a forma criada aparece na aba "Elementos visuais da página" à direita.
+
+Todos os visuais estão na tela do dispositivo no momento. Ao clicar no ícone de borracha no canto superior direito da aba de elementos visuais, todos esses visuais são removidos.
+
+Agora, além dos visuais adicionados anteriormente, temos a forma retangular que acabamos de criar na aba "Elementos visuais da página". Podemos arrastar essa forma até o celular. Por enquanto, ela está transparente, mas conseguimos mudar esse visual somente para o layout móvel.
+
+Com a forma selecionada, vamos expandir a seção "Estilo de forma > Preencher" na aba "Visualizações", e alterar a transparência para 0%, de modo a remover toda a transparência.
+
+Também iremos ajustar algumas configurações na seção "Tamanho e estilo". Vamos ajustar a altura e a largura especificamente para o celular: em "Altura", usaremos 664; e em "Largura", 318.
+
+Com isso, já temos o fundo roxo no layout móvel. Agora, ao clicar e arrastar as visualizações de volta para a tela, existe um contraste entre os elementos.
+
+Lembre-se! Nós optamos por trabalhar com um tom de roxo para a tela de fundo, mas você pode escolher outra cor para montar um layout móvel personalizado.
+
+Desafio
+Vamos deixar a montagem do layout móvel como desafio para você! Faça suas escolhas de cores e também de disposição dos elementos, pois essa disposição pode ser totalmente diferente do relatório que montamos. Queremos que você explore a sua criatividade e monte do seu jeito.
+
+No celular, a ideia é rolar a página para baixo, então ao finalizar uma parte acima, descemos a tela, aumentamos o tamanho da forma a partir da base, e ajustamos os gráficos ao longo da montagem.
+
+Ao final, você pode compartilhar seu projeto e nos marcar para analisarmos as diferenças.
+
+----------------
+
+Publicando na web
+Salvando o projeto
+O primeiro passo será salvar o projeto. Sabemos que ele ainda não foi salvo, pois no topo do Power BI Desktop, está escrito "Sem título". Quando salvamos pela primeira vez, o título é alterado.
+
+Dica! É sempre interessante salvar o projeto conforme trabalhamos nele, para garantir que não perderemos nossos dados caso a máquina desligue ou ocorra qualquer imprevisto.
+
+Para salvar, podemos clicar em "Arquivo" no canto superior esquerdo, onde encontramos as opções "Salvar" e "Salvar como". Além disso, podemos usar o botão "Salvar" (ícone de disquete) também no canto superior esquerdo da tela, logo acima de "Arquivos".
+
+Vamos clicar nesse botão e dar um nome ao projeto. Nesse caso, iremos nomeá-lo como gatito. Por padrão, ele será salvo com a extensão .pbix, formato do Power BI.
+
+Ao final, clicamos em "Salvar". Agora, no topo da tela, aparece o nome gatito.
+
+Você pode utilizar o nome que preferir para o seu projeto.
+
+Publicando o projeto
+Agora temos tudo preparado para fazer a publicação. Na guia "Página Inicial", no canto direito, temos a opção de "Publicar". Vamos clicar nessa opção e escolher onde vamos publicar, isto é, em qual pasta, o que chamamos de workspace (área de trabalho) no Power BI.
+
+Se for o seu primeiro projeto, aparecerá a opção "Meu workspace". No nosso caso, temos vários workspaces criados. Você pode escolher o local desejado, mas, geralmente, salvamos em "Meu workspace". Dito isso, vamos clicar em "Meu workspace > Selecionar" para finalizar a publicação.
+
+--------------------
+
+Agora, vamos disponibilizar o Dashboard que construímos na web para que a Helô consiga visualizá-lo. Como podemos fazer isso?
+
+Antes de mais nada, vamos verificar se a opção para compartilhar na Web está habilitada e se a opção para inserir códigos novos também está selecionada.
+
+1 - Primeiramente, você vai acessar a sua conta do Power BI, pelo seguinte link: https://app.powerbi.com/
+
+2 - Após entrar na sua conta, clique no ícone de engrenagem, chamado Configurações e depois clique em Portal de administração:
+
+Captura de tela da janela de opções de Configurações do Power BI Service. No topo, temos o botão com ícone de engrenagem, destacados com um retângulo vermelho. Abaixo, temos diversas opções, dentre elas Portal de administração, destacado com um retângulo vermelho, na parte inferior da imagem.
+
+3 - No Portal de administração, entre na área de Configurações de locatário:
+
+Captura de tela das áreas do Portal de administração, com a primeira área da lista, a área de Configurações de locatário, destacada com um retângulo vermelho.
+
+4 - Na área de configuração, procure pela seção de Configurações de compartilhamento e de exportação e, nela, pela opção Publicar na Web:
+
+Captura de tela da seção de Configurações de compartilhamento e de exportação, com destaque para a opção de Publicar na Web, na parte de baixo. Ambos o título da seção e a opção estão destacados com um retângulo vermelho.
+
+5 - Habilite a opção Publicar na Web. Você precisa que ela esteja habilitada com a opção Permitir códigos novos e existentes selecionada. Após ativar essas opções, clique em Aplicar:
+
+Captura de tela da seção de opção de Publicar na Web, que está desabilitada, estando a marcação “Desabilitado” destacada com um retângulo vermelho.
+
+Captura de tela da seção de opção de Publicar na Web. As marcações Habilitada e Permitir códigos novos e existentes estão selecionadas e destacadas com um retângulo vermelho. Na parte inferior esquerda, temos o botão de Aplicar, destacado com um retângulo vermelho, seguido do botão Cancelar.
+
+6 - Pronto, agora é só esperar alguns minutos até que essa função esteja habilitada no seu Power BI.
+
+Agora que garantimos que essas opções foram habilitadas, podemos realizar a publicação através do Power BI Desktop.
+
+1 - Primeiramente, certifique-se de que você entrou na sua conta no Power BI Desktop:
+
+Captura de tela da janela de login do Power BI Desktop. No topo, mais à direita, temos o nome de usuário, destacado por um retângulo vermelho. Mais abaixo, à esquerda, temos uma janela que apresenta o nome e e-mail do usuário conectado.
+
+2 - Em seguida, basta clicar no botão Publicar, que está na aba Página Inicial, na direita:
+
+Captura de tela da barra de ferramentas do Power BI Desktop. Na direita, temos o botão de Publicar, destacado com um retângulo vermelho.
+
+3 - Ao clicar no botão Publicar, uma janela irá aparecer, perguntando em qual workspace você deseja salvar seu projeto. Você pode escolher a opção Meu workspace e depois clicar em Selecionar:
+
+Captura de tela da janela Publicar no Power BI, na seleção de workspace do Power BI Desktop. No topo, temos a caixa de texto identificada como “Selecionar um destino” para digitar o nome do workspace e, logo abaixo, temos uma lista de workspaces disponíveis, com o Meu workspace destacado com um retângulo vermelho. No canto inferior direito, temos o botão de Selecionar, destacado com um retângulo vermelho, e o botão de Cancelar.
+
+4 - Após selecionar o workspace, uma mensagem de confirmação irá aparecer junto com o link que dá acesso direto ao seu projeto no Power BI Service, no qual você pode clicar:
+
+Captura de tela da janela Publicando no Power BI com a finalização da publicação da Web do Power BI Desktop. Mais ao centro, temos o link para acessar o relatório publicado, destacado com um retângulo vermelho. No canto inferior direito, temos o botão Entendi.
+
+5 - E assim finalizamos a publicação do nosso dashboard na Web.
+
+A publicação do seu dashboard do Power BI na web é uma maneira eficaz de compartilhar suas análises e insights com outras pessoas. Ao disponibilizar seu dashboard online, você amplia o acesso aos seus dados e permite que usuários visualizem e interajam com suas visualizações de qualquer lugar. Essa funcionalidade facilita a colaboração e o compartilhamento de informações, promovendo uma tomada de decisão mais informada e impactante.
+
+---------------------------
+
+Acessando o Power BI Service
+Para isso, existem dois caminhos. Deixamos a janela "Publicando no Power BI" aberta propositalmente, pois quando fazemos a publicação, é fornecido o link para abrir o relatório diretamente no Power BI Service ("Abrir gatito.pbix no Power BI").
+
+No entanto, também temos outra opção: poderíamos abrir uma nova guia no navegador e acessar o site do Power BI. Com isso, chegamos à página do Power BI Service. Em uma guia, temos o relatório, e em outra, a página inicial do Power BI Service.
+
+No caso do instrutor, há uma série de outros projetos nos quais ele já trabalhou, mas no seu caso, se for o seu primeiro projeto, terá apenas o projeto gatito.
+
+Vamos explorar e entender um pouco das funcionalidades do Power BI Service?
+
+Conhecendo o Power BI Service
+Na lateral esquerda, temos uma gama de opções muito robustas e interessantes, e cada vez mais, a Microsoft investe no Power BI Service. Conseguimos, por exemplo, acessar os nossos relatórios na "Página Inicial", bem como criar relatórios diretamente do Power BI Service, na guia "Criar".
+
+Logo abaixo, temos as guias "Procurar" e "Hub* de dados do *OneLake". Na sequência, encontramos a parte de "Aplicativos", e também conseguimos criar métricas (guia "Métricas").
+
+Conforme dito anteriormente, a Microsoft investe muito no ecossistema dela, então o Power BI Service se comunica muito bem com o Excel, com o Azure, e tudo o que a Microsoft é proprietária. Temos um vasto espaço para conhecimento no Power BI Service, e recomendamos que você explore essa parte.
+
+Na parte de "Workspaces", temos o "Meu workspace", onde salvamos o projeto gatito.pbix. Ao explorar os dados, na verdade, encontramos duas opções:
+
+A parte do relatório propriamente dito;
+E a parte do modelo semântico, isto é, os dados que o relatório consome para mostrar as métricas.
+Acessando o relatório
+Ao clicar sobre o relatório gatito, ele abre e funciona normalmente: quando clicamos sobre os elementos dos visuais, são aplicados os filtros; da mesma forma, podemos digitar nomes de produtos para realizar essa filtragem; e assim por diante.
+
+Existe certa diferença do Power BI Service para o Power BI Desktop, mas vamos observar o que acontece ao clicar em "Editar" na parte superior da ferramenta. Feito isso, são abertas as abas "Visualizações" e "Dados" na lateral direita.
+
+Dessa forma, conseguimos criar novos visuais, utilizar as colunas, e também utilizar as métricas que já fizemos anteriormente, o que é muito interessante.
+
+De fato, o Power BI Desktop que instalamos faz algumas coisas que o Power BI Service não consegue, como a parte de tratamento dos dados, por exemplo. No entanto, a Microsoft investe muito no Power BI Service, como comentamos anteriormente, e sempre temos atualizações.
+
+Portanto, acreditamos que, em pouco tempo, vamos conseguir fazer no Power BI Service tudo o que fazemos no Power BI Desktop. Porém, isso está em constante evolução.
+
+Compartilhando o relatório
+Agora, para compartilhar o relatório com a Helô, também há dois caminhos disponíveis.
+
+O primeiro é publicar na web, mas precisamos ter muito cuidado com esse tipo de publicação, pois qualquer pessoa com o link conseguirá acessar os dados e, geralmente, são dados sensíveis.
+
+No nosso relatório, temos informações da vida e da saúde da empresa inteira da Helô, então é necessário cuidado.
+
+Caso queira fazer publicação na web, clicamos em "Arquivo > Publicar na Web" no canto superior esquerdo. Ao fazer isso, surgirá um aviso de que vamos inserir isso em um site público.
+
+Para compartilhar através da publicação na web, precisamos fazer algumas habilitações no Power BI Service. Deixaremos uma atividade para você aprender a habilitar as opções necessárias.
+
+Após clicar em "Publicar", serão fornecidos dois links:
+
+Um link que pode ser enviado por e-mail, de modo que qualquer pessoa com acesso a ele consiga visualizar o relatório na web;
+E outro em HTML para podermos inserir os dados em um site, por exemplo.
+Além disso, existe a possibilidade de trabalhar com compartilhamento. De volta ao relatório gatito, na barra de menu superior, encontraremos a opção "Compartilhar".
+
+Essa é a forma mais segura e correta de compartilhar o relatório. Porém, para fazer esse compartilhamento, é necessário ter acesso à conta Pro do Power BI, tanto a pessoa que irá compartilhar, quanto a pessoa que irá receber.
+
+Também deixaremos uma atividade com a diferença entre as contas, para você saber como isso funciona e como compartilhar quando temos a conta Pro.
+
+---------------------------------
+
+Durante esta aula, realizamos a criação do layout móvel, a publicação na Web e o acesso ao Serviço do Power BI.
+
+Para elaborarmos o layout móvel, tivemos que habilitar a cor de fundo primeiro:
+
+Captura de tela da opção de Tela de fundo, destacada com um retângulo vermelho. Abaixo, temos a opção de Cor, destacada com um retângulo vermelho, seguido por uma paleta de cores, com a cor roxa selecionada e destacada com um retângulo vermelho.
+
+Em seguida, adicionamos os visuais no layout móvel:
+
+Captura de tela do layout móvel, com fundo roxo. No centro, temos um layout de smartphone, contendo todos os visuais elaborados, dispostos na vertical, com texto branco e fundo roxo.
+
+Após finalizar toda a parte visual, foi realizada a publicação do dashboard na Web, no Serviço do Power BI. Com isso, finalizamos a quinta aula e também o curso.
+
+Parabéns por concluir essa primeira etapa na Formação Power BI.
+
+Utilize suas habilidades de estilização no Power BI para criar o tema para o dashboard desenvolvido em aula. Deixe-o visualmente atraente, intuitivo e profissional, escolhendo cores, fontes e organização de elementos de forma criativa. Depois, publique o dashboard na web para compartilhar seus insights com outras pessoas.
+
+-----------------------
+
+Caso você queira ir além dos conhecimentos que estudamos no curso vou deixar a referência que utilizamos:
+
+Storytelling com Dados: um Guia Sobre Visualização de Dados Para Profissionais de Negócios (Português, pago, livro)
+
+Autora: Cole Bussbaumer Knaflic
+
+É um guia essencial para transformar dados em histórias impactantes e compreensíveis. O livro oferece estratégias práticas e exemplos claros de como criar visualizações eficazes que comunicam insights de maneira persuasiva. Com um foco em técnicas de design, psicologia da percepção e princípios de comunicação, Knaflic ensina aos leitores como envolver seu público e transmitir suas mensagens de forma clara e memorável através de gráficos e narrativas baseadas em dados.
+
+Documentação Microsoft (Português, gratuito, documentação)
+
+É uma plataforma abrangente de aprendizado que oferece uma vasta gama de recursos. Com uma combinação de tutoriais interativos, módulos de treinamento passo a passo e exercícios práticos, a plataforma permite que os usuários desenvolvam suas habilidades em tecnologias Microsoft, como Azure, Power BI, e Microsoft 365. Projetada para ser acessível a todos os níveis de conhecimento, a sessão "Learn" ajuda a transformar o aprendizado teórico em prática aplicável, facilitando a aquisição de competências essenciais para o sucesso no mundo tecnológico.
+
+----------------------------
+
+RESUMO
+
+Configurar o layout móvel;
+A fazer ajustes visuais utilizando formas e transparência no layout móvel;
+As diferenças entre o Power BI Desktop e o Power BI Serviço, especialmente no tratamento de dados;
+Acessar o Power BI Service;
+Publicar na web;
+Métodos seguros de compartilhamento de relatórios no Power BI, considerando a sensibilidade dos dados.
+
+-----------------------
+
+O que aprendemos?
+Você foi capaz de construir do zero um dashboard e nós conseguimos ajudar a Helô, uma proprietária de pet shop que nos contratou para implementar o BI.
+
+Assim, conhecemos todo o processo de BI e o que significa essa sigla, isto é, o conceito de Business Intelligence. Também aprendemos o que é ETL (Extract, Transform and Load): extrair os dados, tratar os dados disponibilizados, e fazer o carregamento deles.
+
+A partir disso, começamos a trabalhar com as métricas. Realizamos uma entrevista com a Helô, entendemos o que era mais importante para ela visualizar, importamos os dados no Power BI, fizemos os principais tratamentos, e conseguimos construir as métricas.
+
+Além disso, conseguimos estilizar e transformar em um belo dashboard.

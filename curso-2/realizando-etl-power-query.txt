@@ -1,0 +1,301 @@
+CONECTANDO AOS DATASETS
+
+APRENDIZADO
+Introduzir o projeto que envolve atendimento de uma demanda da Olist, e a importação de quatro tipos de base de dados: xlsx, csv, xml e json.
+Explicar como importar uma base de dados Excel para o Power BI, identificando as opções disponíveis e selecionando a base correta.
+Detalhar o processo de importação de um arquivo CSV, incluindo a escolha do delimitador e a detecção automática do tipo de dados.
+Realizar a conexão com base de dados do tipo XML no Power BI, importando um arquivo com informações de pagamentos.
+Estabelecer a conexão com arquivos no formato JSON utilizando Power BI, importando um arquivo com informações sobre produtos.
+Explorar o editor do Power Query e sua estrutura de interface.
+Analisar a guia "Página Inicial" e suas funcionalidades.
+Utilizar a guia de exibição para ativar barras e ferramentas de análise.
+=====================================
+
+POWER QUERY EDITOR
+
+No Power BI, uma das principais funcionalidades é a capacidade de mesclar dados de diferentes fontes em um único conjunto de dados para análise. Essa mesclagem é possível graças ao recurso de junções, que permite combinar informações com base em critérios específicos. Existem diferentes tipos de junções disponíveis no Power BI, cada uma com suas características e finalidades. Neste texto, vamos conhecer os tipos de junções mais comuns utilizados na mesclagem de dados no Power BI.
+
+alt text: Ilustração dos seis tipos de junções citados no texto. Cada tipo de junção conta com dois círculos, que possuem uma área de interseção onde ficam parcialmente sobrepostos. Na primeira junção, com título “Externa esquerda”, o círculo esquerdo e a área da interseção são preenchidos em verde, e a região do círculo direito não tem preenchimento. Na segunda junção, com título “Externa Direita”, o circulo esquerdo não tem preenchimento, e a área da interseção e o círculo direito são preenchidos em verde. No terceiro tipo de junção, com título “Externa completa”, temos ambos os circulos e a região de interseção preenchidos em verde. No quarto tipo de junção, com título “Interna”, somente a região de interseção está preenchida em verde, e os círculos estão sem preenchimento. No quinto tipo de junção, com título “Anti esquerda”, somente a região do círculo esquerdo está preenchida, e a interseção e o círculo direito estão sem preenchimento. No sexto tipo de junção, com título “Anti direita”, somente a região do círculo direito está preenchida, e a interseção e o círculo esquerdo estão sem preenchimento.
+
+Esquerda Externa (Left Outer Join): Retorna todas as linhas da tabela esquerda e as linhas correspondentes da tabela direita com base em um critério de correspondência dos relacionamentos entre chaves primárias e estrangeiras das tabelas. Se não houver correspondência na tabela direita, os valores serão preenchidos com nulos.
+
+Direita Externa (Right Outer Join): Retorna todas as linhas da tabela direita e as linhas correspondentes da tabela esquerda com base em um critério de correspondência. Se não houver correspondência na tabela esquerda, os valores serão preenchidos com nulos.
+
+Completa Externa (Full Outer Join): Retorna todas as linhas das duas tabelas, combinando registros com base em um critério de correspondência. Se não houver correspondência em uma das tabelas, os valores correspondentes serão preenchidos com nulos.
+
+Interna (Inner Join): Retorna apenas as linhas correspondentes das duas tabelas com base em um critério de correspondência. As linhas não correspondentes são excluídas do resultado final da mesclagem.
+
+Anti Esquerda (Left Anti Join): Retorna apenas as linhas da tabela esquerda que não possuem correspondência com base em um critério de correspondência. As linhas correspondentes da tabela direita são excluídas do resultado.
+
+Anti Direita (Right Anti Join): Retorna apenas as linhas da tabela direita que não possuem correspondência com base em um critério de correspondência. As linhas correspondentes da tabela esquerda são excluídas do resultado.
+
+Esses tipos de junções de mesclagem no Power BI são extremamente úteis para combinar e analisar dados de diferentes fontes, permitindo obter insights valiosos e tomar decisões informadas.
+
+Caso tenha interesse em complementar seus estudos sobre mesclagem, recomendo a leitura do artigo Power BI: Mesclando consultas no Power Query, que explica os tipos de mesclagem e o comportamento de cada um deles, além de pontuar como a mesclagem por ajudar a reduzir o tempo de carregamento dos dados e evitar relacionamentos desnecessários.
+--------------------------
+No vídeo anterior, verificamos como realizar o tratamento da coluna de Tipo de pagamentos através de uma Coluna de Exemplo, em que removemos as duplicatas, inserimos os valores desejados e voltamos com os valores duplicados novamente.
+
+Caso desejemos realizar esse processo sem remover as duplicatas, podemos realizar esse tratamento através da linguagem M. A linguagem M é uma linguagem de programação usada no Power BI para realizar transformações e manipulações de dados no processo de preparação de dados. Ela permite às pessoas usuárias escrever instruções sequenciais para filtrar, agrupar, unir tabelas e executar outras operações de transformação de dados. A linguagem M facilita a criação de processos automatizados e consistentes para preparar dados para análise no Power BI.
+
+Para realizar essas alterações usando a linguagem M, vamos utilizar o próprio código gerado ao criar a coluna Pagamento tratado. Vamos copiar o código da caixa de texto acima da coluna criada, expandindo essa caixa clicando na seta à direita do campo. O código que vamos copiar será a partir do comando “each” até o “null”, que está marcado em azul:
+
+alt text: Captura de tela do campo de código em M do Editor do Power Query, com fundo branco. No topo, temos o campo contendo o código, com a parte a ser copiada em azul, com o botão de expandir no canto superior direito destacado com um retângulo vermelho. Abaixo, temos as colunas da tabela, com a última coluna de Pagamento tratado na direita selecionada em verde e destacada por um retângulo vermelho.
+
+Agora, vamos criar uma coluna personalizada, acessando o botão no canto superior direito, na aba de Adicionar coluna:
+
+alt text: Captura de tela do botão de Coluna Personalizada, com fundo branco. O botão se encontra na aba Adicionar Coluna. Tanto a aba, no topo direito, quanto o botão, estão destacadas com um retângulo vermelho.
+
+Ao clicar no botão, uma janela será aberta, onde poderemos modificar o nome da coluna e adicionar o código que copiamos:
+
+alt text: Captura de tela da janela de Coluna Personalizada, com fundo branco. No canto superior esquerdo temos o título da janela. Abaixo, alinhados à esquerda, temos os campos de Nome da nova Coluna e Fórmula de coluna personalizada, ambos destacados por um retângulo vermelho, e o aviso, em fundo vermelho, de que nenhum erro foi encontrado. Na direita, temos o campo de Colunas disponíveis. No canto inferior direito, temos os botões de OK, destacado com um retângulo vermelho, e o botão de Cancelar.
+
+Após adicionarmos o código, basta clicarmos em OK e a nova coluna será exibida:
+
+alt text: Captura de tela da coluna de Pagamento personalizado, à direita, e do seu campo de código em M, no topo. Ambos estão destacados com um retângulo vermelho
+
+Com isso, temos mais uma opção para trabalharmos o tratamento da coluna de pagamentos, através da linguagem M. Caso você deseje se aprofundar no estudo dessa linguagem, recomendo que você faça o curso Power BI: mergulhando na linguagem M, onde você vai entender o que é a linguagem M, a sua importância, e vai conhecer os fundamentos da linguagem. No curso, você aprende como utilizar a linguagem M para manipular dados, consumir uma API, trabalhar com APIs paginadas e lidar com erros.
+------------------------------------
+O Power Query no Power BI é uma ferramenta poderosa para a preparação e transformação de dados. Uma de suas funcionalidades mais úteis é a Coluna de Exemplos, que permite criar novas colunas com base em exemplos que você fornece. Isso torna o processo de transformação de dados mais intuitivo e acessível, mesmo para quem não tem experiência avançada em programação ou manipulação de dados.
+
+A Coluna de Exemplos permite que os usuários especifiquem exemplos de valores desejados em uma nova coluna e, em seguida, o Power Query deduz a lógica necessária para gerar esses valores a partir dos dados existentes. Essa abordagem facilita a criação de transformações complexas de forma simples e rápida.
+
+Vamos explorar o poder que a Coluna de Exemplos pode ser usada para extrair informações úteis da nossa base de dados de pagamentos. A base de dados possui as seguintes colunas:
+
+order_id: ID do pedido;
+payment_installments: quantidade de pagamentos registrados;
+payment_sequential: parcelas;
+payment_value: valores;
+payment_type: tipo do pagamento.
+Para analisar melhor os dados de pagamentos, utilizando a funcionalidade da Coluna de Exemplos no Power Query, crie a seguintes colunas:
+
+Coluna que mostra o valor total pago por pedido;
+Coluna que indica o tipo de pagamento mais frequente por pedido;
+Coluna que calcula a média do valor das parcelas para cada pedido.
+-----------------------------------
+APRENDIZADO
+Remover linhas específicas em bases de dados utilizando a função "Remover linhas superiores" no Power Query do Power BI.
+Promover uma linha existente como cabeçalho de tabela usando a opção "Usar primeira linha como cabeçalho".
+Extrair texto a partir de um delimitador específico em colunas, utilizando a função "Extrair texto após o delimitador".
+Mesclar consultas para correlacionar e traduzir informações entre tabelas.
+Conhecer a ferramenta "Substituir Valores", que permite a substituição direta de termos na coluna "Payment Type".
+Manipular etapas aplicadas no Power Query para restaurar registros completos após a substituição.
+Experimentar a criação de uma "Coluna de Exemplos", que usa a inteligência do Power Query para substituir valores de forma automática baseada em exemplos fornecidos.
+Usar "Coluna de Exemplos" para criar uma nova coluna com valores traduzidos, renomear a nova coluna e remover duplicatas em uma etapa simplificada.
+Explorar a ferramenta "Coluna Personalizada" como um recurso adicional para exploração futura.
+=====================================
+
+AVANÇANDO NAS TRANSFORMAÇÕES
+
+Nesta atividade, você será guiado para replicar o processo de criação e utilização de parâmetros no Power BI conforme demonstrado no vídeo transcrito. Ao final, você deverá refletir sobre a importância desse recurso e sua aplicação no mercado de trabalho.
+
+Passo 1: Criar Parâmetro de Caminho
+Copie o caminho do diretório sem o arquivo final, por exemplo:
+C:\Users\alura\OneDrive\Área de Trabalho\Projeto\
+Copiar código
+Acesse a guia "Página inicial" no Power BI e clique em "Gerenciar Parâmetros".
+Crie um novo parâmetro com as seguintes configurações:
+Nome: caminhoPasta
+Descrição: Endereço do diretório
+Tipo: Texto
+Valor Atual: Cole o caminho do diretório copiado anteriormente.
+Clique em "OK" para salvar o parâmetro.
+Passo 2: Aplicar Parâmetro nas Fontes
+Selecione a consulta olist_orders_dataset.
+Clique em "Fontes" e modifique a barra de fórmulas para utilizar o parâmetro caminhoPasta:
+= Excel.Workbook(File.Contents(caminhoPasta & "olist_orders_dataset.xlsx"), null, true)
+Copiar código
+Pressione "Enter" para aplicar a modificação. Certifique-se de que a consulta é atualizada corretamente.
+Repita o processo para as outras consultas, ajustando o caminho e nome dos arquivos de acordo.
+Passo 3: Testar Modificações de Diretório
+Crie uma nova pasta chamada Olist dentro do diretório Projeto.
+Mova todos os arquivos para a nova pasta Olist.
+No Power BI, acesse o parâmetro caminhoPasta e modifique o Valor Atual para:
+C:\Users\alura\OneDrive\Área de Trabalho\Projeto\Olist\
+Copiar código
+Clique em "OK" e observe que as consultas são atualizadas automaticamente para o novo diretório.
+------------------------------
+APRENDIZADO
+Explorar a consulta de dados JSON no Power Query e a necessidade de converter essa estrutura em uma tabela.
+Compreender o processo de transposição de dados para transformar linhas em colunas e colunas em linhas.
+Realizar a substituição de caracteres específicos dentro dos valores da coluna "categoria", trocando underlines por espaços.
+Formatar o texto da coluna, colocando a primeira letra de cada palavra em maiusculo.
+Compreender os desafios de compartilhar relatórios que dependem de caminhos de arquivos específicos.
+Utilizar o recurso "Gerenciar Parâmetros" no Power Query para criar parâmetros que representem diretórios.
+Realizar a concatenação de strings na linguagem M para unir o parâmetro de diretório ao nome do arquivo, otimizando as referências de caminho.
+Analisar os problemas de tipagem automática dos dados no Power Query e como isso pode causar erros.
+Reverter etapas de transformação para entender e resolver problemas de importação.
+Explorar como definir manualmente o tipo de dado de uma coluna usando localidade específica.
+Aplicar alterações de tipo para múltiplas colunas simultaneamente.
+Descobrir como desativar a detecção automática de tipo de dados no Power Query para ter maior controle no processo de importação de dados.
+========================================
+
+FINALIZANDO OS TRATAMENTOS
+
+No Power Query, uma das etapas comuns na preparação de dados é a renomeação de colunas para tornar sua identificação mais clara e adequada. O Power BI oferece várias opções para renomear colunas no Power Query, tornando essa tarefa flexível e personalizável.
+
+Primeiramente, vamos determinar quais serão os novos nomes das colunas da tabela de pedidos.
+
+order_id → id pedido
+order_purchase_timestamp → Data compra
+order_approved_at → Data aprovação
+order_delivered_carrier_date → Data transportadora
+order_delivered_customer_date → Data entrega
+order_estimated_delivery_date → Data estimada entrega
+Agora que temos os novos nomes, vamos às formas de renomear uma coluna no Power Query.
+
+1. Através da interface visual
+
+A primeira forma de renomear colunas no Power Query é por meio da interface visual. Ao selecionar uma coluna, é possível efetuar clique duplo sobre o nome dela e Renomear. Isso permite que você digite um novo nome para a coluna diretamente na interface do Power Query:
+
+alt text: Captura de tela da caixa de texto do nome da coluna “order_id”, destacada com um retângulo vermelho.
+
+2. Através do menu de opções
+
+Outra forma de renomear as colunas é clicando com o botão direito em cima da coluna para abrir o menu de opções, e clicar na opção Renomear:
+
+alt text: Captura de tela da janela de opções da coluna, com o campo Renomear destacado com um retângulo vermelho.
+
+3. Através da aba Transformar
+
+Uma terceira maneira de renomear é selecionando a coluna deseja, indo na aba Transformar no topo e clicando na opção Renomear, na seção Qualquer Coluna:
+
+alt text: Captura de tela da barra de ferramentas do Power Query, com fundo branco. No topo, temos a aba de Transformar selecionada, e nela a opção Renomear, ambos destacados com um retângulo vermelho.
+
+O Power Query no Power BI oferece diversas formas de renomear colunas. Você pode utilizar a interface visual, as opções da coluna ou até mesmo renomear através da barra de ferramentas. Com essas opções, você vai poder renomear as colunas da maneira que desejar e, assim, vamos dando continuidade ao nosso projeto.
+--------------------------------
+No dia a dia do profissional que trabalha com Power Query e Power BI, surgem desafios relacionados à manipulação e combinação de dados de várias fontes, bem como a necessidade de aplicar transformações complexas e reutilizar consultas em diferentes partes de um projeto.
+
+Ao lidar com tabelas e consultas, surge a necessidade de copiá-las para realizar diferentes tipos de manipulação. Nesse cenário, duas opções estão disponíveis: duplicar ou referenciar. Compreender a diferença entre essas opções é fundamental para utilizar o recurso de forma eficiente.
+
+A opção de duplicar cria uma cópia independente da tabela original, permitindo trabalhar com uma versão isolada dos dados, aplicar transformações específicas ou comparar diferentes cenários sem afetar o conjunto de dados original. Por outro lado, a opção de referenciar estabelece uma conexão entre duas consultas, utilizando os resultados da consulta original como entrada. Qualquer alteração na consulta original é automaticamente refletida na consulta de referência.
+
+A escolha entre duplicar e referenciar depende do contexto e dos objetivos do projeto. Se a necessidade é trabalhar com dados independentes, realizar experimentações ou comparar cenários, a duplicação é a melhor opção. Em contrapartida, se a intenção é combinar dados, aplicar transformações sequenciais ou reutilizar consultas, a referência é a escolha adequada.
+
+Então, vamos aprender a fazer essas duas operações:
+
+Duplicar uma tabela
+
+Você pode utilizar a opção de duplicar quando você quer copiar uma tabela inteira, com todas as suas etapas de transformações.
+
+Como exemplo, vamos imaginar que precisamos importar outra tabela com novos pedidos, e essa tabela terá a mesma estrutura da tabela que já tratamos. Nesse caso, nós podemos simplesmente duplicar a tabela de pedidos, clicando com o botão direito em cima dela e depois na opção Duplicar:
+
+alt text: Captura de tela do menu de opções que aparece ao clicar em cima da tabela de Pedidos com o botão direito, evidenciando a opção de Duplicar. A tabela e a opção Duplicar estão destacadas com um retângulo vermelho.
+
+A nova tabela duplicada ficará com os tratamentos realizados na tabela original:
+
+alt text: Captura de tela da tabela de Pedidos, com fundo branco. Na esquerda, temos a tabela de Pedidos (2) selecionada. No meio, temos suas colunas e valores. Na direita, temos as etapas de tratamentos realizados. Tanto a tabela selecionada quanto as etapas estão destacadas com um retângulo vermelho.
+
+Agora, basta mudarmos o caminho do arquivo na fonte da tabela:
+
+alt text: Captura de tela da etapa de Fonte, na direita, e do campo de código com a origem da tabela de pedidos, no topo. Tanto a etapa de Fonte quanto a origem do arquivo de pedidos estão destacadas com um retângulo vermelho.
+
+E assim teríamos a tabela com novos pedidos já com os tratamentos.
+
+Referenciar uma tabela
+
+A referência é uma outra forma de copiar uma tabela, com a diferença de que a nova tabela gerada terá todos os tratamentos realizados na original, mas não terá as etapas, pois todas elas se tornarão uma só, que é a Fonte, representando a referência à tabela original.
+
+Para referenciar uma tabela, o processo é parecido. Vamos clicar com o botão direito em cima dela e depois na opção Referenciar:
+
+alt text: Captura de tela Captura de tela do menu de opções que aparece ao clicar em cima da tabela de Pedidos com o botão direito, evidenciando a opção de Referência. Tanto a tabela quanto a opção estão destacadas com um retângulo vermelho.
+
+Abaixo, podemos verificar a etapa Fonte na nova tabela, em que podemos perceber o cálculo ´= pedidos´ no topo, indicando a referência à tabela de pedidos:
+
+alt text: Captura de tela da etapa de Fonte, na direita, e do campo de código com a origem da tabela de pedidos, no topo. Tanto a etapa de Fonte quanto a origem do arquivo de pedidos estão destacadas com um retângulo vermelho.
+
+Essa etapa de Fonte significa que se você fizer alterações na tabela de pedidos original, essa nova tabela será afetada.
+
+A referência é uma boa opção quando você deseja realizar outros tratamentos na tabela, mas sem modificar a original. Uma tabela irá seguir certos tratamentos e a outra irá continuar com tratamentos diferentes, mas as duas compartilham algumas etapas da tabela original.
+
+Duplicar vs Referenciar
+
+A partir de agora, sabemos que existem duas opções ao copiar uma tabela. Com isso, vamos verificar mais de perto suas diferenças.
+
+alt text: tabela de comparação entre duplicar e referenciar. Títulos de coluna e linhas estão em verde com fonte em cor cinza-escuro, demais células em cinza-escuro com fonte em cor branca. Existem 6 linhas comparando 6 aspectos, de cima para baixo são: definição, sincronização, dependência, armazenamento, etapas de tratamento e uso de referências. As características de duplicar são, de cima para baixo: copia o conjunto de dados existente; alterações não afetam o original; independente e modificável sem afetar o original; consome espaço adicional; todas as etapas são mantidas; pode referenciar a tabela nova na original. As características de referenciar são, de cima para baixo: aponta para conjunto de dados existente; alterações refletidas automaticamente; dependente do conjunto de dados referenciado; não consome espaço adicional; contém uma única etapa (obtenção da tabela original); não é suportado, pois pode gerar referência circular.
+
+As opções de Duplicar e Referenciar são distintas e cada uma tem suas vantagens e desvantagens. A opção de duplicar é útil quando você deseja que as duas cópias sejam independentes uma da outra, enquanto a opção de referência é adequada quando você cria ramos diferentes a partir de uma tabela original.
+---------------------------
+Para você expandir seus conhecimentos preparamos uma lista de exercícios para você treinar os conceitos de Power BI abordados nesse curso. Para algumas questões sugerimos que você baixe o projeto final e isso pode te ajudar na elaboração das respostas desses exercícios.
+
+Cite uma maneira de trocar a fonte de dados dentro do Power BI.
+Por que criamos o parâmetro caminhoPasta nesse projeto? Pontue as facilidades e principais utilidades.
+Altere o tipo da coluna "Id item pedido" da tabela "olist_itens_pedidos" de texto para número.
+Saulo importou uma base de dados em .csv e percebeu que as colunas "preço" e "salário" foram identificadas pelo Power BI como texto. Como Saulo pode ajustar o formato dessas colunas? Cite todas as maneiras que você lembrar.
+Explore a ferramenta do Power Query encontrando uma forma de calcular quantas linhas existem em nosso modelo.
+------------------------------
+APRENDIZADO
+Explorarmos a renomeação de colunas para manter consistência e facilitar a manipulação de dados.
+Compreender a importância de escolher quais colunas carregar no projeto, removendo colunas desnecessárias.
+Explorar o Editor Avançado no Power Query para acessar e modificar a linguagem M diretamente.
+Compreender a estrutura básica da linguagem M, especialmente os blocos let e in.
+Entender a diferença entre duplicar e referenciar consultas, destacando as situações em que cada uma é mais apropriada.
+Identificar e eliminar etapas repetidas desnecessárias no Power Query para melhorar a performance da carga de dados.
+Unificar etapas similares, como colunas renomeadas e colunas renomeadas 1, no Editor Avançado.
+Corrigir o erro de referência cíclica na reorganização das etapas no Editor Avançado.
+Renomear etapas para evitar confusão e melhorar a legibilidade do código.
+Adicionarmos descrições e anotações às etapas no Power Query para facilitar a compreensão e o compartilhamento do projeto.
+====================================
+
+MODELANDO OS DADOS 
+
+A modelagem de dados é uma etapa essencial em qualquer processo de análise de dados, e no Power BI, essa importância é ainda mais evidente. Com a capacidade de integrar diversas fontes de dados e transformá-los em informações úteis e acionáveis, o Power BI se destaca como uma das ferramentas mais poderosas para a criação de dashboards e relatórios interativos. No entanto, para aproveitar todo o potencial dessa ferramenta, é crucial dominar a modelagem de dados.
+
+No contexto do Power BI, a modelagem de dados envolve a estruturação e organização dos dados de modo que eles possam ser facilmente acessados e analisados. Isso inclui a definição de relações entre diferentes tabelas, a limpeza de dados, a criação de colunas e medidas calculadas, e a otimização do desempenho das consultas.
+
+Uma modelagem bem feita garante que os dados estejam em um formato que facilita o uso de fórmulas e funções DAX (Data Analysis Expressions), que são essenciais para a criação de cálculos avançados e agregações. Sem uma modelagem de dados adequada, o uso do DAX pode se tornar desafiador e os resultados das análises podem ser imprecisos ou difíceis de interpretar.
+
+Além de facilitar o uso do DAX, uma boa modelagem de dados é fundamental para a criação de visuais eficazes no Power BI. Os dashboards e relatórios dependem de dados organizados e consistentes para oferecer uma visão clara e precisa das informações. Com uma modelagem bem estruturada, é possível criar gráficos e tabelas que não apenas mostram dados, mas contam uma história e fornecem insights valiosos. Isso é especialmente importante em cenários corporativos, onde decisões estratégicas são frequentemente baseadas nas análises fornecidas pelo Power BI.
+
+Caso você deseja aprofundar seus conhecimentos e habilidades em modelagem de dados no Power BI, no curso Modelagem de Dados no Power BI, você aprenderá as melhores práticas para organizar e estruturar seus dados de maneira eficiente e eficaz. Com uma abordagem prática e didática, abordando desde conceitos básicos até técnicas avançadas, capacitando você a explorar ao máximo o potencial do Power BI.
+
+Dominar a modelagem de dados é um passo fundamental para qualquer profissional que deseja utilizar o Power BI de maneira eficaz para tornar-se um especialista em Power BI.
+------------------------------
+Chegamos a reta final desse curso, e com tudo que aprendemos até aqui, além do projeto que fizemos juntos, você pode desenvolver um novo projeto. Incentivamos você a concluí-lo e usá-lo como parte do seu portfólio para demonstrar de forma prática tudo que você aprendeu sobre o tratamento de dados no Power Query. Nós preparamos um projeto completo, com dados da empresa Olist, que inclui tratamentos, uso de filtros e visualizações. Vamos conferir esse desafio?
+
+alt text: Logotipo da Olist
+
+A Olist é uma plataforma de e-commerce que conecta pequenas empresas a marketplaces, permitindo que elas alcancem um público maior e expandam suas vendas. Com o objetivo de aprimorar seus processos e otimizar a experiência dos clientes, a Olist coletou uma ampla gama de dados ao longo do tempo.
+
+E, como pessoa analista de dados, é seu papel aproveitar ao máximo esses dados, desvendando os valiosos insights por trás dessas informações. Para isso, você vai realizar uma série de tarefas para desenvolver um painel de controle utilizando a ferramenta Power BI, a fim de fornecer visões estratégicas para o negócio.
+
+Para criar um painel de controle eficaz, usando o Microsoft Power BI, você deve executar as seguintes tarefas:
+
+Tarefa 1: Mostrar o total de pedidos da base de dados
+
+Uma das primeiras tarefas que você enfrentará como analista de dados nesse projeto é revelar o total de pedidos registrados na base de dados da Olist. Usando as suas habilidades no Power BI, você poderá criar uma visualização clara e concisa que mostrará o número de pedidos, fornecendo uma visão geral inicial abrangente da base de dados.
+
+Tarefa 2: Criar uma visualização para mostrar a evolução dos pedidos no tempo
+
+Ao mergulhar fundo nos dados da Olist, você descobrirá que a história dos pedidos ao longo do tempo é extremamente valiosa. Essa análise temporal permitirá que a equipe da empresa tome decisões estratégicas mais embasadas e antecipe as demandas futuras. E por meio do uso de visuais no Power BI, será possível obter uma visualização dinâmica e interativa que ilustra a evolução dos pedidos, destacando possíveis sazonalidades, tendências e padrões ao longo do tempo.
+
+Tarefa 3: Criar uma visualização para mostrar os percentuais de preferência por tipo de pagamento
+
+Para compreender melhor o comportamento dos clientes da Olist, é essencial analisar os diferentes tipos de pagamento utilizados em suas transações. Utilizando o Power BI, você poderá criar uma visualização clara e informativa que demonstrará os percentuais de preferência por cada tipo de pagamento. Essa visualização revelará quais métodos de pagamento são mais populares entre os clientes da Olist, fornecendo insights valiosos para direcionar estratégias de marketing e aprimorar a experiência do cliente.
+
+Tarefa 4: Criar uma visualização que mostra a quantidade de produtos por categoria, observando apenas um ranking dos valores mais altos
+
+Outro aspecto importante para entender o negócio da Olist é analisar as categorias de produtos vendidos. Com o PowerBI, você poderá criar uma visualização impactante que destacará as categorias com a maior quantidade de vendas, apresentando um ranking dos valores mais altos. Essa visualização permitirá que a equipe da empresa identifique quais categorias de produtos são as mais populares entre os consumidores e direcione esforços para otimizar o mix de produtos e a estratégia de precificação.
+
+Tarefa 5: Criar um filtro para segmentar os registros por ano
+
+Para facilitar a análise dos dados da Olist, será necessário criar um filtro que permita segmentar os registros por ano. Utilizando o Power BI, você poderá desenvolver um filtro interativo que permitirá à equipe explorar os dados de forma mais precisa e detalhada, isolando informações específicas de cada ano. Esse filtro será uma ferramenta valiosa para identificar tendências sazonais, avaliar o crescimento ao longo do tempo e fazer comparações entre diferentes períodos. Além disso, é importante criar um filtro que desconsidere pedidos sem data de aprovação (filtro para valores em branco nas datas).
+
+Ao embarcar nessa jornada como analista de dados na Olist, você estará desbravando um mundo de insights ocultos. Suas habilidades em PowerBI serão fundamentais para revelar informações valiosas sobre os pedidos, preferências de pagamento, categorias de produtos e evolução ao longo do tempo. Se precisar de ajuda nesse desafio, disponibilizamos abaixo, na seção Opinião da pessoa instrutora, uma possível resolução para esse projeto.
+--------------------------------
+APRENDIZADO
+Avaliar quais consultas devem ser habilitadas para carga de dados no Power Query, desabilitando aquelas que não serão usadas no relatório final.
+Realizar a carga dos dados.
+Entender a importância de analisar e ajustar a modelagem de dados antes de criar métricas e relatórios.
+Identificar e interpretar as linhas de relacionamento entre tabelas, incluindo símbolos como "1" e "*" que representam detalhes dessas relações.
+Acessar as propriedades de um relacionamento clicando sobre a linha e analisando detalhes como colunas relacionadas, cardinalidade, e direção do filtro cruzado.
+Compreender a importância da direção do filtro cruzado e seu impacto nas segmentações dos visuais.
+Analisar a configuração de filtros cruzados nos relacionamentos, identificando casos onde é ideal evitar filtros bi-direcionais por questões de performance.
+Alterar a cardinalidade e a direção do filtro de um relacionamento utilizando a interface de propriedades.
+Configurar o Power BI para desabilitar a detecção automática de relacionamentos entre tabelas e compreendemos a importância de controlar manualmente esses relacionamentos.
+Demonstrar como criar ou excluir relacionamentos manualmente entre tabelas, garantindo que as conexões respeitem a lógica de negócio.
+Explorar a exibição de todas as relações entre tabelas na seção de modelo, destacando a organização e controle dos relacionamentos criados.
+Identificar problemas comuns relacionados aos relacionamentos entre tabelas, como valores repetidos incorretamente.
+Corrigir esses problemas alterando a cardinalidade e a direção do filtro no modelo de dados.
+Explorar a relação entre a estrutura do modelo e a obtenção de resultados precisos nos visuais.
+Reforçar a importância de compreender a modelagem de dados e a criação de segmentações e fórmulas DAX para avançar nos projetos.
+
