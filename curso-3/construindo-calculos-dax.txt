@@ -1,0 +1,628 @@
+Os modelos semânticos desempenham um papel crucial na análise de dados, facilitando a compreensão e a utilização eficiente das informações. Vamos explorar o conceito de modelos semânticos, os diferentes modos de operação no Power BI e as etapas para criar um modelo semântico robusto.
+
+O que são Modelos Semânticos?
+Modelos semânticos são estruturas que organizam e definem os dados de forma a torná-los mais compreensíveis e utilizáveis para análise e geração de insights. No contexto do Power BI, um modelo semântico serve como a camada intermediária entre as fontes de dados brutas e os relatórios com visualizações. Ele encapsula a lógica de negócios, relações e cálculos necessários para transformar dados em informações significativas.
+
+Modos de Modelos Semânticos
+Modo	Descrição	Uso ideal
+Importação	Os dados são carregados diretamente para o Power BI Desktop e armazenados localmente. Oferece desempenho rápido para consultas e visualizações.	Conjuntos de dados estáticos ou que não mudam frequentemente.
+DirectQuery	Consultas são enviadas diretamente à fonte de dados original durante as interações. Ideal para conjuntos de dados grandes ou dinâmicos que exigem atualizações em tempo real.	Necessidade de atualizações em tempo real; conjuntos de dados dinâmicos.
+Composto	Combina benefícios de importação e DirectQuery. Permite importar algumas tabelas e consultar outras diretamente na fonte, oferecendo flexibilidade e otimização.	Flexibilidade para otimizar desempenho e atualizações em tempo real quando necessário.
+Cada modo oferece uma abordagem única para lidar com seus dados, garantindo desempenho otimizado e atendendo às necessidades específicas de atualização e interatividade.
+
+Etapas do Modelo Semântico
+Os modelos semânticos são criados seguindo uma sequência de etapas até o momento da sua publicação. Cada uma delas é essencial para o desenvolvimento do modelo.
+
+No diagrama abaixo podemos conferir as 5 etapas necessárias para construção do modelo semântico no Power BI:
+
+alt text: gráfico da sequência de etapas para construção do modelo semântico, com as etapas: Conexão dos Dados, Limpeza e Tratamento dos Dados, Definição dos Relacionamentos entre Tabelas, Criação dos Cálculos com DAX e Publicação no Power BI Serviço.
+
+A seguir, vamos explorar cada uma dessas etapas para entender como escolher a melhor estratégia para seus projetos. .
+
+Conexão dos Dados
+A primeira etapa na criação de um modelo semântico é conectar-se às fontes de dados. O Power BI suporta uma ampla variedade de fontes, incluindo bancos de dados SQL, arquivos Excel, serviços web e muito mais.
+
+Limpeza e Tratamento dos Dados
+Uma vez conectados, os dados brutos geralmente precisam ser limpos e transformados. Isso pode incluir a remoção de duplicatas, tratamento de valores nulos, padronização de formatos e conversão de tipos de dados. O Power Query no Power BI facilita esse processo com uma interface intuitiva e ferramentas poderosas de transformação de dados.
+
+Definição dos Relacionamentos entre Tabelas
+Com os dados limpos, o próximo passo é definir os relacionamentos entre as tabelas. Isso pode ser feito seguindo designs como Esquema Estrela. Relações bem definidas são essenciais para garantir que os cálculos e visualizações reflitam corretamente as interações entre os diferentes conjuntos de dados.
+
+Criação dos Cálculos com DAX
+Após definir os relacionamentos, é hora de criar cálculos usando DAX (Data Analysis Expressions). DAX permite a criação de medidas, colunas calculadas e tabelas que podem realizar operações complexas e dinâmicas sobre os dados.
+
+Essa etapa será o foco deste curso. Através dela, concluiremos a construção do nosso modelo semântico do Power BI.
+
+Publicação no Power BI Serviço
+Com o modelo semântico completo, a última etapa consiste em publicar o relatório no Power BI Serviço. Isso permite que os relatórios e dashboards sejam compartilhados com outros usuários e acessados de qualquer lugar.
+
+Dessa forma, criar um modelo semântico eficaz no Power BI envolve um processo estruturado de conexão, limpeza, modelagem e publicação de dados. Ao seguir essas etapas, você pode transformar dados brutos em insights valiosos, facilitando decisões informadas e estratégicas.
+---------------------------------------
+A linguagem DAX (Data Analysis Expressions) é fundamental para o trabalho com o Power BI, proporcionando uma maneira poderosa de criar cálculos e análises complexas. A seguir, vamos conhecer alguns conceitos básicos e boas práticas para começar:
+
+Conceitos Básicos do DAX
+1 - Colunas Calculadas: São adicionadas ao modelo de dados e calculadas linha a linha. Úteis para criar novas informações baseadas em outras colunas.
+
+2 - Medidas: São cálculos agregados que utilizam funções DAX para resumir dados, como somas, médias e contagens. São calculadas dinamicamente com base no contexto da filtragem.
+
+3 - Contexto: No DAX, o contexto refere-se ao ambiente em que um cálculo é avaliado. Existem dois tipos principais:
+
+Contexto de Linha: Refere-se ao contexto de linha de uma tabela.
+Contexto de Filtro: Refere-se ao conjunto de filtros que são aplicados ao modelo de dados.
+4 - Funções Comuns: Algumas funções DAX são frequentemente usadas, como:
+
+SUM(), AVERAGE(), COUNT(), CALCULATE(), FILTER(), RELATED(), ALL(), entre outras.
+Para explorar as principais funções do DAX, confira o artigo Power BI: explorando Cheat Sheet do DAX, que contém as principais funções da linguagem DAX.
+
+Boas Práticas no DAX
+Nomeação Clara: Use nomes claros e descritivos para colunas calculadas e medidas para facilitar a compreensão e manutenção do modelo.
+Uso de Variáveis: Utilizar variáveis em DAX (VAR) pode melhorar a legibilidade e o desempenho das suas fórmulas. Variáveis permitem que você armazene resultados intermediários e os reutilize dentro da mesma expressão.
+Formatação: Formate suas fórmulas DAX para melhorar a legibilidade. Quebre linhas longas, use recuos para indicar blocos lógicos e organize suas expressões de forma clara.
+Evite Colunas Calculadas Desnecessárias: Prefira usar medidas sempre que possível, pois elas são mais eficientes e flexíveis. As colunas são calculadas quando os dados são carregados e armazenados no modelo, o que pode aumentar o tamanho do modelo e diminuir o desempenho.
+--------------------------------------------
+Durante a criação de fórmulas DAX, nos deparamos com diversos desafios, seja para formatar código, descobrir como uma função específica funciona, ou até mesmo como aplicar boas práticas. Pensando nisso, para auxiliar no desenvolvimento e otimização de fórmulas DAX, existem várias ferramentas valiosas. A seguir, apresentamos quatro ferramentas essenciais para qualquer desenvolvedor DAX: DAX Formatter, DAX Guide, DAX Patterns e Bravo.
+
+DAX Formatter
+O DAX Formatter é uma ferramenta online gratuita que ajuda a melhorar a legibilidade das fórmulas DAX através da formatação automática do código. Ele reorganiza as expressões DAX adicionando indentação, espaçamento e quebras de linha de forma adequada. Isso facilita a leitura e a manutenção do código, especialmente para fórmulas complexas. A ferramenta é bastante útil para garantir que as melhores práticas de formatação sejam seguidas.
+
+Você pode acessar o DAX Formatter no site oficial: DAX Formatter.
+
+DAX Guide
+O DAX Guide oferece documentação detalhada sobre as funções DAX. Ele fornece descrições, exemplos de uso, sintaxe, parâmetros e melhores práticas para cada função DAX. Através dessa ferramenta, é possível entender melhor como cada função pode ser aplicada em diferentes cenários de análise de dados.
+
+Acesse o DAX Guide em: DAX Guide.
+
+DAX Patterns
+O DAX Patterns é um repositório de padrões de design para resolver problemas comuns de modelagem de dados e cálculos utilizando DAX. Criado por especialistas renomados, o DAX Patterns oferece soluções testadas e otimizadas para diversos cenários, como cálculos de data, análise de dados acumulados, segmentação de dados e muito mais. Essa ferramenta é especialmente útil para acelerar o desenvolvimento, garantindo que você esteja utilizando abordagens eficientes e eficazes para resolver problemas complexos de análise de dados.
+
+Explore os padrões disponíveis no site: DAX Patterns.
+
+Bravo
+Bravo é uma ferramenta gratuita desenvolvida pela SQLBI que oferece uma interface amigável para otimizar e gerenciar modelos de dados no Power BI. Com ele, você pode executar várias tarefas, como análise e otimização de medidas DAX, formatação de código DAX, e análise de desempenho do modelo. Além disso, o Bravo facilita a geração de resumos e relatórios de uso do modelo, ajudando a identificar possíveis melhorias e otimizações. Essa ferramenta é ideal para quem busca aumentar a eficiência e a performance de seus modelos de dados no Power BI.
+--------------------------------------------
+No Power BI, tanto as colunas calculadas quanto as medidas são elementos essenciais para o desenvolvimento das nossas análises. Embora ambos os recursos utilizem DAX (Data Analysis Expressions) para realizar cálculos, eles possuem diferentes características e usos.
+
+Vamos explorar as principais diferenças entre colunas calculadas e medidas, suas vantagens e quando utilizar cada uma.
+
+Colunas calculadas
+Definição
+As colunas calculadas são adicionadas diretamente às tabelas no modelo de dados. Elas são calculadas linha por linha, armazenando seus resultados junto com os dados originais.
+
+Características
+Armazenamento permanente: Os valores das colunas calculadas são armazenados no modelo de dados e recalculados apenas quando os dados são atualizados ou a definição da coluna é alterada.
+Cálculo linha a linha: As colunas calculadas operam no contexto de linha, o que significa que o cálculo é feito individualmente para cada linha da tabela. Os contextos de filtro e de linha serão abordados posteriormente no curso.
+Utilização em relacionamentos e filtragem: Colunas calculadas podem ser usadas para criar relacionamentos entre tabelas e também como campos para filtragem e segmentação em relatórios.
+Exemplo
+Imagine uma tabela de vendas onde precisamos calcular a margem de lucro para cada venda. Podemos criar uma coluna calculada "Margem de Lucro" com a fórmula:
+
+Margem de Lucro = [Preço de Venda] - [Custo]
+Copiar código
+Vantagens
+Facilidade de uso: São simples de criar e entender, especialmente para cálculos que precisam estar disponíveis em cada linha da tabela.
+Versatilidade: Podem ser usadas em relacionamentos, filtragens e como parte de outras colunas ou medidas.
+Medidas
+Definição
+As medidas são cálculos dinâmicos que são avaliados no contexto da visualização em que são usadas. Elas não armazenam valores de forma persistente, mas recalculam seus resultados sempre que necessário, dependendo do contexto de filtragem e agregação.
+
+Características
+Cálculo dinâmico: As medidas são recalculadas com base no contexto de filtragem aplicado às visualizações, tornando-as extremamente flexíveis para análises interativas.
+Agregações complexas: São ideais para cálculos que envolvem agregações, como somas, médias, contagens, etc.
+Menor impacto na memória: Como não armazenam valores permanentemente, as medidas consomem menos memória em comparação com colunas calculadas.
+Exemplo
+Suponha que precisamos calcular a receita total das vendas. Podemos criar uma medida "Receita Total" com a fórmula:
+
+Receita Total = SUM('Tabela de Vendas'[Preço de Venda])
+Copiar código
+Vantagens
+Eficiência: Calculam-se apenas quando necessário, economizando recursos de memória.
+Flexibilidade: Podem se adaptar a diferentes contextos de filtragem e agregação nas visualizações.
+Capacidade de agregação: Ideais para análises que requerem diferentes níveis de agregação.
+Resumo da comparação
+Segundo a documentação da Microsoft, podemos comparar as colunas calculadas e medidas da seguinte forma:
+
+Propósito: As colunas calculadas estendem uma tabela com uma nova coluna, enquanto as medidas definem como resumir os dados do modelo.
+Avaliação: As colunas calculadas são avaliadas usando o contexto de linha no momento da atualização dos dados, enquanto as medidas são avaliadas usando o contexto de filtro no momento da consulta.
+Armazenamento: As colunas calculadas armazenam um valor para cada linha na tabela, mas uma medida nunca armazena valores no modelo.
+Uso visual: As colunas calculadas podem ser usadas para filtrar, agrupar ou resumir, enquanto as medidas são projetadas para resumir.
+Compreender as diferenças entre colunas calculadas e medidas no Power BI é crucial para criar modelos de dados eficientes e relatórios dinâmicos. Utilizar cada uma delas adequadamente permite maximizar o potencial de análise e a performance do seu modelo de dados no Power BI.
+----------------------------------------------
+No Power BI, medidas são fórmulas utilizadas para realizar cálculos sobre os dados do seu modelo. Existem três tipos principais de medidas que você pode utilizar: medidas rápidas, medidas implícitas e medidas explícitas. Cada uma delas possui características e usos específicos que podem facilitar a análise e visualização dos seus dados.
+
+Medidas Rápidas
+As medidas rápidas são cálculos predefinidos que podem ser facilmente adicionados aos seus relatórios sem a necessidade de escrever fórmulas DAX (Data Analysis Expressions) complexas. O Power BI oferece uma variedade de medidas rápidas, como somas acumuladas, médias móveis, percentuais de crescimento, entre outras. Para criar uma medida rápida, basta selecionar a opção "Nova Medida Rápida" no menu de Modelagem e escolher o tipo de cálculo desejado. Essas medidas são ideais para usuários que precisam de análises rápidas e eficientes sem um conhecimento profundo de DAX.
+
+Medidas Implícitas
+As medidas implícitas são criadas automaticamente pelo Power BI quando você arrasta e solta um campo numérico em uma visualização. O Power BI determina o tipo de agregação (soma, média, contagem, etc.) a ser aplicado com base no contexto da visualização. Por exemplo, ao arrastar um campo de vendas para um gráfico de barras, o Power BI pode somar automaticamente os valores desse campo para exibir o total de vendas por categoria. Medidas implícitas são úteis para análises rápidas e simples, mas têm limitações em termos de personalização e flexibilidade.
+
+Medidas Explícitas
+As medidas explícitas, também conhecidas como medidas definidas pelo usuário, são criadas manualmente utilizando fórmulas DAX. Essas medidas oferecem maior controle e flexibilidade, permitindo a criação de cálculos complexos e personalizados que atendem às necessidades específicas de análise. Para criar uma medida explícita, você deve clicar com o botão direito do mouse em uma tabela no painel de Campos, selecionar "Nova Medida" e digitar a fórmula DAX desejada. Medidas explícitas são essenciais para análises avançadas, relatórios dinâmicos e otimização de modelos de dados no Power BI.
+
+Comparação Entre os Tipos de Medidas
+Tipo de Medida	Criação	Flexibilidade	Complexidade
+Medidas Rápidas	Seleção de cálculos predefinidos	Moderada	Baixa
+Medidas Implícitas	Arrastar e soltar campos na visualização	Baixa	Muito Baixa
+Medidas Explícitas	Fórmulas DAX manuais	Alta	Alta
+Conclusão
+Compreender a diferença entre medidas rápidas, implícitas e explícitas é fundamental para utilizar o Power BI de maneira eficaz. Enquanto medidas implícitas e rápidas podem acelerar análises simples e interativas, medidas explícitas são essenciais para personalizações avançadas e controle total sobre os cálculos realizados no seu modelo de dados. O equilíbrio entre esses tipos de medidas permite criar relatórios poderosos e insights profundos com o Power BI.
+--------------------------------------------------
+No Power BI, as funções iteradoras desempenham um papel fundamental ao permitir a realização de cálculos complexos e personalizados em linhas individuais de uma tabela, antes de agregá-las. Diferente das funções agregadoras padrão, que operam diretamente em colunas inteiras, as funções iteradoras avaliam expressões linha por linha, proporcionando uma grande flexibilidade na análise de dados.
+
+Principais Funções Iteradoras
+SUMX
+A função SUMX() itera sobre uma tabela, avalia uma expressão para cada linha e, em seguida, soma os resultados. É útil quando a soma de um cálculo complexo em cada linha é necessária.
+
+Exemplo:
+
+TotalVendas = SUMX(Vendas, Vendas[Quantidade] * Vendas[PreçoUnitário])
+Copiar código
+Neste exemplo, SUMX() multiplica a quantidade pelo preço unitário para cada linha na tabela Vendas e, em seguida, soma os resultados.
+
+AVERAGEX
+A função AVERAGEX() funciona de maneira similar à SUMX(), mas calcula a média dos resultados das expressões avaliadas para cada linha.
+
+Exemplo:
+
+MediaDesconto = AVERAGEX(Vendas, Vendas[Desconto])
+Copiar código
+Este exemplo calcula a média dos descontos em cada linha da tabela Vendas.
+
+MINX
+A função MINX() itera sobre uma tabela, avalia uma expressão para cada linha e retorna o menor valor resultante.
+
+Exemplo:
+
+MenorVenda = MINX(Vendas, Vendas[Quantidade] * Vendas[PreçoUnitário])
+Copiar código
+No trecho acima, MINX() calcula o valor total da venda (quantidade multiplicada pelo preço unitário) para cada linha e retorna o menor valor.
+
+MAXX
+A função MAXX() é o oposto de MINX(), iterando sobre uma tabela, avaliando uma expressão para cada linha e retornando o maior valor resultante.
+
+Exemplo:
+
+MaiorVenda = MAXX(Vendas, Vendas[Quantidade] * Vendas[PreçoUnitário])
+Copiar código
+Neste exemplo, MAXX() calcula o valor total da venda para cada linha e retorna o maior valor.
+
+COUNTX
+A função COUNTX() itera sobre uma tabela e conta o número de valores resultantes de uma expressão avaliada para cada linha, excluindo valores em branco.
+
+Exemplo:
+
+ContagemVendas = COUNTX(Vendas, Vendas[Numero])
+Copiar código
+COUNTX() conta o número de transações na tabela Vendas.
+
+Quando utilizar Funções Iteradoras
+As funções iteradoras são extremamente poderosas quando você precisa realizar cálculos que dependem de cada linha individualmente antes de agregá-los.
+
+Elas são ideais para:
+
+Realizar cálculos linha a linha que envolvem múltiplas colunas.
+Aplicar lógica complexa ou condicional que não pode ser resolvida diretamente com funções agregadoras.
+Criar resumos personalizados ou agregados de dados específicos.
+Desempenho e eficiência
+Embora as funções iteradoras sejam muito flexíveis, elas podem ser mais lentas do que as funções agregadoras padrão, especialmente em grandes conjuntos de dados. Isso ocorre porque cada linha é avaliada individualmente, o que pode aumentar significativamente o tempo de cálculo. Portanto, é importante usar funções iteradoras de maneira eficiente e considerar o impacto no desempenho do seu modelo de dados.
+
+As funções iteradoras no Power BI são ferramentas essenciais para realizar análises detalhadas e complexas que exigem cálculos linha a linha. Compreender e utilizar funções como SUMX, AVERAGEX, MINX, MAXX, COUNTX e CONCATENATEX permite que você extraia insights profundos dos seus dados, aproveitando ao máximo as capacidades do Power BI. Contudo, é crucial equilibrar a necessidade de cálculos detalhados com a eficiência de desempenho para garantir que suas análises sejam tão precisas quanto rápidas.
+------------------------------------------
+A função FILTER é uma das funções mais poderosas e versáteis no DAX (Data Analysis Expressions). Essa função permite criar tabelas filtradas com base em condições específicas, oferecendo uma maneira flexível de manipular e analisar dados.
+
+Funcionamento da Função FILTER
+A função FILTER opera iterando sobre uma tabela e avaliando uma expressão booleana (uma condição) para cada linha dessa tabela. As linhas que atendem à condição especificada são incluídas na tabela resultante, enquanto as linhas que não atendem à condição são ignoradas. A sintaxe básica da função FILTER é a seguinte:
+
+FILTER(tabela, condição)
+Copiar código
+Onde tabela é a tabela que você deseja filtrar e condição é a expressão booleana que determina quais linhas serão incluídas na tabela resultante.
+
+Retorno de uma Tabela
+Ao contrário de muitas funções DAX que retornam um valor escalar, a função FILTER retorna uma tabela. Essa tabela contém todas as linhas da tabela original que atendem à condição especificada. Essa funcionalidade é especialmente útil quando você deseja usar o resultado da FILTER como entrada para outras funções DAX que operam em tabelas, como CALCULATE, SUMX, AVERAGEX, entre outras.
+
+Função Iteradora
+Uma característica essencial da função FILTER é que ela é uma função iteradora. Isso significa que a FILTER avalia a condição especificada para cada linha individualmente na tabela de entrada. Como uma função iteradora, FILTER pode lidar com condições complexas que dependem de valores específicos de cada linha, permitindo uma análise detalhada e personalizada dos dados.
+
+Contexto de Linha
+O conceito de contexto de linha é crucial para entender como a função FILTER e outras funções DAX funcionam. O contexto de linha refere-se ao ambiente no qual uma fórmula DAX é avaliada, especificamente, quais linhas e colunas estão disponíveis para a fórmula no momento da avaliação.
+
+No caso da função FILTER, a condição é avaliada para cada linha no contexto de linha dessa linha específica. Isso permite que a função FILTER crie filtros dinâmicos de acordo com o contexto.
+
+Vamos explorar o conceito de contexto de linha com mais profundidade na aula 4.
+
+Exemplo de uso da Função FILTER
+Vamos considerar um exemplo prático para ilustrar o uso da função FILTER. Suponha que você tenha uma tabela de vendas chamada Vendas com as seguintes colunas: Produto, Quantidade, PrecoUnitario e DataVenda. Você deseja criar uma medida que calcule a quantidade número de vendas para produtos que tenham sido vendidos por mais de R$ 100,00.
+
+VendasAcimaDe100 = COUNTROWS(FILTER(Vendas, Vendas[PrecoUnitario] > 100))
+Copiar código
+Neste exemplo, temos o seguinte:
+
+FILTER(Vendas, Vendas[PrecoUnitario] > 100) filtra a tabela Vendas para incluir apenas as linhas onde o preço unitário do produto é superior a R$ 100,00.
+COUNTROWS conta o número de linhas resultantes da filtragem, ou seja, o número de vendas que atendem ao critério estabelecido.
+A função FILTER é uma ferramenta poderosa no DAX para criar tabelas filtradas com base em condições específicas. Como uma função iteradora, ela avalia cada linha individualmente e retorna uma tabela contendo apenas as linhas que atendem à condição especificada. Compreender o funcionamento da FILTER, incluindo o conceito de contexto de linha, permite realizar análises avançadas e personalizadas no Power BI.
+---------------------------------------------------------
+Na linguagem DAX, as funções RELATED e RELATEDTABLE desempenham um papel crucial ao lidar com relacionamentos entre tabelas. Elas permitem acessar e filtrar dados de tabelas relacionadas, facilitando análises complexas e integração de informações de diferentes fontes.
+
+Função RELATED
+A função RELATED é usada para recuperar o valor de uma coluna em uma tabela relacionada com base em um relacionamento estabelecido. Ela funciona principalmente em contextos de filtro, onde o contexto de linha é propagado de uma tabela para outra através de um relacionamento.
+
+Por exemplo, suponha que você tenha duas tabelas: Clientes e Pedidos. Se houver um relacionamento entre as tabelas Clientes e Pedidos usando a coluna IDCliente, você pode usar a função RELATED para recuperar informações sobre o cliente para cada pedido.
+
+Função RELATEDTABLE
+Por outro lado, a função RELATEDTABLE é usada para recuperar uma tabela inteira da tabela relacionada, em vez de apenas um valor específico. Ela retorna todas as linhas da tabela relacionada que correspondem ao contexto atual.
+
+Essa função é útil quando você precisa acessar vários registros relacionados em uma tabela. Por exemplo, se quiser ver todos os pedidos feitos por um cliente específico, você pode usar a função RELATEDTABLE para retornar uma tabela com todos os pedidos desse cliente.
+
+Principais diferenças
+A principal diferença entre as duas funções é o tipo de valor retornado:
+
+A função RELATED retorna um valor escalar (um único valor) de uma coluna relacionada.
+A função RELATEDTABLE retorna uma tabela inteira contendo todas as linhas relacionadas.
+Funcionamento do relacionamento entre tabelas
+Por trás das funções RELATED e RELATEDTABLE, existe a aplicação dos relacionamentos entre as tabelas em questão. Ambas as funções acessam dados de tabelas relacionadas, porém de maneiras distintas:
+
+Função RELATED
+A função RELATED utiliza o relacionamento “*:1” (muitos para um), pois a busca é feita a partir de uma tabela que pode conter vários registros de um mesmo item (muitos) com uma tabela que contém os registros únicos desses itens (um).
+
+Por exemplo, podemos buscar os dados referentes a uma categoria de produto específica, como Data Science, a partir de uma tabela que contém vários registros de vendas desse mesmo produto. Nesse caso, estaríamos acessando um dado específico de outra tabela que corresponde a vários registros de vendas na tabela atual.
+
+Função RELATEDTABLE
+A função RELATEDTABLE, por outro lado, parte de uma tabela inicial contendo registros únicos (um) para uma tabela que contém diversos registros sobre esse mesmo item da tabela inicial (muitos).
+
+Seguindo a ideia do exemplo anterior, poderíamos calcular o total de vendas de cada categoria de produto, acessando as várias linhas de registros de vendas dos produtos de cada categoria. Com isso, estaríamos acessando vários registros de vendas sobre essa categoria específica em outra tabela, partindo de um tipo de categoria na tabela atual.
+
+As funções RELATED e RELATEDTABLE são ferramentas poderosas no toolkit do DAX para trabalhar com relacionamentos entre tabelas. Elas facilitam o acesso e a análise de dados em diferentes contextos, permitindo que você explore informações relacionadas de forma eficaz. Compreender como essas funções funcionam e como os relacionamentos entre tabelas são estabelecidos é essencial para criar análises avançadas e insights significativos com o Power BI.
+---------------------------------------------------------
+No Power BI, compreender os conceitos de contexto de linha e contexto de filtro é essencial para criar medidas e colunas calculadas precisas e eficazes. Vamos explorar cada um desses conceitos e entender como eles influenciam os cálculos no DAX.
+
+Como os valores se comportam
+Antes de mais nada, é importante entender como os valores das medidas no Power BI se comportam. Imagine que calculamos o valor total de vendas através da medida Vendas Total. Com essa medida criada, vamos fazer a seguinte pergunta: qual é o valor dessa medida?
+
+Você poderia responder: é a soma total das vendas, onde multiplicamos o preço pela quantidade. Digamos que o valor seria de aproximadamente R$ 200 milhões. Essa resposta estaria correta, porém, há um detalhe importante nesse resultado.
+
+Caso essa medida seja apresentada em um visual de cartão, o valor realmente será o respondido acima. Porém, se criarmos um visual de tabela e adicionarmos outro campo junto a essa medida, como as categorias dos produtos, esse valor irá mudar. Em vez de mostrar o montante total, será exibido o valor total de vendas para cada categoria.
+
+A mensagem por trás desse entendimento é a seguinte: não podemos saber o valor apresentado por uma medida, antes de saber em qual contexto ela está sendo apresentada.
+
+Com isso em mente, vamos entender os contextos existentes no DAX.
+
+Contexto de Filtro
+O contexto de filtro, por outro lado, refere-se ao contexto em que uma fórmula DAX é avaliada com base em um conjunto de filtros aplicados aos dados. Isso acontece frequentemente ao criar medidas, onde os cálculos precisam considerar apenas os dados filtrados.
+
+O contexto de filtro pode ser aplicado de várias maneiras, como filtros visuais, segmentos de dados, ou fórmulas DAX que explicitamente filtram os dados.
+
+Contexto de Linha
+O contexto de linha refere-se ao contexto em que uma fórmula DAX é avaliada para uma linha específica da tabela. Em vez de filtrar uma tabela, o contexto de linha determina as linhas que serão percorridas durante um cálculo.
+
+Esse contexto é criado de duas formas: automaticamente, quando você cria colunas calculadas; de forma manual, através das funções iteradoras.
+
+Por exemplo, considere uma tabela de vendas com colunas para quantidade e preço unitário. Se você quiser calcular o total da venda para cada linha, você criaria uma coluna calculada como:
+
+TotalVenda = Vendas[Quantidade] * Vendas[PrecoUnitario]
+Copiar código
+No caso de uma medida para realizar o mesmo cálculo, precisamos criar manualmente esse contexto de linha. Para isso, vamos utilizar a função iteradora SUMX():
+
+TotalVenda Medida = 
+SUMX(
+    Vendas,
+    Vendas[Quantidade] * Vendas[PrecoUnitario]
+)
+Copiar código
+O contexto de filtro é criado através do primeiro parâmetro da função SUMX(), em que definimos a tabela. A partir disso, a função sabe quais linhas deve percorrer para realizar o cálculo linha a linha.
+
+Diferenças e Interações
+Enquanto o contexto de linha é mais simples e se refere a cálculos linha a linha, o contexto de filtro é mais complexo e permite que você defina um conjunto de dados específicos para cálculos.
+
+O contexto de filtro serve para filtrar dados de uma tabela, enquanto o contexto de linha serve para percorrer uma tabela.
+
+Os dois contextos podem interagir entre si. Por exemplo, a função SUMX() percorre uma tabela calculando uma expressão (contexto de linha), ao mesmo tempo que a tabela usada como referência pode ser filtrada por um visual (contexto de filtro).
+
+Para aprofundar seu entendimento sobre os conceitos de contexto de linha e contexto de filtro, recomendo a leitura do artigo Power BI: contexto de linha e de filtro, onde o Igor Nascimento e o David Neves abordam os principais conceitos por traz dos contextos do DAX. Essa é uma oportunidade imperdível para explorar e aprimorar ainda mais as suas habilidades analíticas!
+----------------------------------------------------
+A tabela calendário é uma ferramenta essencial no Power BI para análises baseadas em datas. Ela permite a criação de visualizações temporais, como gráficos de tendências, comparações de períodos e cálculos sazonais. Com uma tabela calendário bem configurada, você pode facilmente agregar dados por dias, semanas, meses, trimestres e anos, além de executar funções DAX específicas para datas.
+
+Além disso, ao criar a tabela calendário, garanta que a coluna DATE esteja corretamente formatada como "*14/03/2001 13:30:55 (General Date)". Nesse processo, lembre-se de estabelecer o relacionamento entre a tabela calendário e a tabela InfoVendas, utilizando a coluna de data como chave.
+
+Para fins didáticos, considere o código a seguir para criar uma tabela calendário no Power BI:
+
+Tabela Calendário = 
+ADDCOLUMNS(
+    CALENDARAUTO(),
+    "Dia num", DAY([Date]),
+    "Dia nome", FORMAT([Date], "dddd"),
+    "Dia Semana", WEEKDAY([Date]),
+    "Semana Num", WEEKNUM([Date]),
+    "Mês Num", MONTH([Date]),
+    "Mês Nome", FORMAT([Date], "mmm"),
+    "Trimestre", QUARTER([Date]),
+    "Ano", YEAR([Date])
+)
+Copiar código
+Ao utilizar essa tabela, você pode enriquecer suas análises temporais, proporcionando insights mais detalhados e precisos sobre seus dados. A tabela calendário não apenas organiza seus dados, mas também permite uma análise mais profunda e significativa.
+
+Para explorar as funcionalidades da tabela calendário, confira o Alura+ Power BI: criando uma dimensão calendário com o Bravo, onde o Afonso Rios aborda a ferramenta Bravo, criando e customizando uma tabela calendário e diversas métricas de inteligência temporal.
+--------------------------------------------------------
+A transição de contexto no DAX (Data Analysis Expressions) é um conceito fundamental para a construção de fórmulas e cálculos no Power BI. Entender como o contexto funciona e como ele pode mudar é essencial para a criação de cálculos mais complexos.
+
+Ela ocorre quando o contexto de linha se transforma em contexto de filtro. Isso é mais comum em funções como CALCULATE, RELATED, e RELATEDTABLE.
+
+Cenário prático
+Imagine o seguinte cenário: precisamos criar uma coluna na tabela de Vendedores que calcule o total de vendas de cada vendedor. Sabemos que existe uma coluna de Total Vendas na tabela de Vendas, e é dela que precisamos.
+
+Em seguida, vamos criar uma nova coluna na tabela de Vendedores chamada Receita Vendedores. Para realizar o cálculo, vamos somar a coluna de Total Vendas utilizando a função SUM(), como podemos conferir logo abaixo:
+
+Receita Vendedores = SUM( Vendas[Total Vendas] )
+Copiar código
+Antes de executar o código, vamos nos perguntar: qual será o resultado para cada vendedor, em cada linha da tabela?
+
+Caso você tenha respondido que será o total de vendas respectivo de cada vendedor, a resposta correta é um pouco diferente. Vamos conferir o resultado:
+
+alt text: Captura de tela do resultado da soma padrão do total de vendas na coluna Receita Vendedores na tabela de Vendedores. A tabela contém 3 linhas, com o total de vendas repetido em cada linha.
+
+Como podemos perceber, o valor registrado nas linhas da tabela representa a soma total das vendas, repetida para cada vendedor. Ou seja, o valor não foi ajustado individualmente para cada vendedor.
+
+Para entender isso, precisamos relembrar o seguinte: qual o contexto em que os dados das tabelas são apresentados? Apenas o contexto de linha. Isso significa que o cálculo da soma é feito sobre todas as linhas da tabela de Vendas, pois o contexto de filtro não existe nas tabelas.
+
+No modo de exibição de tabelas, não existem visuais que podem adicionar contextos de filtro nos dados. Existem apenas as próprias linhas das tabelas, as quais são avaliadas durante a realização dos cálculos pelo contexto de linha.
+
+Após a soma das vendas serem realizadas, o contexto de linha é avaliado, onde cada vendedor é reconhecido, e por isso cada linha recebe o valor total. O valor é o mesmo pois não existe uma filtragem para os valores das vendas com relação aos vendedores. Então, o DAX não entende que deve adaptar aquele valor para cada linha de forma diferente.
+
+Nesse caso, podem surgir alguns questionamentos: como podemos adicionar um filtro nos cálculos das tabelas, se não temos visuais para filtrar esses dados e o contexto de filtro não existe? Como podemos adicionar um filtro nos cálculos das tabelas? Em outras palavras, como podemos fazer com que o resultado da soma das vendas seja filtrado pelos vendedores?
+
+A resposta para isso vem com outra pergunta: como podemos adicionar um contexto de filtro a um cálculo utilizando apenas o DAX, sem usar visuais? Através da função CALCULATE().
+
+CALCULATE
+Como aprendemos durante o curso, a função CALCULATE() é a única função capaz de criar um contexto de filtro novo, sem precisar de visuais, usando apenas código DAX.
+
+Agora que sabemos o que precisamos utilizar para adicionar a filtragem, vamos para a transição do contexto. Para isso, precisamos apenas envolver a soma das vendas em uma função CALCULATE(), como podemos verificar a seguir:
+
+Receita Vendedores = CALCULATE( SUM( Vendas[Total Vendas] ) )
+Copiar código
+Usando a função apenas com um parâmetro dessa forma, sem a adição de um parâmetro para o filtro, ela irá realizar a transição de contexto. O resultado é o seguinte:
+
+alt text: Captura de tela do resultado da soma do total de vendas utilizando a função CALCULATE na coluna Receita Vendedores na tabela de Vendedores. A tabela contém 3 linhas, com o total de vendas adaptado para cada vendedor.
+
+Assim, a função CALCULATE() irá transformar as linhas do contexto de linha e utilizá-las como filtragem para os valores do cálculo.
+
+Visualmente falando, podemos imaginar o seguinte: antes, a tabela de Vendedores era vista apenas como uma tabela que não possui contexto de filtro, em que os totais de vendas não eram adaptados para cada vendedor, pois possui apenas o contexto de linha.
+
+Com a CALCULATE(), podemos imaginar que a tabela de Vendedores agora se comporta como um visual de tabela, em que o contexto de filtro é aplicado pelos campos da tabela e os valores da coluna de Receita Vendedores se adaptam para cada vendedor.
+
+De forma ilustrativa, podemos pensar na transição de contexto como uma forma de transformar uma mera tabela com contexto de linha em um visual dinâmico com contexto de filtro.
+----------------------------------------------------------
+As funções de filtro no DAX são essenciais para o controle e manipulação do contexto de filtro durante os cálculos. Elas permitem ajustar, aplicar ou remover filtros específicos, influenciando diretamente os resultados das medidas e colunas calculadas.
+
+Compreender e utilizar essas funções de forma eficiente é crucial para realizar análises precisas e detalhadas no Power BI. Pensando nisso, vamos explorar três dessas funções: REMOVEFILTERS, KEEPFILTERS e USERELATIONSHIP.
+
+REMOVEFILTERS
+A função REMOVEFILTERS() é usada para remover filtros de colunas ou tabelas específicas no contexto atual. Ela é útil quando você deseja calcular uma medida ignorando os filtros aplicados.
+
+Exemplo:
+
+TotalVendasSemFiltro = 
+CALCULATE (
+    SUM( Vendas[Quantidade] ), 
+    REMOVEFILTERS( Produtos[Categoria] ) 
+)
+Copiar código
+Neste exemplo, a medida TotalVendasSemFiltro soma as quantidades de vendas ignorando qualquer filtro na coluna Categoria da tabela Produtos.
+
+KEEPFILTERS
+A função KEEPFILTERS() preserva os filtros existentes enquanto adiciona novos filtros ao contexto. Isso pode ser útil para refinar os cálculos sem remover filtros que já estão aplicados.
+
+Exemplo:
+
+VendasFiltradas = 
+CALCULATE (
+    SUM( Vendas[Quantidade] ), 
+    KEEPFILTERS( Produtos'[Categoria] = "SQL" ) 
+)
+Copiar código
+Neste caso, VendasFiltradas calcula a soma das vendas para a categoria "Eletrônicos", mantendo qualquer outro filtro já aplicado.
+
+USERELATIONSHIP
+A função USERELATIONSHIP() ativa uma relação específica entre duas tabelas para o cálculo, mesmo que não seja a relação ativa padrão. Isso é útil quando você tem múltiplos relacionamentos entre tabelas e deseja usar um não ativo.
+
+Exemplo:
+
+TotalVendasPorDataEntrega = 
+CALCULATE (
+    SUM( Vendas[Quantidade] ), 
+    USERELATIONSHIP( Vendas[DataEntrega], Calendário[Date] ) 
+)
+Copiar código
+No trecho acima, TotalVendasPorDataEntrega calcula a soma das vendas usando a relação entre DataEntrega na tabela Vendas e Date na tabela Calendário.
+
+Entender como e quando usar REMOVEFILTERS(), KEEPFILTERS() e USERELATIONSHIP() permite um controle mais refinado sobre o contexto de filtro, proporcionando cálculos mais precisos e flexíveis no Power BI. Essas funções são essenciais para análises avançadas e detalhadas, adaptando os cálculos às necessidades específicas dos dados e das perguntas de negócios.
+-----------------------------------------------------------------
+As funções de data no DAX são ferramentas poderosas que permitem manipular e analisar datas de maneiras sofisticadas. Essas funções são essenciais para realizar cálculos e análises temporais, como comparações ano a ano, cálculos de média móvel e muito mais.
+
+Abaixo, vamos explorar algumas das principais funções de data no DAX e suas aplicações práticas.
+
+TODAY(): Retorna a data atual. É útil para criar colunas calculadas ou medidas que precisam ser comparadas com a data de hoje.
+DataAtual = TODAY()
+Copiar código
+NOW(): Retorna a data e a hora atuais. Usado quando é necessário incluir informações de tempo junto com a data.
+DataHoraAtual = NOW()
+Copiar código
+YEAR(data): Extrai o ano de uma data.
+AnoDaData = YEAR(Vendas[Data])
+Copiar código
+MONTH(data): Extrai o mês de uma data.
+MesDaData = MONTH(Vendas[Data])
+Copiar código
+DAY(data): Extrai o dia de uma data.
+DiaDaData = DAY(Vendas[Data])
+Copiar código
+DATE(ano, mês, dia): Cria uma data a partir de componentes individuais.
+DataPersonalizada = DATE(2023, 6, 13)
+Copiar código
+DATEDIFF(data_inicial, data_final, unidade): Calcula a diferença entre duas datas em unidades específicas (ano, trimestre, mês, dia, hora, minuto, segundo).
+DiferencaDias = DATEDIFF(Vendas[DataInicial], Vendas[DataFinal], DAY)
+Copiar código
+EOMONTH(data_inicial, meses): Retorna o último dia do mês após ou antes de um número especificado de meses.
+FimDoMes = EOMONTH(TODAY(), -1)  -- Último dia do mês anterior
+Copiar código
+EDATE(data_inicial, meses): Retorna a data no mesmo dia do mês, um número especificado de meses no passado ou futuro.
+DataFutura = EDATE(TODAY(), 6)  -- Seis meses no futuro a partir de hoje
+Copiar código
+CALENDAR(data_inicial, data_final): Cria uma tabela de datas entre as datas especificadas.
+Calendario = CALENDAR(DATE(2023, 1, 1), DATE(2023, 12, 31))
+Copiar código
+CALENDARAUTO(): Cria uma tabela de datas automaticamente baseada nos dados presentes no modelo.
+CalendarioAuto = CALENDARAUTO()
+Copiar código
+As funções de data no DAX oferecem uma ampla gama de possibilidades para manipulação e análise de dados temporais. Com elas, você pode facilmente realizar comparações de períodos, calcular médias móveis, criar calendários dinâmicos e muito mais.
+--------------------------------------------------------------
+As funções de inteligência temporal no DAX são projetadas para facilitar análises e comparações de dados ao longo do tempo. Elas permitem que você execute cálculos complexos que envolvem períodos específicos, como meses, trimestres, anos, e comparações com períodos anteriores.
+
+Vamos explorar algumas das principais funções de inteligência temporal no DAX e suas aplicações.
+
+DATESMTD(tabela[Data]): Retorna uma tabela que contém todas as datas do mês até a data especificada.
+VendasMTD = 
+CALCULATE (
+[Vendas Total],
+DATESMTD(‘Tabela Calendario’[Date])
+)
+Copiar código
+Essa função é útil para calcular o acumulado do mês até a data atual ou outra data específica.
+
+DATESQTD(tabela[Data]): Retorna uma tabela que contém todas as datas do trimestre até a data especificada.
+VendasQTD = 
+CALCULATE (
+[Vendas Total],
+DATESQTD(‘Tabela Calendario’[Date])
+)
+Copiar código
+Utilize essa função para calcular o acumulado do trimestre até a data atual ou outra data específica.
+
+DATESYTD(tabela[Data], [year_end_date]): Retorna uma tabela que contém todas as datas do ano até a data especificada. O parâmetro opcional year_end_date permite definir uma data de término de ano fiscal diferente de 31 de dezembro.
+VendasYTD = 
+CALCULATE (
+[Vendas Total],
+DATESYTD(‘Tabela Calendario’[Date])
+)
+Copiar código
+Essa função é ideal para calcular o acumulado do ano até a data atual ou outra data específica.
+
+DATESBETWEEN(tabela[Data], data_inicial, data_final): Retorna uma tabela que contém as datas entre a data inicial e a data final especificadas.
+VendasPeriodoEspecifico = 
+CALCULATE (
+[Vendas Total],
+          DATESBETWEEN (
+        ‘Tabela Calendario’[Date], 
+        DATE(2015, 1, 1), 
+        DATE(2015, 6, 30)
+    )
+)
+Copiar código
+Use essa função para calcular o total de um intervalo de datas específico, definido por você.
+
+TOTALYTD(expressão, tabela[Data], [year_end_date]): Calcula o acumulado do ano até a data especificada, similar à DATESYTD, mas diretamente dentro da função.
+TotalVendasYTD = 
+TOTALYTD(
+[Vendas Total],
+‘Tabela Calendario’[Date]
+  )
+Copiar código
+Essa função simplifica o cálculo de acumulados anuais sem a necessidade de combinar CALCULATE e DATESYTD.
+
+SAMEPERIODLASTYEAR(tabela[Data]): Retorna uma tabela que contém o mesmo período no ano anterior.
+VendasMesmoPeriodoAnoAnterior = 
+CALCULATE(
+[Vendas Total],
+SAMEPERIODLASTYEAR(‘Tabela Calendario’[Date])
+  )
+Copiar código
+Essa função é particularmente útil para comparações ano a ano (YoY).
+
+As funções de inteligência temporal no DAX permitem calcular acumulados, comparar períodos específicos e analisar tendências ao longo do tempo. Elas são ferramentas essenciais para qualquer analista de dados que deseja realizar análises temporais detalhadas e precisas.
+
+============================================================================
+
+RESUMO
+
+Importar a base de dados no Power BI;
+Compreender a base de dados do projeto;
+Explorar as funcionalidades básicas do DAX;
+Criar seu primeiro cálculo DAX.
+Criar colunas calculadas e medidas;
+Compreender as diferenças entre colunas calculadas e medidas;
+Utilizar funções padrão e iteradoras.
+Conhecer as principais funções de tabela;
+Filtrar dados a partir da função FILTER();
+Remover filtros através da função ALL();
+Acessar colunas de outras tabelas com a função RELATED().
+Compreender os contextos de filtro e de linha;
+Diferenciar os contextos de filtro e de linha;
+Analisar o comportamento das medidas DAX;
+Reconhecer a presença dos contextos no cálculos.
+Aplicar a função CALCULATE;
+Entender o funcionamento da função CALCULATE;
+Criar um contexto de filtro utilizando o DAX.
+Criar uma tabela calendário;
+Aplicar funções de inteligência temporal TOTALYTD() e SAMEPERIODLASTYEAR().
+Calcular as vendas ano a ano.
+
+============================================================================
+
+DESAFIO
+
+Nesta aula, você aprendeu a criar colunas calculadas para o total de vendas, margem e margem percentual. Além disso, aprendeu a substituir essas colunas por medidas utilizando a função iteradora SUMX() para obter resultados mais dinâmicos e eficientes.
+
+Agora, a equipe de marketing precisa de um novo relatório que inclua a receita líquida por livro, considerando um desconto fixo de 10% sobre cada venda. Seu desafio é criar uma medida que calcule a receita líquida utilizando a função SUMX().
+
+Desafio:
+Crie uma medida chamada ReceitaLiquida que calcule a receita líquida para cada livro considerando um desconto fixo de 10%. Utilize a função SUMX() para realizar esse cálculo.
+Utilize a tabela Vendas, que possui as seguintes colunas relevantes: Quantidade, PrecoUnitario e DescontoPercentual.
+-------------------------------
+Durante esta aula, exploramos algumas das poderosas funções do DAX, como FILTER, ALL e RELATED, que nos permitem manipular e analisar dados de forma eficaz no Power BI. Agora é hora de colocar seu conhecimento em prática com um desafio!
+
+Você foi contratado(a) como analista de dados por uma empresa de varejo chamada "SuperVendas". Seu gerente solicitou um relatório que destaca o desempenho das vendas em diferentes categorias de produtos durante o último trimestre. Para isso, você deve criar uma medida que calcule a receita total para a categoria "Data Science", ignorando quaisquer filtros aplicados nas visualizações.
+
+Desafio:
+Calcule a receita total para a categoria "Data Science" considerando todas as linhas da tabela.
+Utilize a função FILTER para filtrar os dados apenas para a categoria.
+Utilize a função RELATED para acessar a categoria na tabela de Produtos.
+Utilize a função ALL para ignorar quaisquer filtros aplicados nas visualizações.
+-------------------------------------
+Você foi contratado como analista de dados na empresa TargetData. Como primeira demanda, você deve realizar uma análise detalhada das vendas de produtos. Para isso, você precisará aplicar seus conhecimentos sobre contexto de filtro e contexto de linha no DAX. O objetivo é criar medidas que utilizem esses conceitos para gerar insights valiosos.
+
+Desafio
+Utilize a função FILTER para criar uma medida que calcule a quantidade de vendas para produtos da categoria Big Data.
+Crie um visual de tabela e adicione o campo de nome do vendedor e a medida de quantidade de vendas.
+Crie uma nova medida com o mesmo cálculo da medida inicial, porém, utilizando a função ALL para ignorar filtros.
+Adicione essa nova medida com a função ALL em um visual de cartão.
+-----------------------------------
+Você é um analista de dados em uma empresa de varejo que está trabalhando em um relatório para a equipe de marketing. A equipe solicitou um cálculo do total de vendas para produtos de categorias específicas, independentemente de qualquer filtro de categoria de produto aplicado em outras partes do relatório.
+
+Desafio
+Utilize a função CALCULATE() para criar uma medida DAX que calcule o total de vendas apenas para as categorias "Data Analytics" ou "Data Visualization".
+-----------------------------------
+Durante o curso, criamos diversas visualizações para nos ajudar a realizar a análise dos dados. Nesse momento, precisamos reunir os principais visuais em uma única página, para montar nosso relatório final.
+
+Para isso, vamos focar nossa apresentação nos principais pontos analisados, que foram: produtos, vendedores e vendas ao longo tempo.
+
+Desafio
+1 - Análise de Produtos:
+
+Crie uma visualização que destaque as categorias de produtos mais rentáveis. Use a medida de Margem das vendas criada durante o curso.
+Sugestão: Um gráfico de barras ou colunas que mostre as categorias ordenadas pela margem.
+2 - Análise de Vendedores:
+
+Crie uma visualização que mostra quais vendedores tiveram maior rentabilidade. Utilize a medida de Margem dos vendedores que você criou durante o curso.
+Sugestão: Um gráfico de barras ou colunas que mostre os vendedores ordenados pela margem.
+3 - Desempenho das Vendas ao Longo do Tempo:
+
+Crie uma visualização que mostra o desempenho das vendas ao longo do tempo. Utilize as medidas de vendas (Venda Total) e as comparações com o mesmo período do ano anterior (Periodo Anterior).
+Sugestão: Um gráfico de linha ou área que mostre as vendas mês a mês, destacando a comparação com o ano anterior.
+4 - Visão Geral:
+
+Crie um cartão ou indicador que mostre o total de vendas e margem de forma destacada.
+Sugestão: Utilize as medidas Total Vendas e Margem com a função ALL().
+5 - Filtros e Interatividade:
+
+Adicione filtros para permitir a análise por diferentes anos, categorias de produtos e vendedores.
+Instruções Adicionais:
+
+Utilize as medidas Vendas Total, Margem, Vendas Total ALL, Margem ALL e Periodo Anterior, criadas durante o curso.
+Aproveite as funcionalidades interativas do Power BI para tornar a análise dinâmica e exploratória.
+
