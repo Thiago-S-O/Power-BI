@@ -1,0 +1,301 @@
+RESUMO
+
+Entender os objetivos da Opuline;
+Configurar e explorar dados no Power BI;
+Criar visuais no Power BI;
+Interagir com os dados;
+Avaliar visuais e preparar próximos passos.
+------------------------
+Explorar diferentes tipos de gráficos;
+Personalizar gráficos para análises rápida;
+Comparar faturamento por diversos aspecto;
+Utilizar parâmetros de campo para otimizar espaço;
+Aprimorar a interatividade do relatório.
+--------------------------
+Explorar Gráficos Temporais;
+Utilizar Linhas de Tendência;
+Aplicar Previsões e Detecção de Anomalias;
+Analisar Hierarquias Temporais.
+---------------------------
+Analisar Distribuição Geográfica;
+Monitorar KPIs de Eficiência;
+Explorar Relações Entre Variáveis;
+Utilizar Formatações e Visualizações Avançadas.
+--------------------------
+Utilizar os temas de cores no Power BI;
+Importar e utilizar um layout;
+Estilizar os gráficos e visuais;
+Recursos como indicadores e seleção.
+
+===========================================
+
+PARA SABER MAIS
+
+As dicas de ferramenta são pequenas janelas que aparecem quando o usuário passa o mouse sobre um elemento em um visual, fornecendo informações adicionais e contextuais. Elas ajudam a enriquecer a experiência do usuário, oferecendo detalhes sem sobrecarregar o visual principal.
+
+Exemplo de Dica de Ferramenta:
+
+Quando você passa o mouse sobre uma barra em um gráfico de barras, uma dica de ferramenta pode mostrar informações adicionais, como a porcentagem de crescimento, média ou detalhes específicos daquele ponto de dados.
+
+Dicas e Melhores Práticas
+Mantenha a Simplicidade:
+
+As dicas de ferramenta devem ser informativas, mas não excessivamente detalhadas. Mantenha as informações concisas e relevantes.
+
+Use Títulos e Descrições Claras:
+
+Adicione títulos e descrições nas dicas de ferramenta para garantir que os usuários compreendam o contexto dos dados exibidos.
+
+Teste a Experiência do Usuário:
+
+Teste as dicas de ferramenta em diferentes visuais e dispositivos para garantir que elas funcionem corretamente e sejam úteis.
+
+-------------------------
+Na análise de dados, identificar anomalias e fazer previsões são etapas cruciais para entender o comportamento dos negócios e planejar ações futuras. Além de configurar as ferramentas de detecção de anomalias e previsão no Power BI, é essencial saber como interpretar esses resultados e utilizá-los para tomar decisões informadas.
+
+Interpretação de Resultados de Previsão
+Intervalo de Confiança
+Ao utilizar a funcionalidade de previsão no Power BI, é importante compreender o conceito de intervalo de confiança:
+
+Intervalo de Confiança: Representa a faixa dentro da qual esperamos que os valores futuros se situem com um certo grau de confiança. No Power BI, isso é visualizado como uma área sombreada ao redor da linha de previsão.
+Interpretação: Um intervalo de confiança estreito indica previsões mais precisas, enquanto um intervalo mais amplo sugere maior incerteza.
+Cenários de Previsão
+Ao analisar previsões, considere diferentes cenários para melhor planejamento:
+
+Cenário Otimista: Utilize o limite superior do intervalo de confiança para planejar em condições ideais.
+
+Cenário Pessimista: Utilize o limite inferior do intervalo de confiança para estar preparado para possíveis desafios.
+
+Cenário Provável: Baseie-se na linha central da previsão para um cenário mais equilibrado.
+
+Análise de Detecção de Anomalias
+Classificação de Anomalias
+As anomalias podem ser classificadas em diferentes tipos, cada uma requerendo uma abordagem específica:
+
+Picos Positivos: Valores significativamente mais altos que o esperado.
+
+Ação: Investigar se houve um evento positivo, como uma promoção bem-sucedida ou um lançamento de produto.
+Picos Negativos: Valores significativamente mais baixos que o esperado.
+
+Ação: Investigar causas potenciais como problemas de produção, marketing ineficaz ou eventos externos negativos.
+Aprofundando na Análise de Anomalias
+Para entender melhor as anomalias detectadas, utilize as seguintes técnicas:
+
+Drill Down: Explore os dados em níveis mais detalhados (ex: de mensal para semanal ou diário) para identificar padrões mais granulares.
+
+Segmentações: Utilize filtros para segmentar os dados por diferentes categorias (ex: regiões, produtos, canais de vendas) e identificar se as anomalias estão concentradas em áreas específicas.
+
+------------------------
+Os Indicadores Chave de Desempenho (KPIs) são fundamentais para acompanhar o progresso em relação a objetivos específicos. No Power BI, a visualização de KPIs permite uma rápida interpretação dos dados, ajudando a identificar se as metas estão sendo alcançadas. Vamos explorar algumas práticas avançadas e dicas para aprimorar o monitoramento de KPIs no Power BI.
+
+Configuração e Personalização de KPIs
+Escolhendo a Métrica Correta
+Para configurar um KPI, é crucial selecionar a métrica adequada que representa claramente o desempenho que você deseja monitorar. No exemplo da Opuline, utilizamos o "ship-to-door" como métrica principal.
+
+Adicionando Contexto com Eixos de Tendência
+O eixo de tendência permite visualizar a evolução do KPI ao longo do tempo. Isso é útil para identificar padrões sazonais e tendências a longo prazo.
+
+Personalização de KPIs
+Formatação Condicional
+A formatação condicional melhora a visualização dos KPIs, destacando rapidamente os valores que atendem ou não às metas estabelecidas.
+
+Configuração de Cores:
+Verde para metas atingidas.
+Laranja ou vermelho para metas não atingidas.
+Definindo Limiares Personalizados
+No Power BI, você pode ajustar os limiares de acordo com as necessidades específicas da sua métrica. No caso do "ship-to-door", onde valores menores são melhores, configure o KPI para refletir isso.
+
+Exemplos Práticos de KPIs
+KPI de Eficiência de Entrega
+Métrica: Tempo de entrega (ship-to-door)
+Eixo de Tendência: Ano/Mês
+Meta: < 8 dias
+Configuração: Baixo é bom
+Formatação Condicional: Valores abaixo de 8 dias em verde, acima em vermelho.
+KPI de Satisfação do Cliente
+Métrica: Índice de Satisfação do Cliente (CSAT)
+Eixo de Tendência: Trimestre
+Meta: >= 85%
+Configuração: Alto é bom
+Formatação Condicional: Valores acima de 85% em verde, abaixo em vermelho.
+Uso de alertas
+Configure alertas no Power BI para notificar quando um KPI ultrapassa um determinado limiar. Isso ajuda na resposta rápida a problemas.
+
+Anotações e Comentários
+Adicione anotações e comentários diretamente no visual do KPI para fornecer contexto adicional e facilitar a interpretação dos resultados.
+
+Boas Práticas para KPIs
+Simplicidade e Clareza
+Mantenha os visuais de KPIs simples e claros. Evite sobrecarregar com informações desnecessárias.
+
+Atualização Regular
+Garanta que os dados usados para calcular os KPIs sejam atualizados regularmente para fornecer insights precisos e relevantes.
+
+Comparação com Metas
+Sempre compare o desempenho atual com metas predefinidas. Isso proporciona uma referência clara do que está sendo medido.
+
+Utilizar KPIs no Power BI vai além de simplesmente configurar um visual. É crucial entender como personalizar, interpretar e monitorar esses indicadores para obter insights acionáveis. Com as boas práticas que aprendemos, você pode transformar dados brutos em informações valiosas que apoiam a tomada de decisões estratégicas.
+
+-------------------------------
+Vamos explorar 2 recursos importantes para elaborarmos uma apresentação. O primeiro deles é o de seleção.
+
+Para acessar este recurso, vamos na guia "Exibição", na barra superior, e clicamos na opção "Seleção".
+
+Menu suspenso com as opções "Comprar", "Explorar" e "Seleção" selecionada, dentro da aba "Indicadores" de um software.
+
+Ao fazê-lo, uma aba será aberta na lateral direita, ao lado da aba de visualizações.
+
+Ícone de um arquivo com uma seta indicando um link.
+
+Note que nesta aba há uma ordem de camadas, o que significa que podemos sobrepor camadas, visuais e até mesmo caixas de texto, então podemos arrastar as camadas definindo a ordem desejada. Além do mais, com um duplo clique em cada camada podemos renomeá-la, já que as caixas de texto são nomeadas automaticamente dificultando a identificação sobre a qual visual se referem.
+
+Menu suspenso com opções de seleção de elementos, incluindo segmentação de dados, navegador de página e diferentes visualizações de faturamento, como "Média de ship_to_door e MetaS2Door por Ano", "Faturamento por Ano", "Faturamento, MetáMaxima e SomaMetas" e "Faturamento por Categoria". Há também opções para mostrar/ocultar elementos e organizar a ordem das camadas e de tabulação.
+
+Para isso, selecione cada visual, identifique a camada/caixa de texto referente a ele e renomeie de forma que possamos identificar a associação.
+
+Outra funcionalidade nesta aba de seleção, é a criação de grupos. Para isso, basta selecionar 2 visuais. Em seguida, clicamos com o botão direito do mouse e vamos em Agrupar > Agrupar.
+
+Menu suspenso com opções de agrupamento ("Agrupar", "Desagrupar", "Mesclar") para o elemento "Cartão".
+
+Ao fazê-lo, note que na aba de seleção já aparecerá um grupo, sobre o qual clicaremos 2 vezes para renomeá-lo como "Grupo de cartões".
+
+Menu suspenso com opções de seleção de elementos em um software de análise de dados, incluindo grupos de cartões, segmentações de dados, navegador de página e diferentes visualizações de faturamento.
+
+Temos, ainda, as funcionalidades de ocultar e visualizar, representadas pelo símbolo de olho que fica no canto do nome de cada item de camada. Para deixar o grupo oculto, por exemplo, bastaria clicar neste símbolo, mas o manteremos visível.
+
+O recurso de ocultar e visualizar é excelente para organizar e manusear os nossos visuais dentro do relatório.
+
+Na aba de seleção temos duas abas: "Ordem das camadas", que acabamos de explorar, e "Ordem de tabulação". Vamos explorar esta segunda!
+
+Nela, conseguimos entender como os visuais estão ordenados. Inclusive, ao publicarmos este relatório, podemos usar a tecla "TAB" para seguir a ordenação disposta.
+
+Vale ressaltar que a tabulação combina perfeitamente com o texto alternativo, pois há pessoas que navegam clicando na tecla TAB e conforme forem avançando nos visuais, os textos alternativos serão lidos pelo leitor de tela, viabilizando a compreensão por todas as pessoas.
+
+Vamos, agora, conhecer um outro recurso que são os indicadores. Eles se localizam à direita de "Seleção", na barra superior. Ao clicá-lo, ele também abrirá uma aba lateral, assim como o recurso anterior.
+
+Menu suspenso com as opções "Dados", "Indicadores" (selecionada) e "Segmentações de dados de sincronização", dentro da aba "Analisar”.
+
+Ícone de marcador para adicionar um favorito.
+
+Os indicadores nos trazem uma espécie de foto do nosso relatório, é uma maneira de evidenciarmos o estado do relatório de forma personalizada. Se clicarmos no ano 2023, no gráfico de receita ao longo do tempo, por exemplo, o relatório inteiro será filtrado por este ano, assumindo os dados referentes a este período. Para salvar esta visualização, basta clicar em "Adicionar", na aba "Indicadores", e um arquivo chamado "Indicador 1" deve aparecer. Para renomeá-lo, basta dar um clique duplo. O chamaremos de 2023.
+
+Menu suspenso com opções de indicadores: "Faturamento ao longo...", "Previsão de faturamento...", "Faturamento por tipo", "Análise do chile", "Menu fechado" e "Menu aberto" (selecionado). As opções "Adicionar" e "Exibição" estão disponíveis no topo do menu, e "2023" está selecionado na parte inferior.
+
+A partir disso, podemos clicar em "Exibição", ao lado de "Adicionar", para navegarmos entre os indicadores que criarmos. Ao clicar em "Sair" nosso relatório volta ao seu estado normal.
+
+Esta é uma ótima funcionalidade para estruturarmos apresentações, já que podemos trazer um estado do dashboard.
+
+----------------------------
+Vamos conhecer um recurso que pode elevar seu relatório a um nível ainda mais profissional e dinâmico: o menu sanduíche(ou hambúrguer).
+
+Para começar a construí-lo, acessamos a guia "Inserir" e vamos em "Formas", onde optaremos por um retângulo para estruturar o menu expandido.
+
+Painel de controle estilizado com informações sobre faturamento, itens vendidos, metas, receita por ano, vendas por categoria e quantidade de vendas por localidade.
+
+Vamos dimensioná-lo de maneira que fique da largura do nosso relatório, mas com uma altura baixa. Em seguida, o posicionamos no topo do relatório. Não se preocupe por ele estar cobrindo os visuais.
+
+Agora, vamos começar a inserir os elementos dentro desta forma retangular.
+
+Ainda precisamos incluir a opção de retornar ao relatório, ou seja, que o relatório seja mostrado sem este menu. Então clicaremos em "Botões", na barra superior, e clicamos na opção do botão "Voltar". O símbolo dele, que é uma seta para esquerda envolta por um círculo, deve aparecer na tela. Aumentamos esta figura e a posicionamos no canto direito do menu, ou seja, do nosso retângulo.
+
+Barra superior
+
+Até este momento, temos os filtros e o menu estruturado como se tivesse sido clicado, pois está aberto. Agora, vamos agrupar todos os itens que compõe o menu.
+
+Lembre-se que na aba "Seleção", em "Ordem das camadas", temos todos os visuais anteriores e os elementos que inserimos para o menu. Então clicaremos em "Forma", teclamos "Shift", no teclado, e "Botão", assim conseguiremos selecionar todos os elementos do menu. Em seguida, basta clicar com o botão direito do mouse e agrupá-los. Quando o grupo surgir, o renomeamos como "Menu Sanduíche".
+
+Menu suspenso com opções de elementos de interface do usuário, como botão, caixa de texto, segmentação de dados, navegador de página, cartão e cidade e o menu aberto selecionado
+
+Se clicarmos no símbolo de olho à direita de "Menu Sanduíche", conseguiremos ocultá-lo, visualizando somente o relatório. Se habilitamos novamente, o menu reaparece. Para salvar esses 2 estados, com e sem menu, utilizaremos o recurso dos indicadores.
+
+Vamos ocultar o menu e salvar o estado do relatório. Para isso, vamos em "Adicionar", na aba "Indicadores", e salvamos este primeiro indicador como "Sem menú".
+
+Menu suspenso com opções de indicadores: "Faturamento ao longo...", "Previsão de faturamento...", "Faturamento por tipo", "Análise do chile", e a opção "Sem menu" selecionada.
+
+Agora, ativamos a visualização do menu e adicionamos um indicador do relatório com o menu, ao qual chamaremos de "com menu".
+
+Menu suspenso com opções de indicadores: "Faturamento ao longo...", "Previsão de faturamento...", "Faturamento por tipo", "Análise do chile", "Sem menu" e "Com menu" (selecionado).
+
+A partir deste momento, conseguimos interagir de forma correta. Mas nos falta criar um botão que faça a ação de mostrar o menu. Para isso, vamos em "Botões" e clicamos na opção "Em branco". O posicionaremos em cima do símbolo do menu, em que podemos posicionar em cima de um ícone importado ou mesmo um texto:
+
+Menu suspenso com as opções “Menu” em destaque, além "Vendas", "Produtos" e "Duplicata de Vendas".
+
+Com este botão selecionado, vamos em "Ação", a ativamos, e em "Tipo" optamos por "Indicador". Em seguida, selecionamos o indicador "com menu" no campo "Indicador".
+
+Para testar essa funcionalidade no Power BI Desktop, teclamos "Ctrl" e aí, sim, clicamos no botão. Ao fazê-lo, nosso menu deve aparecer. Nos resta, então, inserir a ação no botão de voltar.
+
+Ana: Selecionamos o botão de voltar e vemos que "Ação" já está ativada. Basta, portanto, definir o tipo como "Indicador" e selecionar o indicador "Sem menu". Para testar, teclamos "Ctrl" e clicamos no botão de voltar. Ao fazê-lo, nosso menu deve desaparecer.
+
+Este recurso é interessante para otimizar espaço em nosso relatório, pois o menu fica escondido, mas aparece para o explorarmos.
+
+-------------------
+O design de relatórios no Power BI é crucial para garantir que os usuários possam facilmente navegar pelas informações e encontrar os insights que precisam. Além de adicionar botões de navegação, existem outras práticas e recursos que podem melhorar a experiência do usuário e a eficácia do relatório.
+
+Organização e Design de Páginas
+
+Consistência Visual
+Manter uma consistência visual entre as diferentes páginas do relatório ajuda os usuários a se orientarem melhor e a entenderem as informações mais rapidamente.
+
+Paleta de Cores Coerente: Utilize uma paleta de cores consistente em todas as páginas do relatório.
+
+Tipos de Fonte e Tamanhos: Mantenha a uniformidade nos tipos de fonte e tamanhos de texto para títulos, legendas e rótulos.
+
+Layout Uniforme: Posicione elementos similares, como títulos e filtros, nos mesmos locais em todas as páginas.
+
+Melhoria na Navegação
+
+Uso de Marcadores
+Os marcadores (bookmarks) no Power BI são uma ferramenta poderosa para criar relatórios dinâmicos e interativos.
+
+Criação de Marcadores: Configure marcadores para salvar estados específicos de uma página, como filtros aplicados ou visualizações específicas.
+
+Botões de Ação com Marcadores: Utilize botões para navegar entre diferentes estados salvos com marcadores, permitindo ao usuário alternar entre diferentes visões dos dados com um clique.
+
+Painéis de Navegação
+Um painel de navegação pode ser adicionado a uma ou mais páginas do relatório para facilitar o acesso a diferentes seções.
+
+Painel Lateral: Crie um painel lateral com botões que levem a diferentes páginas ou seções do relatório.
+
+Ícones e Imagens: Utilize ícones ou imagens nos botões para tornar a navegação mais intuitiva e visualmente atraente.
+
+Interatividade Avançada
+
+Tooltips Personalizados
+Adicione tooltips personalizados para fornecer informações adicionais sem sobrecarregar a visualização principal.
+
+Configuração de Tooltips: Crie páginas específicas de tooltip no Power BI e associe-as aos visuais principais.
+
+Informação Adicional: Inclua gráficos, tabelas ou texto explicativo nos tooltips para fornecer contexto adicional.
+
+Segmentação e Filtros
+Permitir que os usuários apliquem filtros e segmentações diretamente nos visuais aumenta a interatividade do relatório.
+
+Segmentação de Dados: Adicione segmentações (slicers) que permitam aos usuários filtrar os dados por categorias como tempo, região ou produto.
+
+Filtros de Página: Utilize filtros de página para permitir uma visão focada nos dados relevantes para aquela página específica.
+
+Boas Práticas para Design de Relatórios
+
+Simplicidade e Clareza
+Mantenha o design do relatório simples e claro para facilitar a interpretação dos dados.
+
+Evite Excesso de Informações: Não sobrecarregue as páginas com muitos gráficos ou tabelas. Foque nos principais insights.
+
+Espaçamento Adequado: Utilize espaçamento adequado entre os elementos para evitar poluição visual e tornar o relatório mais legível.
+
+Teste e Feedback
+Antes de finalizar o relatório, realize testes com usuários finais para garantir que a navegação e o design atendam às necessidades deles.
+
+Testes de Usabilidade: Peça para os usuários navegarem pelo relatório e darem feedback sobre a facilidade de uso e clareza das informações.
+
+Iteração: Utilize o feedback para fazer ajustes e melhorias no relatório.
+
+Conclusão
+Melhorar o design e a navegação dos relatórios no Power BI não apenas facilita a interpretação dos dados, mas também torna a experiência do usuário mais agradável e eficiente. Com práticas como o uso de marcadores, painéis de navegação e tooltips personalizados, você pode criar relatórios altamente interativos e intuitivos. Lembre-se sempre de testar e iterar com base no feedback dos usuários para alcançar o melhor resultado possível.
+
+Caso você queira ir além dos conhecimentos que estudamos no curso vou deixar a referência que utilizamos:
+
+Storytelling com Dados: um Guia Sobre Visualização de Dados Para Profissionais de Negócios (Português, pago, livro) Autora: Cole Bussbaumer Knaflic
+https://www.google.com.br/books/edition/Storytelling_with_Data/IheRCgAAQBAJ?hl=pt-BR&gbpv=0
+É um guia essencial para transformar dados em histórias impactantes e compreensíveis. O livro oferece estratégias práticas e exemplos claros de como criar visualizações eficazes que comunicam insights de maneira persuasiva. Com um foco em técnicas de design, psicologia da percepção e princípios de comunicação, Knaflic ensina aos leitores como envolver seu público e transmitir suas mensagens de forma clara e memorável através de gráficos e narrativas baseadas em dados.
+
